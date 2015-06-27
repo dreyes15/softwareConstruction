@@ -6,6 +6,7 @@
  * as the "Global" scope. 
  * 
  * Global will denotate the entire program execution.
+ * 
  */
 
 public class Global {
