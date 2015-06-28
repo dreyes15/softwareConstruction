@@ -1,9 +1,12 @@
 /* 
- * The purpose of this class is to include the AndL operator to the formula passed and
- * peform its operaton of addition the logic of L into the formula.
- * Once operation is excecuted, this class will replace the AndL operator with the result
- * of its operation into the formula.
+ * The purpose of this class is to add the last state to the Maximal Propsositional
+ * formula.
  */
 public class AndL {
 
+    /*
+     * AndL method will reviced the divided formula and will add a last section(state)
+     * to the divided formula and will returned this resulting formula to the Special
+     * Operations class.
+     */
 }

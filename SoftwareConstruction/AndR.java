@@ -1,10 +1,12 @@
 /*
- * The purpose of this calss is to include the AndR operator into the formula, and perform
- * the opperation of adding the condition R into the formula.
- * Once the operation is executed, this class will replace the AndR operator with its
- * results into the formula.
+ * The purpose of this class is to add everything before the last "state" to the Maximal
+ * Propsositional formula.
  */
  
 public class AndR {
 
+    /*AndR method will reviced the divided formula and will add everything before the last
+     * section(state) of the divided formula and will returned this resulting formula to
+     *the Special Operations class.
+     */
 }
