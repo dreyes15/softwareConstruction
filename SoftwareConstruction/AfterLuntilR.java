@@ -10,5 +10,31 @@
  * 
  */
 public class AfterLuntilR {
+	
+	//declare two variables for L and R
+	
+	public AfterLuntilR(parameter, parameter){
+		//set the parameters be equal to the variables declared
+	}
+	
+	//set of getters and setter for L and for R
+	
+	//for L
+	public Proposition getL(){
+		//return varibale
+	}
+	
+	public void setL(){
+		//set variable equal to the variable declared above
+	}
+	
+	//for R
+	public Proposition getR(){
+		//return variable
+	}
+	
+	public void setR(){
+		//set variable equal to the variable declared above 
+	}
 
 }

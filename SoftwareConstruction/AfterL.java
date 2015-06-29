@@ -9,5 +9,21 @@
  * 
  */
 public class AfterL {
+	
+	//variable type proposition L
+	
+	public AfterL(parameter){
+		//will set the given parameter oto be equal to the variable that was declared
+
+	}
+	
+	//Then a getter and setter method that will return the variable.
+	public Proposition getL(){
+		//return variable
+	}
+	
+	public void setL(){
+		//return variablen 
+	}
 
 }

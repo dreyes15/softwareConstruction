@@ -8,5 +8,15 @@
  * 
  */
 public class Scope {
+	
+	public String ScopeType(){
+		/*This method will compare the info passed and depending on what it is
+		 * it will call the proper classes which will then return the scope type
+		 * that belongs with it. 
+		 * 
+		 *  This class will contain a set of if and else if statements to help it 
+		 *  complete its purpose. 
+		 */
+	}
 
 }
