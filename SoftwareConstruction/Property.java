@@ -1,8 +1,8 @@
 /*This class is the main driver of the Input Definition subsystem.  It receives
  * a string array containing a Scope, a Pattern, and all necessary Proposition types
- * (including the number of each proposition for composite types), and it returns an
+ * (including the number of each proposition for composite types), and it returns a
  * Property object that contains this information.  This class has a Constructor, and
- * the following methods: SetScope(), GetScope(), SetPattern(), and GetPattern().
+ * two methods: SetScope() and SetPattern().
  */
 
 public class Property {
@@ -13,10 +13,6 @@ public class Property {
 	
 	//SetScope() attaches a Scope object to the Property object.
 	
-	//GetScope() returns the Scope object that is attached to the Property object.
-	
 	//SetPattern() attaches a Pattern object ot the Property object.
-	
-	//GetPattern() returns the Pattern object that is attached to the Property object.
 
 }
