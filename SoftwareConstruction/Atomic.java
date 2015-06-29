@@ -4,7 +4,7 @@
  * Proposition. 
  */
 
-public class Atomic {
+public class Atomic extends Proposition {
 	
 	/* Atomic(String name) is a constructor method for a proposition of type atomic.
 	 * Since this class extends the Proposition class, the name is sent to the 
