@@ -4,5 +4,8 @@
  * class.
  **/
 public class Pattern {
+    
+    /* getPatternType() method that returns an instance of the pattern specified by the Property class
+     */
 
 }
