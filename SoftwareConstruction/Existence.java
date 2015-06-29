@@ -1,9 +1,9 @@
 /* This class defines the pattern that there will be an orrucance of the primary proposition (P),
- * this class will do this by using the method getExistance().
+ * this class will do this by using the method Existance().
  */
-public class Existence {
+public class Existence extends Pattern {
 
     
-    /* Returns the name of the pattern (Existance) to be futher used by the LTL generator.
+    /* Creates an object of type Existance to be futher used by the LTL generator.
      */
 }
