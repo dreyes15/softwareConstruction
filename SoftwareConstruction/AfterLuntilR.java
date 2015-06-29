@@ -16,36 +16,22 @@ public class AfterLuntilR extends Scope{
 	 * L and R.
 	 */
 	
-	public AfterLuntilR(parameter, parameter){
+	initializing variable L of type Proposition;
+	initializing variable R of type Proposition;
+
+	
+	public AfterLuntilR(parameter of type Proposition, parameter of type Proposition){
 		/*This is a constructor method of type AfterLuntilR. This class will extend
 		 * the Scope class, therefore the variables will be sent to the super class
 		 * to sote the information.
 		 */
+		
+		set variable L be equal to the parameter;
+		set variable R be equal to the parameter;
+
+
 	}
 	
-	
-	//for L
-	public Proposition getL(){
-		/*This is a getter method of type Proposition. This method will return the variable
-		 * of type Proposition that was declared above. 
-		 */
-	}
-	
-	public void setL(){
-		/*This is a setter method of type void. This method will set the the parameter and the
-		 * variable be equal to each other.
-		 */	}
-	
-	//for R
-	public Proposition getR(){
-		/*This is a getter method of type Proposition. This method will return the variable
-		 * of type Proposition that was declared above. 
-		 */
-	}
-	
-	public void setR(){
-		/*This is a setter method of type void. This method will set the the parameter and the
-		 * variable be equal to each other.
-		 */	}
+
 
 }

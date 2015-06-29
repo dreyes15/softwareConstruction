@@ -7,9 +7,9 @@
 public class Scope {
 	
 	public String ScopeType(){
-		/*This a type String method that will compare the info passed and depending on what it is
-		 * it will call the proper classes which will then return the scope type
-		 * that belongs with it. 
+		/*This a type String method that will compare the info passed. This class will be 
+		 * used as a placeholder class that will gather all the information and will they 
+		 * pass it to the next part of the system.
 		 */
 	}
 

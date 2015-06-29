@@ -13,22 +13,17 @@ public class BeforeR extends Scope{
 	 * the following methods. For the purpose of this class we will be naming this variable R.
 	 */
 	
+	initializing variable R of type Proposition;
+
 	public BeforeR(parameter){
 		/*This is a constructor method of type BeforeR. This class will extend
 		 * the Scope class, therefore the variables will be sent to the super class
 		 * to sote the information.
 		 */
+		
+		set variable R be equal to the parameter;
+
 	}
 	
-	public Proposition getR(){
-		/*This is a getter method of type Proposition. This method will return the variable
-		 * of type Proposition that was declared above. 
-		 */
-	}
-	
-	public void setR(){
-		/*This is a setter method of type void. This method will set the the parameter and the
-		 * variable be equal to each other.
-		 */	}
 
 }

@@ -10,5 +10,8 @@
  */
 
 public class Global extends Scope{
+	/*For the description of this type of Scope this class will not have any declarations or methods. 
+	 *It will just be an empty class.
+	 */
 
 }
