@@ -9,32 +9,43 @@
  * and in the case where R doesn't occur, until the end of the execution. 
  * 
  */
-public class AfterLuntilR {
+public class AfterLuntilR extends Scope{
 	
-	//declare two variables for L and R
+	/*Here we will need to declare two variables of type Proposition that will be used for
+	 * the following methods. For the purpose of this class we will be naming these variables
+	 * L and R.
+	 */
 	
 	public AfterLuntilR(parameter, parameter){
-		//set the parameters be equal to the variables declared
+		/*This is a constructor method of type AfterLuntilR. This class will extend
+		 * the Scope class, therefore the variables will be sent to the super class
+		 * to sote the information.
+		 */
 	}
 	
-	//set of getters and setter for L and for R
 	
 	//for L
 	public Proposition getL(){
-		//return varibale
+		/*This is a getter method of type Proposition. This method will return the variable
+		 * of type Proposition that was declared above. 
+		 */
 	}
 	
 	public void setL(){
-		//set variable equal to the variable declared above
-	}
+		/*This is a setter method of type void. This method will set the the parameter and the
+		 * variable be equal to each other.
+		 */	}
 	
 	//for R
 	public Proposition getR(){
-		//return variable
+		/*This is a getter method of type Proposition. This method will return the variable
+		 * of type Proposition that was declared above. 
+		 */
 	}
 	
 	public void setR(){
-		//set variable equal to the variable declared above 
-	}
+		/*This is a setter method of type void. This method will set the the parameter and the
+		 * variable be equal to each other.
+		 */	}
 
 }

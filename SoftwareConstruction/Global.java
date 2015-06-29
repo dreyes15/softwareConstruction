@@ -9,6 +9,6 @@
  * 
  */
 
-public class Global {
+public class Global extends Scope{
 
 }
