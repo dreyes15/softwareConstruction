@@ -3,21 +3,13 @@
  * state. Such that, each proposition holds in a specified order with one proposition 
  * holding per state, at a successive rate. State 's' is the state in which the last 
  * consecutive proposition holds.    
- * 
- * Given a composite proposition, it can generate itself as a ConsecutiveE formula with
- * the composite proposition variable names in the formula. ConsecutiveE is a subclass
- * of the Composite superclass. 
  */
 
-public class ConsecutiveE {
-	/* ConsecutiveE(String name) is a constructor method for a composite proposition
-	 * of type ConsecutiveE. Since this class extends the Proposition class, the 
-	 * name is sent to the super class to store the proposition variable name. 
-	 */
+public class ConsecutiveE extends Composite {
 	
-	
-	/* generateFormula() returns the generated formula for this composite proposition,
-	 * The propositions that form this composite proposition are listed in the
-	 * Composite superclass. This method returns a String. 
+	/* ConsecutiveE(String name, int number) is a constructor method for a composite
+	 * proposition of type ConsecutiveE. The name being the name of the proposition
+	 * and the number is the number of propositions that make up this composite
+	 * proposition.  
 	 */
 }

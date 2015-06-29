@@ -1,19 +1,16 @@
 /*
- * The purpose of this class is to substitude the logical values with their respective prepostional values in the
- * formula.
+ * The purpose of this class is to substitute the proposition placeholders with their
+ * respective composite forms.  It will have one method called substituteCompositeProps().
  */
 public class LTLSubstitutor {
     
     /*
-     * LTLSubstitutor will create a modified formula that includes the propositions by knowing what substitutions
-     * to make for the propositions based on the cp classes
+     * substituteCompositeProps() will receive a base formula, Scope, and Pattern from 
+     * SubstitutionTable as parameters.  It will search the string for the proposition
+     * placeholders (P, Q, L, and R) and call methods from the corresponding Substitutor
+     * class passing it the corresponding Proposition type.  Through this process, it will
+     * create a modified formula string that it will pass to a method in the 
+     * SpecialOperator class.  It will receive a final formula string in return from
+     * SpecialOperator, and it will return this final formula string to SubstitutionTable.
      */
-    
-    
-    /*
-     * FinalFormula() this method will make a call to the Special Operator plass, passing the modifired formula,
-     * of the LTLSubstitutor method, and in change will recieve a Final fromula from Special Operator, once this
-     * call is done.Additionally this final fomula will be passed to the SubTables class to check for correctness.
-     */
-
 }
