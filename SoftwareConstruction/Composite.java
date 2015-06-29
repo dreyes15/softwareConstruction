@@ -8,5 +8,15 @@
  */
 
 public class Composite {
-
+	/* Composite(String name) is a constructor method that creates a proposition of 
+	 * type composite.
+	 */
+	
+	/* setPropositions(Proposition [] propositions) sets the list of propositions that
+	 * make up this composite proposition.
+	 */
+	
+	/* getPropositions() returns all of the propositions that make up the composite
+	 * proposition. This method returns an array of Propositions.
+	 */
 }
