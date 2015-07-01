@@ -1,9 +1,9 @@
-/* This class defines an occurence the primary porpostion (p) does not occure
+/* This class defines an occurrence the primary proposition (p) does not occur
  * this class will do this by using the method Absence().
  */
 public class Absence  extends Pattern {
     
-    /* Creates an object of type Absence to be futher used by the LTL generator.
+    /* Creates an object of type Absence to be further used by the LTL generator.
      */
 
 }

@@ -1,6 +1,6 @@
 /* 
- * The purpose of this class is to add the last state to the Maximal Propsositional
- * formula.
+ * The purpose of this class is to add information to the last state of the MPS before the
+ * special operator.
  */
 public class AndL {
 
