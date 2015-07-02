@@ -2,6 +2,7 @@
  * one proposition is true at state 's'.
  * AtLeastOneC is a subclass of the Composite superclass. 
  */
+import java.util.*;
 
 public class AtLeastOneC extends Composite {
 
@@ -13,5 +14,21 @@ public class AtLeastOneC extends Composite {
 	public AtLeastOneC(String name, int number){
 		super(name, number);
 		typeOfProposition = "AtLeastOneC";
+	}
+	
+
+	//piV...Vpn
+	public String AtLeastOneCSub(String name, int number){
+		String formula = name;
+		
+		for(int i = 1; i <= number; i++ ){
+			formula = name + i;
+			while(i != number){
+				i++;
+				formula += " V "+name +i;
+			}
+		}
+		
+		return formula;
 	}
 }
