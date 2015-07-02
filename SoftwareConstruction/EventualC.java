@@ -11,4 +11,8 @@ public class EventualC extends Composite {
 	 * and the number is the number of propositions that make up this composite
 	 * proposition.  
 	 */
+	public EventualC(String name, int number){
+		super(name, number);
+		typeOfProposition = "EventualC";
+	}
 }

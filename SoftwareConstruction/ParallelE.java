@@ -10,5 +10,9 @@ public class ParallelE extends Composite {
 	 * and the number is the number of propositions that make up this composite
 	 * proposition.  
 	 */
+	public ParallelE(String name, int number){
+		super(name, number);
+		typeOfProposition = "ParallelE";
+	}
 
 }
