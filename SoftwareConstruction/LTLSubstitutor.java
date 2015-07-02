@@ -13,4 +13,6 @@ public class LTLSubstitutor {
      * SpecialOperator class.  It will receive a final formula string in return from
      * SpecialOperator, and it will return this final formula string to SubstitutionTable.
      */
+    
+    
 }
