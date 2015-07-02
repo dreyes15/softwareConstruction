@@ -10,4 +10,8 @@ public class Atomic extends Proposition {
 	 * Since this class extends the Proposition class, the name is sent to the 
 	 * super class to store the proposition variable name. 
 	 */
+	public Atomic(String name){
+		super(name);
+		typeOfProposition = "Atomic";
+	}
 }

@@ -12,4 +12,8 @@ public class ConsecutiveE extends Composite {
 	 * and the number is the number of propositions that make up this composite
 	 * proposition.  
 	 */
+	public ConsecutiveE(String name, int number){
+		super(name, number);
+		typeOfProposition = "ConsecutiveE";
+	}
 }
