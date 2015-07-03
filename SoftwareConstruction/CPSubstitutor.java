@@ -12,30 +12,55 @@ public class CPSubstitutor {
 	 * SpecialOperator class.  It will receive a final formula string in return from
 	 * SpecialOperator, and it will return this final formula string to SubstitutionTable.
 	 */
-	substituteCompositeProps(String baseFormula, Proposition propP, Proposition propQ, Proposition propL, Proposition propR){    	
-		String cpFormulaP = getCPFormula(propP);
-		String cpFormulaQ = getCPFormula(propQ);
-		String cpFormulaR = getCPFormula(propR);
-		String cpFormulaL = getCPFormula(propL);
+	public void substituteCompositeProps(String baseFormula, Proposition propP, Proposition propQ, Proposition propL, Proposition propR){    	
+		String baseWithP = baseFormula;
+		String baseWithPQ = baseFormula;
+		String baseWithPQL = baseFormula;
+		String baseWithPQLR = baseFormula;
+		
+		if(isComposite(propP))
+		{
+			String cpFormulaP = getCPFormula(propP);
+			baseWithP = baseFormula.replaceAll("P", cpFormulaP);
+		}
+		else if (isComposite(propQ))
+		{
+			String cpFormulaQ = getCPFormula(propQ);
+			baseWithPQ = baseWithP.replaceAll("Q", cpFormulaQ);
+		}
+		else if (isComposite(propL))
+		{
+			String cpFormulaL = getCPFormula(propL);
+			baseWithPQL = baseWithPQ.replaceAll("L", cpFormulaL);
+		}
+		else if (isComposite(propR))
+		{
+			String cpFormulaR = getCPFormula(propR);
+			baseWithPQLR = baseWithPQL.replaceAll("R", cpFormulaR);
+		}
 
-		//Replace the proposition placeholders with the appropriate CP type formula
-		String baseWithP = baseFormula.replaceAll("P", cpFormulaP)
-		String baseWithPQ = baseWithP.replaceAll("Q", cpFormulaQ);
-		String baseWithPQR = baseWithPQ.replaceAll("R", cpFormulaR);
-		String baseWithPQRL = baseWithPQR.replaceAll("L", cpFormulaL);
-
-		//Call to the SubstitutionTable
+		// Call next method to replace the special & symbols, passing baseWithPQLR 
+	}
+	
+	/* Gets the proposition type and checks if it atomic
+	 */
+	boolean isComposite(Proposition proposition) {
+		String type = proposition.getType();
+		if (!type.equals("Atomic")) {
+			return true;
+		}
+		return false;
 	}
 
-	/* Gets the appropriate CP formula for a given composite proposition.
-	 * First it gets the type of the proposition, and it calls the CPType 
-	 * substitution class which will need the name and number of propositions 
-	 * for the composite proposition. Then, it returns the composite proposition
-	 * formula. */
+	/* Gets the appropriate CP formula for a given composite proposition. First it gets the
+	 * type of the proposition, and it calls the CPType substitution class which will need
+	 * the name and number of propositions for the composite proposition. Then, it returns
+	 * the composite proposition formula.
+	 */
 	private String getCPFormula(Proposition inProposition) {
 		String type = inProposition.getType();
 		String name = inProposition.getName();
-		String number = inProposition.getNumber();
+		int number = ((Composite) inProposition).getNumber();
 		String cpFormula = null;
 		
 		switch (type) {
