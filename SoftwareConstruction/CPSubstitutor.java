@@ -4,28 +4,81 @@
  */
 public class CPSubstitutor {
 
-    /*
-     * substituteCompositeProps() will receive a base formula, Scope, and Pattern from 
-     * SubstitutionTable as parameters.  It will search the string for the proposition
-     * placeholders (P, Q, L, and R) and call methods from the corresponding Substitutor
-     * class passing it the corresponding Proposition type.  Through this process, it will
-     * create a modified formula string that it will pass to a method in the 
-     * SpecialOperator class.  It will receive a final formula string in return from
-     * SpecialOperator, and it will return this final formula string to SubstitutionTable.
-     */
-    substituteCompositeProps(String baseFormula, Proposition propP, Proposition propQ, Proposition propL, Proposition propR){
-    	//Generate the CPs of the placeholders
-    	String CPofP = propP.generateCP();
-    	String CPofQ = propQ.generateCP();
-       	String CPofL = propL.generateCP();
-    	String CPofR = propR.generateCP();
-    	
-    	//Replace the proposition placeholders with the appropriate CP type formula
-    	String baseWithP = baseFormula.replaceAll("P", CPofP)
-    	String baseWithPQ = baseWithP.replaceAll("Q", CPofQ);
-    	String baseWithPQR = baseWithPQ.replaceAll("R", CPofR);
-    	String baseWithPQRL = baseWithPQR.replaceAll("L", CPofL);
-    	
-    	//Call to the SubstitutionTable
-    }
+	/* substituteCompositeProps() will receive a base formula, Scope, and Pattern from 
+	 * SubstitutionTable as parameters.  It will search the string for the proposition
+	 * placeholders (P, Q, L, and R) and call methods from the corresponding Substitutor
+	 * class passing it the corresponding Proposition type.  Through this process, it will
+	 * create a modified formula string that it will pass to a method in the 
+	 * SpecialOperator class.  It will receive a final formula string in return from
+	 * SpecialOperator, and it will return this final formula string to SubstitutionTable.
+	 */
+	substituteCompositeProps(String baseFormula, Proposition propP, Proposition propQ, Proposition propL, Proposition propR){    	
+		String cpFormulaP = getCPFormula(propP);
+		String cpFormulaQ = getCPFormula(propQ);
+		String cpFormulaR = getCPFormula(propR);
+		String cpFormulaL = getCPFormula(propL);
+
+		//Replace the proposition placeholders with the appropriate CP type formula
+		String baseWithP = baseFormula.replaceAll("P", cpFormulaP)
+		String baseWithPQ = baseWithP.replaceAll("Q", cpFormulaQ);
+		String baseWithPQR = baseWithPQ.replaceAll("R", cpFormulaR);
+		String baseWithPQRL = baseWithPQR.replaceAll("L", cpFormulaL);
+
+		//Call to the SubstitutionTable
+	}
+
+	/* Gets the appropriate CP formula for a given composite proposition.
+	 * First it gets the type of the proposition, and it calls the CPType 
+	 * substitution class which will need the name and number of propositions 
+	 * for the composite proposition. Then, it returns the composite proposition
+	 * formula. */
+	private String getCPFormula(Proposition inProposition) {
+		String type = inProposition.getType();
+		String name = inProposition.getName();
+		String number = inProposition.getNumber();
+		String cpFormula = null;
+		
+		switch (type) {
+		case "AtLeastOneC":
+			cpFormula = AtLeastOneCSub.generateCP(name, number);
+			break;
+		case "AtLeastOneE":
+			cpFormula = AtLeastOneESub.generateCP(name, number);
+			break;
+		case "AtLeastOneH":
+			cpFormula = AtLeastOneHSub.generateCP(name, number);
+			break;
+		case "ParallelC":
+			cpFormula = ParallelCSub.generateCP(name, number);
+			break;
+		case "ParallelE":
+			cpFormula = ParallelESub.generateCP(name, number);
+			break;
+		case "ParallelH":
+			cpFormula = ParallelHSub.generateCP(name, number);
+			break;
+		case "ConsecutiveC":
+			cpFormula = ConsecutiveCSub.generateCP(name, number);
+			break;
+		case "ConsecutiveE":
+			cpFormula = ConsecutiveESub.generateCP(name, number);
+			break;
+		case "ConsecutiveH":
+			cpFormula = ConsecutiveHSub.generateCP(name, number);
+			break;
+		case "EventualC":
+			cpFormula = EventualCSub.generateCP(name, number);
+			break;
+		case "EventualE":
+			cpFormula = EventualESub.generateCP(name, number);
+			break;
+		case "EventualH":
+			cpFormula = EventualHSub.generateCP(name, number);
+			break;
+		default:
+			cpFormula = "<CPType Not Found for " + name + ">";
+			break;
+		}
+		return cpFormula;
+	}
 }
