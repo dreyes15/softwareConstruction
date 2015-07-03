@@ -3,7 +3,7 @@ public class ConsecutiveHSub {
 
 	//(p1∧¬p2∧···∧¬pn∧X(p2∧¬p3 ∧···∧¬pn ∧ X(··· ∧ X(pn−1 ∧ ¬pn ∧ Xpn))···))
 
-	public static String generateCP (String name, int number){
+	public String generateCP (String name, int number){
 		String formula = "(";
 		int closingcount =0; //tracks the number of closing parenthesis
 
@@ -23,7 +23,7 @@ public class ConsecutiveHSub {
 		return formula;
 	}
 
-	private static String firstTrueAndNotProperties(String property, int count, int number){
+	private String firstTrueAndNotProperties(String property, int count, int number){
 		String temp = "";
 
 		for (int i=count; i<=number; i++){
@@ -38,7 +38,4 @@ public class ConsecutiveHSub {
 		return temp;
 	}
 
-	public static void main (String [] args){
-		System.out.println(generateCP ("P", 4));
-	}
 }
