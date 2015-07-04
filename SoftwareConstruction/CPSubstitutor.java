@@ -9,7 +9,7 @@
  */
 public class CPSubstitutor {
 	
-	final static String HOLD = "h";	//The template for a Proposition of type hold, used in the base formula.
+	final static String HOLD = "H";	//The template for a Proposition of type hold, used in the base formula.
 
 	/* substituteCompositeProps() will receive a base formula, Scope, and Pattern from 
 	 * SubstitutionTable as parameters.  It will search the string for the proposition
@@ -25,20 +25,29 @@ public class CPSubstitutor {
 		
 		if(isComposite(proposition))
 		{
-			String formulaH = "";
-			formulaH = getHoldCPFormula(proposition);
-			
-			String replacedHold = "";
-			replacedHold = baseFormula.replaceAll(propName + HOLD, formulaH);
-			
 			String formulaCorE = "";
 			formulaCorE = getCPFormula(proposition);
 			
+			String replacedWithCP = "";
+			replacedWithCP = baseFormula.replaceAll(propName, formulaCorE);
+			
+			String formulaH = "";
+			formulaH = getHoldCPFormula(proposition);
+			
 			String replacedFormula = "";
-			replacedFormula = replacedHold.replaceAll(propName, formulaCorE);
+			String holdPlaceholder = propName.toLowerCase() + HOLD;
+			replacedFormula = replacedWithCP.replaceAll(holdPlaceholder, formulaH);
+			
 			return replacedFormula;
 		}
-		return "\n<Not a composite proposition, no cp formula can be generated>\n";
+		else //Replace the pH, qH, lH, rH with P, Q, L, R
+		{
+			String replacedFormula = "";
+			String holdPlaceholder = propName.toLowerCase() + HOLD;
+			replacedFormula = baseFormula.replaceAll(holdPlaceholder, propName);
+			
+			return replacedFormula;
+		}
 	}
 
 	
@@ -70,7 +79,7 @@ public class CPSubstitutor {
 		String typeWithoutCorE = type.substring(0, type.length()-1);
 		String typeHold = typeWithoutCorE + HOLD;
 				
-		return getCPFormula(typeHold, name, number);
+		return getCPFormula(name, typeHold, number);
 	}
 	
 	/* Takes in a proposition object then calls the method
@@ -81,7 +90,7 @@ public class CPSubstitutor {
 		String name = proposition.getName();
 		int number = ((Composite) proposition).getNumber();
 		
-		return getCPFormula(type, name, number);
+		return getCPFormula(name, type, number);
 	}
 
 	/* Gets the appropriate CP formula for a given composite proposition. First it gets the
@@ -92,7 +101,8 @@ public class CPSubstitutor {
 	private static String getCPFormula(String name, String type, int number) {
 		String cpFormula = null;
 		
-		switch (type) {
+		switch (type)
+		{
 		case "AtLeastOneC":
 			cpFormula = AtLeastOneCSub.generateCP(name, number);
 			break;

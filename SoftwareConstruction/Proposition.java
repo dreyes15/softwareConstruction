@@ -22,6 +22,7 @@ public abstract class Proposition {
 	 */
 	public Proposition(String name){
 		this.nameOfProposition = name;
+		this.typeOfProposition = this.getClass().getName();
 	}
 	
 	//Method getName() returns the "nameOfProposition" string of the Proposition object.
