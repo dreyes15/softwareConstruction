@@ -14,19 +14,4 @@ public class AtLeastOneE extends Composite {
 		super(name, number);
 		typeOfProposition = "AtLeastOneH";
 	}
-	
-	//piV...Vpn
-		public String AtLeastOneHSub(String name, int number){
-			String formula = name;
-			
-			for(int i = 1; i <= number; i++ ){
-				formula = name + i;
-				while(i != number){
-					i++;
-					formula += " V "+name +i;
-				}
-			}
-			
-			return formula;
-		}
 }

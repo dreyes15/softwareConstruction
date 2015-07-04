@@ -15,20 +15,4 @@ public class AtLeastOneC extends Composite {
 		super(name, number);
 		typeOfProposition = "AtLeastOneC";
 	}
-	
-
-	//piV...Vpn
-	public String AtLeastOneCSub(String name, int number){
-		String formula = name;
-		
-		for(int i = 1; i <= number; i++ ){
-			formula = name + i;
-			while(i != number){
-				i++;
-				formula += " V "+name +i;
-			}
-		}
-		
-		return formula;
-	}
 }

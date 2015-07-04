@@ -1,9 +1,22 @@
-/* This class defines an occurrence the primary proposition (p) does not occur
- * this class will do this by using the method Absence().
+/* Represents a composite proposition of type condition, that holds at a state 's' if at least
+ * one proposition is true at state 's'.
+ * AtLeastOneC is a subclass of the Composite superclass. 
  */
-public class Absence  extends Pattern {
-    
-    /* Creates an object of type Absence to be further used by the LTL generator.
-     */
+public class AtLeastOneCSub{
+   
+	//piV...Vpn
+		public String generateCP(String name, int number){
+			String formula = name;
+			
+			for(int i = 1; i <= number; i++ ){
+				formula = name + i;
+				while(i != number){
+					i++;
+					formula += " V "+name +i;
+				}
+			}
+			
+			return formula;
+		}
 
 }
