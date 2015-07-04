@@ -1,21 +1,40 @@
+/* Course: Software Construction / CS5374
+ * Instructor: Omar Ochoa
+<<<<<<< HEAD
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
+ * 		 Lucia Rodriguez, and David Torres 
+=======
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, Lucia Melgoza,
+ * 		 and David Reyes 
+>>>>>>> branch 'master' of https://github.com/dreyes15/softwareConstruction.git
+ * Project: LTL Generator
+ * Sprint: CP Generation
+ * Due Date: July 3, 2015
+ */
 
 public class EventualHSub {
 
 	/* EventualHSub */
-	public String generateCP(String proposition, int number) {
+	public String generateCP(String propName, int numberOfProps) {
+		
+		String propReplacenet = "";
+		
+		String name = propName;
+		int number = numberOfProps;
+		
 		if (number < 1){
 			return "";
 		}
 
 		else if (number == 1){
-           return "(!"+proposition+number+" U "+proposition+number+")";
+           return "(!"+name+number+" U "+name+number+")";
         }
 
-		String p = proposition;
+		//String p = proposition;
 		int endParenthesisCount = 0;				//End Parenthesis. Counts only middle parenthesis.
 
-		String str2toN = genAndNot(p, 2, number);	//Generates 2-N (^!p2^...^pn)
-		String str1 = p + "1^" + str2toN + "^";		//Part1 (p1^!p2^...^!pn ^
+		String str2toN = genAndNot(name, 2, number);	//Generates 2-N (^!p2^...^pn)
+		String str1 = name + "1^" + str2toN + "^";		//Part1 (p1^!p2^...^!pn ^
 		String str2 ="(("+ str2toN +") U (";		//Part2 ((!p2^...^!pn)U(p2...
 
 		/* Generate the middle section in such a way that:
@@ -27,29 +46,30 @@ public class EventualHSub {
 		 */
 		String str3  = "";
 		for(int i=2; i<number; i++) { 
-			String firstTrue = p + i + "^";
+			String firstTrue = name + i + "^";
 			String nextAllFalse = firstTrue + genAndNot(p, i+1, number);
 			str3 = str3 + nextAllFalse + "^(";
 			endParenthesisCount++;
 		}
 
-		String midStr = str1 + str2 + str3;
-		String endStr = "(!" + p + number + " U " + p + number + ")))))";
+		String beginningSubFormula = str1 + str2 + str3;
+		String endingSubFormula = "(!" + name + number + " U " + name + number + ")))))";
 		String endParenthesis = genEndParenthesis(endParenthesisCount);
 
-		return "(" + midStr + endStr + endParenthesis;
+		propReplacement = "(" + beginningSubFormula + endingSubFormula + endParenthesis;
+		return propReplacement;
 	}
 
 	/* Generates a string that have the multiple propositions with 
 	 * "not" and an "and" in between.
 	 */
-	private String genAndNot(String p, int start, int end) {
+	private String genAndNot(String name, int start, int end) {
 		String formula = "";
 		for(int i=start; i<= end; i++) {
 			if(i == start ) {
-				formula = "!" + p + i;
+				formula = "!" + name + i;
 			} else {
-				formula = formula + "^!" + p + i; 
+				formula = formula + "^!" + name + i; 
 			}
 		}
 		return formula;
