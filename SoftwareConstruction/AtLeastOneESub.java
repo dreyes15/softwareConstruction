@@ -21,7 +21,7 @@ public class AtLeastOneESub{
 	 * proposition formula, once we return it will add each chunck and then return it. 
 	 * Example of how the output should look like: (-p1^....^pn)^((-p1^...^-pn)U(p1V..Vpn))
 	 */
-		public String generateCP(String propName, int numberOfProps){
+		public static String generateCP(String propName, int numberOfProps){
 			
 			String propReplacement = "";
 			String intialSubFormula = "";//first chunck of formula

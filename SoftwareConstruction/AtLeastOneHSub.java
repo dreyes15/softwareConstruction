@@ -21,7 +21,7 @@ public class AtLeastOneESub{
 	 * Example of how the output should look like: piV...Vpn 
 	 */
 	
-			public String generateCP(String propName, int numberOfProps){
+			public static String generateCP(String propName, int numberOfProps){
 				
 				String propReplacement = "";
 				
