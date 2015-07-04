@@ -15,7 +15,7 @@
 public class EventualHSub {
 
 	/* EventualHSub */
-	public String generateCP(String propName, int numberOfProps) {
+	public static String generateCP(String propName, int numberOfProps) {
 		
 		String propReplacenet = "";
 		
@@ -63,7 +63,7 @@ public class EventualHSub {
 	/* Generates a string that have the multiple propositions with 
 	 * "not" and an "and" in between.
 	 */
-	private String genAndNot(String name, int start, int end) {
+	private static String genAndNot(String name, int start, int end) {
 		String formula = "";
 		for(int i=start; i<= end; i++) {
 			if(i == start ) {
@@ -78,7 +78,7 @@ public class EventualHSub {
 	/* Generates the closing parenthesis at the end of the formula
 	 * with the given number. Returns a string of closing parenthesis.
 	 */
-	private String genEndParenthesis(int number) {
+	private static String genEndParenthesis(int number) {
 		String pStr = "";
 		for(int i=0; i<number; i++) {
 			pStr = pStr + ")";

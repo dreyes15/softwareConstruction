@@ -14,8 +14,14 @@
 import java.util.*;
 public class AtLeastOneESub{
 	
-	//(-p1^....^pn)^((-p1^...^-pn)U(p1V..Vpn))
-		public String generateCP(String propName, int numberOfProps){
+	/*In this method is type String method that will return an updated formula. We will be taking as parameters
+	 * a String variable propName and an in variable numberOfProps. This method will change the proposition by
+	 * add the proper symbols and syntax to the proposition. 
+	 * In this particular method we will be using 4 different string variables that will be storing chuncks of the
+	 * proposition formula, once we return it will add each chunck and then return it. 
+	 * Example of how the output should look like: (-p1^....^pn)^((-p1^...^-pn)U(p1V..Vpn))
+	 */
+		public static String generateCP(String propName, int numberOfProps){
 			
 			String propReplacement = "";
 			String intialSubFormula = "";//first chunck of formula
