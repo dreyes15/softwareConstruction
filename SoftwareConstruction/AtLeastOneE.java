@@ -1,6 +1,12 @@
-/* Represents a composite proposition of type event, that holds if all the propositions
- * are false at some state. Then, at least one of these propositions becomes true at
- * some future state. 
+/* Course: Software Construction / CS5374
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
+ * 		 Lucia Rodriguez, and David Torres 
+ * Project: LTL Generator
+ * Sprint: CP Generation
+ * Due Date: July 3, 2015
+ * Purpose: Represents a composite proposition of type event, that holds if all the 
+ * propositions are false at some state. Then, at least one of these propositions 
+ * becomes true at some future state. 
  */
 import java.util.*;
 public class AtLeastOneE extends Composite {

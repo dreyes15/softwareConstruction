@@ -1,5 +1,11 @@
-/* Represents a composite proposition of type condition, that holds at a state 's' if at least
- * one proposition is true at state 's'.
+/* Course: Software Construction / CS5374
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
+ * 		 Lucia Rodriguez, and David Torres 
+ * Project: LTL Generator
+ * Sprint: CP Generation
+ * Due Date: July 3, 2015
+ *Purpose: Represents a composite proposition of type condition, that holds at a state
+ *'s' if at least one proposition is true at state 's'.
  * AtLeastOneC is a subclass of the Composite superclass. 
  */
 import java.util.*;

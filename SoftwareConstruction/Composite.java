@@ -1,4 +1,10 @@
-/* A composite proposition is a proposition made up of more than one proposition.
+/* Course: Software Construction / CS5374
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
+ * 		 Lucia Rodriguez, and David Torres 
+ * Project: LTL Generator
+ * Sprint: CP Generation
+ * Due Date: July 3, 2015
+ * Purpose: A composite proposition is a proposition made up of more than one proposition.
  * A composite proposition will have a variable name and the number of propositions
  * this proposition is made up of. This class is abstract and cannot be instantiated.
  * The Composite class is a superclass for the composite type of classes that are
