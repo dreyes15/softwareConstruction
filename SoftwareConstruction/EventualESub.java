@@ -28,6 +28,7 @@ public class EventualESub {
         }
         String intialSubFormula="";
         int endParenthesisCount = 0;
+        //Loop that creates the initial formula of (!pn-2,!pn-1, !pn)^(
         for(int i =1; i<=2 ; i++){
             intialSubFormula = intialSubFormula+"("+ genAndNot(name, 1, number);
             if ( i ==1){
