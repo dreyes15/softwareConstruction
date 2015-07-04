@@ -18,7 +18,7 @@ public class ConsecutiveCSub {
 		String name = propName;
 		int number = numberOfProps;
 		
-		// for loop that combines the number and name of the proposition as well as the "And", X(
+		// for loop that combines the number and name of the proposition as well as the "And" operatior, and "X(""
 		for( int i =1; i<= number; i++){	
 			propReplacement = "(" + name +i;
 			while(i!= number){
