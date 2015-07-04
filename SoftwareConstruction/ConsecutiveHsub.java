@@ -18,7 +18,7 @@ public class ConsecutiveHSub {
 
 		String name = propName;
 		int number = numberOfProps;
-		
+		//loop that will create the equation by adding the "And" operation as well as the "X("
 		for ( int i =1; i <=number; i++){
 			if(i!= number){
 				propReplacement = propReplacement + firstTrueAndNotOperators( name, i, number);
@@ -26,6 +26,7 @@ public class ConsecutiveHSub {
 			}
 			else {
 				propReplacement = propReplacement + firstTrueAndNotOperators( name, number, number);
+				// for loop that will add the closing parenthesis
 				for(int j=1; j<= number ; j++){
 					propReplacement = propReplacement + ")";
 				}
@@ -34,13 +35,13 @@ public class ConsecutiveHSub {
 
 		return propReplacement;
 	}
-
+	//Method that makes all propositions Not, except for the first one
 	private String firstTrueAndNotOperators(String name, int count, int number){
 		
 		String temp = "";
-
+		// loop will add the And Not symbols to the preposition name and preposition number
 		for (int i=count; i<=number; i++){
-
+			//if it is the first prepsition we do not add the Not
 			if(i==count){
 				temp = property+i;
 			}
