@@ -1,5 +1,11 @@
-/* Represents a composite proposition of type condition, that holds at a state 's' if all of
- * the propositions are true at some state 's'.   
+/* Course: Software Construction / CS5374
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
+ * 		 Lucia Rodriguez, and David Torres 
+ * Project: LTL Generator
+ * Sprint: CP Generation
+ * Due Date: July 3, 2015
+ * Purpose: Represents a composite proposition of type condition, that holds at a state
+ * 's' if all ofthe propositions are true at some state 's'.   
  */
 
 public class ParallelC extends Composite {
