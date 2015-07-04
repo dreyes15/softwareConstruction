@@ -17,7 +17,7 @@ public class ConsecutiveESub {
 		
 		String name = propName;
 		int number = numberOfProps;
-
+			// for loop that will create the beginnning part of the subformula
 			for(int i =1; i<=2 ; i++){
 				beginningSubFormula = beginningSubFormula +"("+ notOperators(name, 1, number);
 				if ( i ==1){
@@ -27,7 +27,7 @@ public class ConsecutiveESub {
 					beginningSubFormula = beginningSubFormula + ")U(";
 				}
 			}
-
+		// for loop that will create the ending part of the subformula
 		for ( int i =1; i <=number; i++){
 			if(i!= number){
 				endingSubFormula= endingSubFormula + firstTrueAndNotOperators( name, i, number);
@@ -44,7 +44,7 @@ public class ConsecutiveESub {
 		return propReplacement;
 	}
 
-
+	//method that creates the first proposition true, and the rest have AND NOT Operators
 	private String firstTrueAndNotOperators(String name, int count, int number){
 		
 		String temp = "";
@@ -60,7 +60,7 @@ public class ConsecutiveESub {
 		}
 		return temp;
 	}
-
+	// Method that makes all the Prepostion have NOT operators
 	private static String notOperators(String name, int count, int number){
 		
 		String temp="";
