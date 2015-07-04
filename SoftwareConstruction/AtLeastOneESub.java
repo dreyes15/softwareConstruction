@@ -24,9 +24,9 @@ public class AtLeastOneESub{
 		public static String generateCP(String propName, int numberOfProps){
 			
 			String propReplacement = "";
-			String intialSubFormula = "";//first chunck of formula
-			String middleSubFormula = "";//send chunck of formula
-			String lastSubFormula = "";//thind chunck of formula
+			String initialSubFormula = "";	//first chunk of formula
+			String middleSubFormula = "";	//send chunk of formula
+			String lastSubFormula = "";		//third chunk of formula
 			
 			String name = propName;
 			int number = numberOfProps;
@@ -35,9 +35,9 @@ public class AtLeastOneESub{
 				initialSubFormula += "(¬" + name + i;
 				while(i != number){
 					i++;
-					intialSubFormula += " ^¬ "+name +i;
+					initialSubFormula += " ^¬ "+name +i;
 				}
-				intialSubFormula += ")^";
+				initialSubFormula += ")^";
 				i = 1;
 
 				middleSubFormula = "((¬" + name + i;
@@ -57,7 +57,7 @@ public class AtLeastOneESub{
 
 			}
 			propReplacement = initialSubFormula + middleSubFormula + lastSubFormula;
-			return propReplacemet;
+			return propReplacement;
 			//System.out.println(x + p2 + p3);
 		}
 }

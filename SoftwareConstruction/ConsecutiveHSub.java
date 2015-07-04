@@ -45,10 +45,10 @@ public class ConsecutiveHSub {
 		for (int i=count; i<=number; i++){
 			//if it is the first prepsition we do not add the Not
 			if(i==count){
-				temp = property+i;
+				temp = name+i;
 			}
 			else if(i !=count){
-				temp = temp +"^!"+property+i;
+				temp = temp +"^!"+name+i;
 			}
 		}
 		return temp;

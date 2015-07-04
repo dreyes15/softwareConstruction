@@ -42,15 +42,15 @@ public class ParallelESub{
 			middleSubFormula += ") U ";
 			i = 1;
 
-			lastSubFormula = "(" + name + i;
+			lastSubformula = "(" + name + i;
 			while (i != number) {
 				i++;
-				lastSubFormula += " ^ " + name + i;
+				lastSubformula += " ^ " + name + i;
 			}
-			lastSubFormula += "))";
+			lastSubformula += "))";
 
 		}
-		propReplacement = initialSubFormula+middleSubFormula+lastSubFormula;
+		propReplacement = initialSubFormula+middleSubFormula+lastSubformula;
 
 		return (propReplacement);
 

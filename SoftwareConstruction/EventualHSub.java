@@ -47,7 +47,7 @@ public class EventualHSub {
 		String str3  = "";
 		for(int i=2; i<number; i++) { 
 			String firstTrue = name + i + "^";
-			String nextAllFalse = firstTrue + genAndNot(p, i+1, number);
+			String nextAllFalse = firstTrue + genAndNot(name, i+1, number);
 			str3 = str3 + nextAllFalse + "^(";
 			endParenthesisCount++;
 		}
@@ -56,7 +56,7 @@ public class EventualHSub {
 		String endingSubFormula = "(!" + name + number + " U " + name + number + ")))))";
 		String endParenthesis = genEndParenthesis(endParenthesisCount);
 
-		propReplacement = "(" + beginningSubFormula + endingSubFormula + endParenthesis;
+		String propReplacement = "(" + beginningSubFormula + endingSubFormula + endParenthesis;
 		return propReplacement;
 	}
 

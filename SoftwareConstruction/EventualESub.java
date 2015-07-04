@@ -26,17 +26,17 @@ public class EventualESub {
         else if (number == 1){
             return "(!"+name+number+" U "+name+number+")";
         }
-        String intialSubFormula="";
+        String initialSubFormula="";
         int endParenthesisCount = 0;
         //Loop that creates the initial formula of (!pn-2,!pn-1, !pn)^(
         for(int i =1; i<=2 ; i++){
-            intialSubFormula = intialSubFormula+"("+ genAndNot(name, 1, number);
+            initialSubFormula = initialSubFormula+"("+ genAndNot(name, 1, number);
             if ( i ==1){
-                intialSubFormula = intialSubFormula + ")^(";
+                initialSubFormula = initialSubFormula + ")^(";
                 
             }
             else if( i ==2){
-                intialSubFormula = initialSubFormula + ")U(";
+                initialSubFormula = initialSubFormula + ")U(";
                 endParenthesisCount++;
             }
         }
@@ -68,7 +68,7 @@ public class EventualESub {
         String lastSubFormula = "(!" + name + number + " U " + name + number + ")))))";
         String endParenthesis = genEndParenthesis(endParenthesisCount);
         
-        propReplacement = intialSubFormula + "(" + middleSubFormula + lastSubFormula + endParenthesis;
+        String propReplacement = initialSubFormula + "(" + middleSubFormula + lastSubFormula + endParenthesis;
         return propReplacement;
     }
     

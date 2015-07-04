@@ -24,12 +24,12 @@ public class ConsecutiveESub {
 		int number = numberOfProps;
 			// for loop that will create the beginnning part of the subformula
 			for(int i =1; i<=2 ; i++){
-				beginningSubFormula = beginningSubFormula +"("+ notOperators(name, 1, number);
+				beginninglSubFormula = beginninglSubFormula +"("+ notOperators(name, 1, number);
 				if ( i ==1){
-					beginningSubFormula = beginningSubFormula + ")^(";
+					beginninglSubFormula = beginninglSubFormula + ")^(";
 				}
 				else if( i ==2){
-					beginningSubFormula = beginningSubFormula + ")U(";
+					beginninglSubFormula = beginninglSubFormula + ")U(";
 				}
 			}
 		// for loop that will create the ending part of the subformula
@@ -45,7 +45,7 @@ public class ConsecutiveESub {
 				}
 			}
 		}
-		propReplacement = beginningSubFormula + endingSubFormula;
+		propReplacement = beginninglSubFormula + endingSubFormula;
 		return propReplacement;
 	}
 
@@ -57,10 +57,10 @@ public class ConsecutiveESub {
 		for (int i=count; i<=number; i++){
 
 			if(i==count){
-				temp = property+i;
+				temp = name+i;
 			}
 			else if(i !=count){
-				temp = temp +"^!"+property+i;
+				temp = temp +"^!"+name+i;
 			}
 		}
 		return temp;
@@ -72,10 +72,10 @@ public class ConsecutiveESub {
 		
 		for(int i= count; i<=number; i++ ){
 			if(i!= number){
-				temp = temp+"!"+property+i+"^";
+				temp = temp+"!"+name+i+"^";
 			}
 			else if(i== number){
-				temp = temp+"!"+property+i;
+				temp = temp+"!"+name+i;
 			}
 		}
 		temp.replace("^", "");
