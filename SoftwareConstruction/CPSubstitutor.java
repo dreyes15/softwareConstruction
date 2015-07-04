@@ -1,6 +1,11 @@
-/*
- * The purpose of this class is to substitute the proposition placeholders with their
- * respective composite forms.  It will have one method called substituteCompositeProps().
+/* Course: Software Construction / CS5374
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
+ * 		 Lucia Rodriguez, and David Torres 
+ * Project: LTL Generator
+ * Sprint: CP Generation
+ * Due Date: July 3, 2015
+ * Purpose: To substitute the proposition placeholders with their respective composite
+ * forms.  It will have one method called substituteCompositeProps().
  */
 public class CPSubstitutor {
 	
