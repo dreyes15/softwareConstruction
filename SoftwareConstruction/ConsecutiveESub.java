@@ -9,6 +9,11 @@
 
 public class ConsecutiveESub {
 
+	/*
+	*The method generate CP will create the follwoing formula by 
+	* adding the proposition name and the number to a subformula:
+	*(!p1^…^!pn)^((!p1^…^!pn)U(p1^!p2^…^!pn^X(p2^!p3^…^!pn^X(…^X(pn-1^!pn^Xpn))…)))
+	*/
 	public  String generateCP (String propName, int numberOfProps){
 		
 		String propReplacement = "";
