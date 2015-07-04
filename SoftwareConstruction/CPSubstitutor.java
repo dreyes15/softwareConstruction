@@ -14,7 +14,7 @@ public class CPSubstitutor {
 	 * SpecialOperator class.  It will receive a final formula string in return from
 	 * SpecialOperator, and it will return this final formula string to SubstitutionTable.
 	 */
-	public String substituteCompositeProps(String baseFormula, Proposition proposition){    	
+	public static String substituteCompositeProps(String baseFormula, Proposition proposition){    	
 		
 		String propName = proposition.getName();
 		
