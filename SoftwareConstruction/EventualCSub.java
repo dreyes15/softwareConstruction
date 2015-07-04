@@ -13,7 +13,10 @@
  */
 
 public class EventualCSub{
-
+    /*
+    * Generates the Composite Proposition for EventualC Loops through replacing "." with the
+    * appropriate part needed to generatethe formula.
+    */
     public static String generateCP(String propName, int numberOfProps){
         
     	String propReplacement = "";
@@ -42,14 +45,15 @@ public class EventualCSub{
         }
         return propReplacement;
     }
+    // returns the base propostion of (pn-1^X.) where "." will be replaced by appriate section of proposition
     private static String baseProposition(String name, int number){
         return "( " + property+number+ " ^X .)";
     }
-
+    // returns the mid propostion of (!pn U pn^X".") where again "." will be replaced by appropriate propotion number
     private static String midProposition(String name, int number){
         return "(!"+property+number+"U("+property+number+"^X.)";
     }
-
+    //returns the innermost terminant of the propositon (!pn U pn)
     private static String endPropostion(String name, int number){
         return "(!" +property+number+" U "+property+number+")";
     }
