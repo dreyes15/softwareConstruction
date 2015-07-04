@@ -1,7 +1,7 @@
 /* Course: Software Construction / CS5374
  * Instructor: Omar Ochoa
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, Lucia Melgoza,
- * 		 and David Torres 
+ * 		 and David Reyes 
  * Project: LTL Generator
  * Sprint: CP Generation
  * Due Date: July 3, 2015
