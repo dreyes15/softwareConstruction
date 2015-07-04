@@ -1,38 +1,52 @@
+/* Course: Software Construction / CS5374
+ * Instructor: Omar Ochoa
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
+ * 		 Lucia Rodriguez, and David Torres 
+ * Project: LTL Generator
+ * Sprint: CP Generation
+ * Due Date: July 3, 2015
+ */
 
 public class ConsecutiveESub {
 
-	public  String generateCP (String name, int number){
-		String one ="";
-		String two = "";
-		String formula =""; 
+	public  String generateCP (String propName, int numberOfProps){
+		
+		String propReplacement = "";
+		String beginninglSubFormula ="";
+		String endingSubFormula = "";
+		
+		String name = propName;
+		int number = numberOfProps;
 
 			for(int i =1; i<=2 ; i++){
-				one = one +"("+ notProperties(name, 1, number);
+				beginningSubFormula = beginningSubFormula +"("+ notOperators(name, 1, number);
 				if ( i ==1){
-					one = one + ")^(";
+					beginningSubFormula = beginningSubFormula + ")^(";
 				}
 				else if( i ==2){
-					one = one + ")U(";
+					beginningSubFormula = beginningSubFormula + ")U(";
 				}
 			}
 
 		for ( int i =1; i <=number; i++){
 			if(i!= number){
-				two= two + firstTrueAndNotProperties( name, i, number);
-				two = two +"^X(";
+				endingSubFormula= endingSubFormula + firstTrueAndNotOperators( name, i, number);
+				endingSubFormula = endingSubFormula +"^X(";
 			}
 			else {
-				two = two + firstTrueAndNotProperties( name, number, number);
+				endingSubFormula = endingSubFormula + firstTrueAndNotOperators( name, number, number);
 				for(int j=1; j<= (number+1) ; j++){
-					two = two + ")";
+					endingSubFormula = endingSubFormula + ")";
 				}
 			}
 		}
-		return formula= one + two;
+		propReplacement = beginningSubFormula + endingSubFormula;
+		return propReplacement;
 	}
 
 
-	private String firstTrueAndNotProperties(String property, int count, int number){
+	private String firstTrueAndNotOperators(String name, int count, int number){
+		
 		String temp = "";
 
 		for (int i=count; i<=number; i++){
@@ -47,8 +61,10 @@ public class ConsecutiveESub {
 		return temp;
 	}
 
-	private static String notProperties(String property, int count, int number){
+	private static String notOperators(String name, int count, int number){
+		
 		String temp="";
+		
 		for(int i= count; i<=number; i++ ){
 			if(i!= number){
 				temp = temp+"!"+property+i+"^";

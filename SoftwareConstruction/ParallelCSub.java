@@ -1,7 +1,7 @@
 /* Course: Software Construction / CS5374
  * Instructor: Omar Ochoa
- * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, Lucia Melgoza,
- * 		 and David Torres 
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
+ * 		 Lucia Rodriguez, and David Torres 
  * Project: LTL Generator
  * Sprint: CP Generation
  * Due Date: July 3, 2015
@@ -9,7 +9,7 @@
 
 public class ParallelCSub{
 	
-	public static String generateCP(String propName, int numberOfProps) {
+	public String generateCP(String propName, int numberOfProps) {
 
 		String propReplacement = "";
 		

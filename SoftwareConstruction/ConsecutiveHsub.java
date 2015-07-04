@@ -1,29 +1,42 @@
+/* Course: Software Construction / CS5374
+ * Instructor: Omar Ochoa
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
+ * 		 Lucia Rodriguez, and David Torres 
+ * Project: LTL Generator
+ * Sprint: CP Generation
+ * Due Date: July 3, 2015
+ */
 
 public class ConsecutiveHSub {
 
 	//(p1∧¬p2∧···∧¬pn∧X(p2∧¬p3 ∧···∧¬pn ∧ X(··· ∧ X(pn−1 ∧ ¬pn ∧ Xpn))···))
 
-	public String generateCP (String name, int number){
-		String formula = "(";
+	public String generateCP (String propName, int numberOfProps){
+		
+		String propReplacement = "(";
 		int closingcount =0; //tracks the number of closing parenthesis
 
+		String name = propName;
+		int number = numberOfProps;
+		
 		for ( int i =1; i <=number; i++){
 			if(i!= number){
-			formula = formula + firstTrueAndNotProperties( name, i, number);
-			formula = formula +"^X(";
+				propReplacement = propReplacement + firstTrueAndNotOperators( name, i, number);
+				propReplacement = propReplacement +"^X(";
 			}
 			else {
-				formula = formula + firstTrueAndNotProperties( name, number, number);
+				propReplacement = propReplacement + firstTrueAndNotOperators( name, number, number);
 				for(int j=1; j<= number ; j++){
-					formula = formula + ")";
+					propReplacement = propReplacement + ")";
 				}
 			}
 		}
 
-		return formula;
+		return propReplacement;
 	}
 
-	private String firstTrueAndNotProperties(String property, int count, int number){
+	private String firstTrueAndNotOperators(String name, int count, int number){
+		
 		String temp = "";
 
 		for (int i=count; i<=number; i++){
