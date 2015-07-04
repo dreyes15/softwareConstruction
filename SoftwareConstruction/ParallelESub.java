@@ -1,37 +1,44 @@
 
 public class ParallelESub{
 	
-	public static String ParallelESub(String name, int number) {
-		String part1 = name;
-		String part2 = null;
-		String part3 = null;
+	public static String generateCP(String propName, int numberOfProps) {
+				
+		String propReplacement = "";
+		String initialSubFormula = "";
+		String middleSubFormula = "";
+		String lastSubformula = "";
+		
+		String name = propName;
+		int number = numberOfProps;
+		
 		for (int i = 1; i <= number; i++) {
-			part1 = "( ¬ " + name + i;
+			initialSubFormula = "( ¬ " + name + i;
 			while (i != number) {
 				i++;
-				part1 += " ^ ¬ " + name + i;
+				initialSubFormula += " ^ ¬ " + name + i;
 			}
-			part1 += ") ^ ";
+			initialSubFormula += ") ^ ";
 			i = 1;
 
-			part2 = "(( ¬ " + name + i;
+			middleSubFormula = "(( ¬ " + name + i;
 			while (i != number) {
 				i++;
-				part2 += " ^ ¬ " + name + i;
+				middleSubFormula += " ^ ¬ " + name + i;
 			}
-			part2 += ") U ";
+			middleSubFormula += ") U ";
 			i = 1;
 
-			part3 = "(" + name + i;
+			lastSubFormula = "(" + name + i;
 			while (i != number) {
 				i++;
-				part3 += " ^ " + name + i;
+				lastSubFormula += " ^ " + name + i;
 			}
-			part3 += "))";
+			lastSubFormula += "))";
 
 		}
+		propReplacement = initialSubFormula+middleSubFormula+lastSubFormula;
 
-		return (part1 + part2 + part3);
+		return (propReplacement);
 
 	}
 }
