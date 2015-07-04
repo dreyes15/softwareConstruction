@@ -13,7 +13,7 @@ public class ConsecutiveHSub {
 	* adding the proposition name and the number to a subformula:
 	*(p1∧¬p2∧···∧¬pn∧X(p2∧¬p3 ∧···∧¬pn ∧ X(··· ∧ X(pn−1 ∧ ¬pn ∧ Xpn))···))
 	*/
-	public String generateCP (String propName, int numberOfProps){
+	public static String generateCP (String propName, int numberOfProps){
 		
 		String propReplacement = "(";
 		int closingcount =0; //tracks the number of closing parenthesis
@@ -38,7 +38,7 @@ public class ConsecutiveHSub {
 		return propReplacement;
 	}
 	//Method that makes all propositions Not, except for the first one
-	private String firstTrueAndNotOperators(String name, int count, int number){
+	private static String firstTrueAndNotOperators(String name, int count, int number){
 		
 		String temp = "";
 		// loop will add the And Not symbols to the preposition name and preposition number
