@@ -9,7 +9,12 @@
 
 public class ConsecutiveESub {
 
-	public  String generateCP (String propName, int numberOfProps){
+	/*
+	*The method generate CP will create the follwoing formula by 
+	* adding the proposition name and the number to a subformula:
+	*(!p1^…^!pn)^((!p1^…^!pn)U(p1^!p2^…^!pn^X(p2^!p3^…^!pn^X(…^X(pn-1^!pn^Xpn))…)))
+	*/
+	public static String generateCP (String propName, int numberOfProps){
 		
 		String propReplacement = "";
 		String beginninglSubFormula ="";
@@ -45,7 +50,7 @@ public class ConsecutiveESub {
 	}
 
 	//method that creates the first proposition true, and the rest have AND NOT Operators
-	private String firstTrueAndNotOperators(String name, int count, int number){
+	private static String firstTrueAndNotOperators(String name, int count, int number){
 		
 		String temp = "";
 
