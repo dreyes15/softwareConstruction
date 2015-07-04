@@ -3,6 +3,7 @@
  * respective composite forms.  It will have one method called substituteCompositeProps().
  */
 public class CPSubstitutor {
+	
 	final static String HOLD = "h";	//The template for a Proposition of type hold, used in the base formula.
 
 	/* substituteCompositeProps() will receive a base formula, Scope, and Pattern from 
@@ -14,6 +15,7 @@ public class CPSubstitutor {
 	 * SpecialOperator, and it will return this final formula string to SubstitutionTable.
 	 */
 	public String substituteCompositeProps(String baseFormula, Proposition proposition){    	
+		
 		String propName = proposition.getName();
 		
 		if(isComposite(proposition))

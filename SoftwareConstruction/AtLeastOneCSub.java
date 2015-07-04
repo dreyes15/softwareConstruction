@@ -1,22 +1,35 @@
-/* Represents a composite proposition of type condition, that holds at a state 's' if at least
- * one proposition is true at state 's'.
- * AtLeastOneC is a subclass of the Composite superclass. 
+/* Course: Software Construction / CS5374
+ * Instructor: Omar Ochoa
+<<<<<<< HEAD
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
+ * 		 Lucia Rodriguez, and David Torres 
+=======
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, Lucia Melgoza,
+ * 		 and David Reyes 
+>>>>>>> branch 'master' of https://github.com/dreyes15/softwareConstruction.git
+ * Project: LTL Generator
+ * Sprint: CP Generation
+ * Due Date: July 3, 2015
  */
 public class AtLeastOneCSub{
    
 	//piV...Vpn
-		public String generateCP(String name, int number){
-			String formula = name;
+		public String generateCP(String propName, int numberOfProps){
+			
+			String propReplacement = "";
+			
+			String name = propName;
+			int number = numberOfProps;
 			
 			for(int i = 1; i <= number; i++ ){
-				formula = name + i;
+				propReplacement = name + i;
 				while(i != number){
 					i++;
-					formula += " V "+name +i;
+					propReplacement += " V "+name +i;
 				}
 			}
 			
-			return formula;
+			return propReplacement;
 		}
 
 }
