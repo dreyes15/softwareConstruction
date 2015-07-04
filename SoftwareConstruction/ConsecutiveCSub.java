@@ -9,8 +9,12 @@
  */
 
 public class ConsecutiveCSub {
-	//(p1 ^X( p2 ^X( .. ^X(pn) ) ) )
-	public String generateCP (String propName, int numberOfProps){
+	/*
+	*The method generate CP will create the follwoing formula by 
+	* adding the proposition name and the number to a subformula:
+	*(p1 ^X( p2 ^X( .. ^X(pn) ) ) )
+	*/
+	public static String generateCP (String propName, int numberOfProps){
 		
 		String propReplacement = "";
 		int closingcount =1;  //tracks the number of closing parenthesis

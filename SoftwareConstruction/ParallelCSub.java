@@ -8,7 +8,16 @@
 
 public class ParallelCSub{
 	
-	public String generateCP(String propName, int numberOfProps) {
+	/*This generateCP(String propName, int numberOfProps) method does the substitution for ParallelC.
+	 * This is accomplished by using a for loop that iterates through the length of the number of the
+	 * propositions, then there is a while loop that iterates until i does not equal the number of 
+	 * propositions (ie. while not the last element) the string will return the name of the 
+	 * proposition the number of that proposition and a "^". Then there is an if statement that checks
+	 * when i equals the last element the string will be the name of the proposition and the number of
+	 * that proposition. The method will therefore return the ParallelC substitution.
+	 */
+	
+	public static String generateCP(String propName, int numberOfProps) {
 
 		String propReplacement = "";
 		

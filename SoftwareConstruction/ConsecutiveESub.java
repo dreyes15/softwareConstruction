@@ -9,7 +9,12 @@
 
 public class ConsecutiveESub {
 
-	public  String generateCP (String propName, int numberOfProps){
+	/*
+	*The method generate CP will create the follwoing formula by 
+	* adding the proposition name and the number to a subformula:
+	*(!p1^…^!pn)^((!p1^…^!pn)U(p1^!p2^…^!pn^X(p2^!p3^…^!pn^X(…^X(pn-1^!pn^Xpn))…)))
+	*/
+	public static String generateCP (String propName, int numberOfProps){
 		
 		String propReplacement = "";
 		String beginninglSubFormula ="";
@@ -17,7 +22,7 @@ public class ConsecutiveESub {
 		
 		String name = propName;
 		int number = numberOfProps;
-
+			// for loop that will create the beginnning part of the subformula
 			for(int i =1; i<=2 ; i++){
 				beginningSubFormula = beginningSubFormula +"("+ notOperators(name, 1, number);
 				if ( i ==1){
@@ -27,7 +32,7 @@ public class ConsecutiveESub {
 					beginningSubFormula = beginningSubFormula + ")U(";
 				}
 			}
-
+		// for loop that will create the ending part of the subformula
 		for ( int i =1; i <=number; i++){
 			if(i!= number){
 				endingSubFormula= endingSubFormula + firstTrueAndNotOperators( name, i, number);
@@ -44,8 +49,8 @@ public class ConsecutiveESub {
 		return propReplacement;
 	}
 
-
-	private String firstTrueAndNotOperators(String name, int count, int number){
+	//method that creates the first proposition true, and the rest have AND NOT Operators
+	private static String firstTrueAndNotOperators(String name, int count, int number){
 		
 		String temp = "";
 
@@ -60,7 +65,7 @@ public class ConsecutiveESub {
 		}
 		return temp;
 	}
-
+	// Method that makes all the Prepostion have NOT operators
 	private static String notOperators(String name, int count, int number){
 		
 		String temp="";

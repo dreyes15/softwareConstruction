@@ -13,9 +13,15 @@
  */
 
 import java.util.*;
-public class AtLeastOneESub{
-	//piV...Vpn
-			public String generateCP(String propName, int numberOfProps){
+public class AtLeastOneHSub{
+	
+	/*In this method is type String method that will return an updated formula. We will be taking as parameters
+	 * a String variable propName and an in variable numberOfProps. This method will change the proposition by
+	 * add the proper symbols and syntax to the proposition. 
+	 * Example of how the output should look like: piV...Vpn 
+	 */
+	
+			public static String generateCP(String propName, int numberOfProps){
 				
 				String propReplacement = "";
 				
