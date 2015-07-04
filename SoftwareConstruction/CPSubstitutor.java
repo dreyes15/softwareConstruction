@@ -13,51 +13,45 @@ public class CPSubstitutor {
 	 * SpecialOperator class.  It will receive a final formula string in return from
 	 * SpecialOperator, and it will return this final formula string to SubstitutionTable.
 	 */
-	public String substituteCompositeProps(String baseFormula, Proposition propP, Proposition propQ, Proposition propL, Proposition propR){    	
-		String baseWithP = baseFormula;
-		String baseWithPQ = baseFormula;
-		String baseWithPQL = baseFormula;
-		String baseWithPQLR = baseFormula;
+	public String substituteCompositeProps(String baseFormula, Proposition proposition){    	
+		String propName = proposition.getName();
 		
-		if(isComposite(propP))
+		if(isComposite(proposition))
 		{
-			String cpFormulaPH = getHoldCPFormula(propP);
-			baseWithP = baseFormula.replaceAll("P"+ HOLD, cpFormulaPH);
+			String formulaH = "";
+			formulaH = getHoldCPFormula(proposition);
 			
-			String cpFormulaP = getCPFormula(propP);
-			baseWithP = baseWithP.replaceAll("P", cpFormulaP);
+			String replacedHold = "";
+			replacedHold = baseFormula.replaceAll(propName + HOLD, formulaH);
+			
+			String formulaCorE = "";
+			formulaCorE = getCPFormula(proposition);
+			
+			String replacedFormula = "";
+			replacedFormula = replacedHold.replaceAll(propName, formulaCorE);
+			return replacedFormula;
+		}
+		return "\n<Not a composite proposition, no cp formula can be generated>\n";
+	}
+
+	
+	/* Gets the proposition type and checks if it is composite. Will return false
+	 * if the proposition is either atomic or null, otherwise it returns true.
+	 */
+	static boolean isComposite(Proposition proposition) {
+		if(proposition == null)
+		{
+			return false;
 		}
 		
-		if (isComposite(propQ))
+		String type = proposition.getType(); 
+		if (type.equals("Atomic"))
 		{
-			String cpFormulaQH = getHoldCPFormula(propQ);
-			baseWithPQ = baseFormula.replaceAll("Q"+ HOLD, cpFormulaQH);
-			
-			String cpFormulaQ = getCPFormula(propQ);
-			baseWithPQ = baseWithP.replaceAll("Q", cpFormulaQ);
-		}
-		
-		if (isComposite(propL))
-		{
-			String cpFormulaLH = getHoldCPFormula(propL);
-			baseWithPQL = baseFormula.replaceAll("P"+ HOLD, cpFormulaLH);
-			
-			String cpFormulaL = getCPFormula(propL);
-			baseWithPQL = baseWithPQ.replaceAll("L", cpFormulaL);
-		}
-		
-		if (isComposite(propR))
-		{
-			String cpFormulaRH = getHoldCPFormula(propR);
-			baseWithPQLR = baseFormula.replaceAll("P"+ HOLD, cpFormulaRH);
-			
-			String cpFormulaR = getCPFormula(propR);
-			baseWithPQLR = baseWithPQL.replaceAll("R", cpFormulaR);
-		}
-		return baseWithPQLR;
+			return false;
+		} 
+		return true;
 	}
 	
-		
 	/* Takes in a proposition object then calls the method
 	 * which will call the right class to generate the CP formula
 	 */
@@ -81,16 +75,6 @@ public class CPSubstitutor {
 		int number = ((Composite) proposition).getNumber();
 		
 		return getCPFormula(type, name, number);
-	}
-	
-	/* Gets the proposition type and checks if it atomic
-	 */
-	static boolean isComposite(Proposition proposition) {
-		String type = proposition.getType();
-		if (!type.equals("Atomic")) {
-			return true;
-		}
-		return false;
 	}
 
 	/* Gets the appropriate CP formula for a given composite proposition. First it gets the
@@ -139,7 +123,7 @@ public class CPSubstitutor {
 			cpFormula = EventualHSub.generateCP(name, number);
 			break;
 		default:
-			cpFormula = "<CPType Not Found for " + name + ">";
+			cpFormula = "<CP Not Found for " + name + ">";
 			break;
 		}
 		return cpFormula;
