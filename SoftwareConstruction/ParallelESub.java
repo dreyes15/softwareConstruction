@@ -9,7 +9,13 @@
 
 public class ParallelESub{
 	
-	public String generateCP(String propName, int numberOfProps) {
+	/*This generateCP(String propName, int numberOfProps) does the substitution for ParallelE.
+	 * This is accomplished with a for loop that iterates through the number of propositions 
+	 * and three different while loops that will handle different parts of the ParallelE
+	 * substitution. What is returned are the three parts concatinated together.
+	 */
+	
+	public static String generateCP(String propName, int numberOfProps) {
 				
 		String propReplacement = "";
 		String initialSubFormula = "";
