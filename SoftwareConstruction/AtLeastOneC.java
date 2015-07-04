@@ -11,7 +11,7 @@ public class AtLeastOneC extends Composite {
 	 * and the number is the number of propositions that make up this composite
 	 * proposition.  
 	 */
-	public String AtLeastOneC(String name, int number){
+	public  AtLeastOneC(String name, int number){
 		super(name, number);
 		typeOfProposition = "AtLeastOneC";
 	}
