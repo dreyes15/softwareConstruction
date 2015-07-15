@@ -17,19 +17,19 @@ public class ConsecutiveESub {
 	public static String generateCP (String propName, int numberOfProps){
 		
 		String propReplacement = "";
-		String beginninglSubFormula ="";
+		String beginningSubFormula ="";
 		String endingSubFormula = "";
 		
 		String name = propName;
 		int number = numberOfProps;
 			// for loop that will create the beginnning part of the subformula
 			for(int i =1; i<=2 ; i++){
-				beginninglSubFormula = beginninglSubFormula +"("+ notOperators(name, 1, number);
+				beginningSubFormula = beginningSubFormula +"("+ notOperators(name, 1, number);
 				if ( i ==1){
-					beginninglSubFormula = beginninglSubFormula + ")^(";
+					beginningSubFormula = beginningSubFormula + ")^(";
 				}
 				else if( i ==2){
-					beginninglSubFormula = beginninglSubFormula + ")U(";
+					beginningSubFormula = beginningSubFormula + ")U(";
 				}
 			}
 		// for loop that will create the ending part of the subformula
@@ -45,7 +45,7 @@ public class ConsecutiveESub {
 				}
 			}
 		}
-		propReplacement = beginninglSubFormula + endingSubFormula;
+		propReplacement = beginningSubFormula + endingSubFormula;
 		return propReplacement;
 	}
 
@@ -60,7 +60,7 @@ public class ConsecutiveESub {
 				temp = name+i;
 			}
 			else if(i !=count){
-				temp = temp +"^!"+name+i;
+				temp = temp +"^!("+name+i+")";
 			}
 		}
 		return temp;
@@ -72,10 +72,10 @@ public class ConsecutiveESub {
 		
 		for(int i= count; i<=number; i++ ){
 			if(i!= number){
-				temp = temp+"!"+name+i+"^";
+				temp = temp+"!("+name+i+")^";
 			}
 			else if(i== number){
-				temp = temp+"!"+name+i;
+				temp = temp+"!("+name+i+")";
 			}
 		}
 		temp.replace("^", "");

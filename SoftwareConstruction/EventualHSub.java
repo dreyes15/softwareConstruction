@@ -17,7 +17,7 @@ public class EventualHSub {
 	/* EventualHSub */
 	public static String generateCP(String propName, int numberOfProps) {
 		
-		String propReplacenet = "";
+		String propReplacement = "";
 		
 		String name = propName;
 		int number = numberOfProps;
@@ -27,7 +27,7 @@ public class EventualHSub {
 		}
 
 		else if (number == 1){
-           return "(!"+name+number+" U "+name+number+")";
+           return "(!"+name+number+"U"+name+number+")";
         }
 
 		//String p = proposition;
@@ -35,7 +35,7 @@ public class EventualHSub {
 
 		String str2toN = genAndNot(name, 2, number);	//Generates 2-N (^!p2^...^pn)
 		String str1 = name + "1^" + str2toN + "^";		//Part1 (p1^!p2^...^!pn ^
-		String str2 ="(("+ str2toN +") U (";		//Part2 ((!p2^...^!pn)U(p2...
+		String str2 ="(("+ str2toN +")U(";		//Part2 ((!p2^...^!pn)U(p2...
 
 		/* Generate the middle section in such a way that:
 		 * n: (p2 ^ !p3 ^...^!pn^(...^(pn-1 ^ !pn^(!pn U pn)
@@ -53,10 +53,10 @@ public class EventualHSub {
 		}
 
 		String beginningSubFormula = str1 + str2 + str3;
-		String endingSubFormula = "(!" + name + number + " U " + name + number + ")))))";
+		String endingSubFormula = "(!" + name + number + "U" + name + number + ")))))";
 		String endParenthesis = genEndParenthesis(endParenthesisCount);
 
-		String propReplacement = "(" + beginningSubFormula + endingSubFormula + endParenthesis;
+		propReplacement = "(" + beginningSubFormula + endingSubFormula + endParenthesis;
 		return propReplacement;
 	}
 

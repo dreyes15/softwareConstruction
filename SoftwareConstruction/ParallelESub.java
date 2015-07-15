@@ -20,37 +20,37 @@ public class ParallelESub{
 		String propReplacement = "";
 		String initialSubFormula = "";
 		String middleSubFormula = "";
-		String lastSubformula = "";
+		String lastSubFormula = "";
 		
 		String name = propName;
 		int number = numberOfProps;
 		
 		for (int i = 1; i <= number; i++) {
-			initialSubFormula = "( ¬ " + name + i;
+			initialSubFormula = "(!(" + name + i + ")";
 			while (i != number) {
 				i++;
-				initialSubFormula += " ^ ¬ " + name + i;
+				initialSubFormula += "^!(" + name + i + ")";
 			}
-			initialSubFormula += ") ^ ";
+			initialSubFormula += ")^";
 			i = 1;
 
-			middleSubFormula = "(( ¬ " + name + i;
+			middleSubFormula = "((!(" + name + i + ")";
 			while (i != number) {
 				i++;
-				middleSubFormula += " ^ ¬ " + name + i;
+				middleSubFormula += "^!(" + name + i + ")";
 			}
-			middleSubFormula += ") U ";
+			middleSubFormula += ")U(";
 			i = 1;
 
-			lastSubformula = "(" + name + i;
+			lastSubFormula = name + i;
 			while (i != number) {
 				i++;
-				lastSubformula += " ^ " + name + i;
+				lastSubFormula += "^" + name + i;
 			}
-			lastSubformula += "))";
+			lastSubFormula += "))";
 
 		}
-		propReplacement = initialSubFormula+middleSubFormula+lastSubformula;
+		propReplacement = initialSubFormula+middleSubFormula+lastSubFormula;
 
 		return (propReplacement);
 

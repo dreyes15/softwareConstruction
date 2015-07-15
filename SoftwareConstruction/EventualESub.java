@@ -17,6 +17,8 @@ public class EventualESub {
     /* EventualHSub */
     public static String generateCP(String propName, int numberOfProps){
        
+    	String propReplacement = "";
+    	
     	String name = propName;
     	int number = numberOfProps;
     	
@@ -24,7 +26,7 @@ public class EventualESub {
             return "";
         }
         else if (number == 1){
-            return "(!"+name+number+" U "+name+number+")";
+            return "(!("+name+number+")U("+name+number+"))";
         }
         String initialSubFormula="";
         int endParenthesisCount = 0;
@@ -46,7 +48,7 @@ public class EventualESub {
         
         String str2toN = genAndNot(name, 2, number);	//Generates 2-N (^!p2^...^pn)
         String str1 = name + "1^" + str2toN + "^";		//Part1 (p1^!p2^...^!pn ^
-        String str2 ="(("+ str2toN +") U (";		//Part2 ((!p2^...^!pn)U(p2...
+        String str2 ="(("+ str2toN +")U(";		//Part2 ((!p2^...^!pn)U(p2...
         
         /* Generate the middle section in such a way that:
          * n: (p2 ^ !p3 ^...^!pn^(...^(pn-1 ^ !pn^(!pn U pn)
@@ -65,10 +67,10 @@ public class EventualESub {
         }
         
         String middleSubFormula = str1 + str2 + str3;
-        String lastSubFormula = "(!" + name + number + " U " + name + number + ")))))";
+        String lastSubFormula = "(!(" + name + number + ")U(" + name + number + "))))))";
         String endParenthesis = genEndParenthesis(endParenthesisCount);
         
-        String propReplacement = initialSubFormula + "(" + middleSubFormula + lastSubFormula + endParenthesis;
+        propReplacement = initialSubFormula + "(" + middleSubFormula + lastSubFormula + endParenthesis;
         return propReplacement;
     }
     
@@ -80,9 +82,9 @@ public class EventualESub {
         String formula = "";
         for(int i=start; i<= end; i++) {
             if(i == start ) {
-                formula = "!" + name + i;
+                formula = "!(" + name + i + ")";
             } else {
-                formula = formula + "^!" + name + i;
+                formula = formula + "^!(" + name + i + ")";
             }
         }
         return formula;

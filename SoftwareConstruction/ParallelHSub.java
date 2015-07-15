@@ -20,7 +20,7 @@ public class ParallelHSub{
 	
 	public static String generateCP(String propName, int numberOfProps) {
 
-		String propReplacement = "";
+		String propReplacement = "(";
 		
 		String name = propName;
 		int number = numberOfProps;
@@ -34,6 +34,8 @@ public class ParallelHSub{
 				propReplacement += name + i;
 			}
 		}
+		propReplacement = propReplacement + ")";
 		return propReplacement;
-	}	
+	}
+	
 }

@@ -16,85 +16,85 @@ public class Test_CPFormulas {
 	//	Atomic class Tests
 	@Test
 	public void atomic_Test() {
-		String baseFormula = "!P ^ pH X (!L)";
+		String baseFormula = "!P^pH^X!L";
 		Proposition p = new Atomic("P");
 		
 		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, p), 
-				"!P ^ P X (!L)");
+				"!P^P^X!L");
 	}
 	
 	@Test
 	public void atomicH_Test() {
-		String baseFormula = "!P ^ pH X (!L)";
+		String baseFormula = "!P^pH^X!L";
 		Proposition p = new Atomic("P");
 		
 		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, p), 
-				"!P ^ P X (!L)");
+				"!P^P^X!L");
 	}
 	
 	//	AtLeastOne Tests
 	@Test
 	public void atLeastOneC_Test() {
-		String baseFormula = "!P ^ pH ^ L";
+		String baseFormula = "!P^pH^L";
 		Proposition l = new AtLeastOneC("L", 3);
 		
 		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, l),
-				"!P ^ pH ^ L1 V L2 V L3");
+				"!P^pH^(L1VL2VL3)");
 	}
 	
 	@Test
 	public void atLeastOneE_Test() {
-		String baseFormula = "!P ^ pH ^ L";
+		String baseFormula = "!P^pH^L";
 		Proposition l = new AtLeastOneC("L", 3);
 		
 		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, l),
-				"!P ^ pH ^ L1 V L2 V L3");
+				"!P^pH^(L1VL2VL3)");
 	}
 	
 	@Test
 	public void atLeastOneH_Test() {
-		String baseFormula = "!P ^ lH ^ L";
+		String baseFormula = "!P^lH^L";
 		Proposition l = new AtLeastOneC("L", 3);
 		
 		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, l),
-				"!P ^ L1 V L2 V L3 ^ L1 V L2 V L3");
+				"!P^(L1VL2VL3)^(L1VL2VL3)");
 	}
 	
 	//	Parallel Tests
 	@Test
 	public void parallelE_Test() {
-		String baseFormula = "!Q ^ qH ^ L";
+		String baseFormula = "!Q^qH^L";
 		Proposition q = new ParallelC("Q", 2);
 		
 		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, q), 
-				"!Q1 ^ Q2 ^ Q1^Q2 ^ L");
+				"!(Q1^Q2)^(Q1^Q2)^L");
 	}
 	
 	@Test
 	public void parallelH_Test() {
-		String baseFormula = "!Q ^ qH ^ L";
+		String baseFormula = "!Q^qH^L";
 		Proposition q = new ParallelC("Q", 2);
 		
 		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, q), 
-				"!Q1 ^ Q2 ^ Q1^Q2 ^ L");
+				"!(Q1^Q2)^(Q1^Q2)^L");
 	}
 	
 	//Combination Tests
 	@Test
 	public void combinePQ_Test() {
-		String baseFormula = "!L ^ lH ^ P X (Q)";
+		String baseFormula = "!L^lH^P^XQ";
 		Proposition p = new AtLeastOneC("P", 3);
 		Proposition q = new ParallelC("Q", 2);
 		
 		String replaceP = CPSubstitutor.substituteCompositeProps(baseFormula, p);
 		String replaceQ = CPSubstitutor.substituteCompositeProps(replaceP, q);
 				
-		assertEquals(replaceQ, "!L ^ lH ^ P1 V P2 V P3 X (Q1 ^ Q2)");
+		assertEquals(replaceQ, "!L^lH^(P1VP2VP3)^X(Q1^Q2)");
 	}
 	
 	@Test
 	public void combinePQL_Test() {
-		String baseFormula = "!L ^ lH ^ P X (Q)";
+		String baseFormula = "!L^lH^P^XQ";
 		Proposition p = new AtLeastOneC("P", 3);
 		Proposition q = new ParallelC("Q", 2);
 		Proposition l = new Atomic("L");
@@ -103,12 +103,12 @@ public class Test_CPFormulas {
 		String replaceQ = CPSubstitutor.substituteCompositeProps(replaceP, q);
 		String replaceL = CPSubstitutor.substituteCompositeProps(replaceQ, l);
 		
-		assertEquals(replaceL, "!L ^ L ^ P1 V P2 V P3 X (Q1 ^ Q2)");
+		assertEquals(replaceL, "!L^L^(P1VP2VP3)^X(Q1^Q2)");
 	}
 	
 	@Test
 	public void combinePQLR_Test() {
-		String baseFormula = "!(R) ^ lH ^ P X (Q)";
+		String baseFormula = "!R^lH^P^XQ";
 		Proposition p = new AtLeastOneC("P", 3);
 		Proposition q = new ParallelC("Q", 2);
 		Proposition l = new Atomic("L");
@@ -119,6 +119,58 @@ public class Test_CPFormulas {
 		String replaceL = CPSubstitutor.substituteCompositeProps(replaceQ, l);
 		String replaceR = CPSubstitutor.substituteCompositeProps(replaceL, r);
 		
-		assertEquals(replaceR, "!(R1 V R2) ^ L ^ P1 V P2 V P3 X (Q1 ^ Q2)");
+		assertEquals(replaceR, "!(R1VR2)^L^(P1VP2VP3)^X(Q1^Q2)");
+	}
+	
+	@Test
+	//Q Precedes Pc After L Until Rc 
+	public void newCombinePQLR_Test1() {
+		String baseFormula = "[](L->(L&l((<>R->((!(P&r!R))U((Q&-lPVR))^((!<>R)->!((!Q)U(P^!Q)))))))";
+		Proposition p = new AtLeastOneC("P", 3);
+		Proposition q = new ParallelC("Q", 2);
+		Proposition l = new Atomic("L");
+		Proposition r = new AtLeastOneC("R", 2);
+		
+		String replaceP = CPSubstitutor.substituteCompositeProps(baseFormula, p);
+		String replaceQ = CPSubstitutor.substituteCompositeProps(replaceP, q);
+		String replaceL = CPSubstitutor.substituteCompositeProps(replaceQ, l);
+		String replaceR = CPSubstitutor.substituteCompositeProps(replaceL, r);
+		
+		//System.out.println(replaceR);
+		
+		assertEquals(replaceR, "[](L->(L&l((<>(R1VR2)->((!((P1VP2VP3)&r!(R1VR2)))U(((Q1^Q2)&-l(P1VP2VP3)V(R1VR2)))^((!<>(R1VR2))->!((!(Q1^Q2))U((P1VP2VP3)^!(Q1^Q2))))))))");
+	}
+	
+	@Test
+	//Q Precedes Pc After L Until Rc 
+	public void newCombinePQLR_Test2() {
+		
+		AndL andL = new AndL();
+		AndR andR = new AndR();
+		AndNotL andNotL = new AndNotL();
+		//String baseFormula = "[](L->(L&l((<>R->((!(P&r!R))U((Q&-lPVR))^((!<>R)->!((!Q)U(P^!Q)))))))";
+		String baseFormula = "Q&rP";
+		Proposition p = new AtLeastOneC("P", 3);//EventualE 3
+		Proposition q = new EventualE("Q", 3);//ParallelC 5
+		Proposition l = new ConsecutiveC("L", 4);//ConsecutiveC 4
+		Proposition r = new AtLeastOneC("R", 2);//AtLeastOneC 2
+		
+		String replaceP = CPSubstitutor.substituteCompositeProps(baseFormula, p);
+		String replaceQ = CPSubstitutor.substituteCompositeProps(replaceP, q);
+		String replaceL = CPSubstitutor.substituteCompositeProps(replaceQ, l);
+		String replaceR = CPSubstitutor.substituteCompositeProps(replaceL, r);
+		String andLFormula = andL.replaceAndL(replaceR);
+		String andRFormula = andR.replaceAndR(andLFormula);
+		String andNotLFormula = andNotL.replaceAndNotL(andRFormula, q);
+		
+		System.out.println(replaceR);
+		System.out.println();
+		System.out.println(andLFormula);
+		System.out.println();
+		System.out.println(andRFormula);
+		System.out.println();
+		System.out.println(andNotLFormula);
+		
+		//assertEquals(andLFormula, "[]((L1^X(L2^X(L3^X(L4))))->((L1^X(L2^X(L3^X(L4&((<>(R1VR2)->((!((!(P1)^!(P2)^!(P3))^((!(P1)^!(P2)^!(P3))U((P1^!(P2)^!(P3)^((!(P2)^!(P3))U(P2^!(P3)^((!(P3)U(P3))))))))&r!(R1VR2)))U(((Q1^Q2^Q3^Q4^Q5)&-l(!(P1)^!(P2)^!(P3))^((!(P1)^!(P2)^!(P3))U((P1^!(P2)^!(P3)^((!(P2)^!(P3))U(P2^!(P3)^((!(P3)U(P3))))))))V(R1VR2)))^((!<>(R1VR2))->!((!(Q1^Q2^Q3^Q4^Q5))U((!(P1)^!(P2)^!(P3))^((!(P1)^!(P2)^!(P3))U((P1^!(P2)^!(P3)^((!(P2)^!(P3))U(P2^!(P3)^((!(P3)U(P3))))))))^!(Q1^Q2^Q3^Q4^Q5))))))))))))");
 	}
 }

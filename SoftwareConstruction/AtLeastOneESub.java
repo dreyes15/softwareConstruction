@@ -11,7 +11,7 @@
  * Sprint: CP Generation
  * Due Date: July 3, 2015
  */
-import java.util.*;
+
 public class AtLeastOneESub{
 	
 	/*In this method is type String method that will return an updated formula. We will be taking as parameters
@@ -24,34 +24,34 @@ public class AtLeastOneESub{
 		public static String generateCP(String propName, int numberOfProps){
 			
 			String propReplacement = "";
-			String initialSubFormula = "";	//first chunk of formula
-			String middleSubFormula = "";	//send chunk of formula
-			String lastSubFormula = "";		//third chunk of formula
+			String initialSubFormula = "";//first chunck of formula
+			String middleSubFormula = "";//send chunck of formula
+			String lastSubFormula = "";//thind chunck of formula
 			
 			String name = propName;
 			int number = numberOfProps;
 			
 			for(int i = 1; i <= number; i++){
-				initialSubFormula += "(¬" + name + i;
+				initialSubFormula += "(!(" + name + i + ")";
 				while(i != number){
 					i++;
-					initialSubFormula += " ^¬ "+name +i;
+					initialSubFormula += "^!("+name + i + ")";
 				}
 				initialSubFormula += ")^";
 				i = 1;
 
-				middleSubFormula = "((¬" + name + i;
+				middleSubFormula = "((!(" + name + i + ")";
 				while(i != number){
 					i++;
-					middleSubFormula += " ^¬ "+name +i;
+					middleSubFormula += "^!("+name +i + ")";
 				}
-				middleSubFormula += ")U";
+				middleSubFormula += ")U(";
 				i = 1;
 
-				lastSubFormula = "(" + name + i;
+				lastSubFormula = name + i;
 				while(i != number){
 					i++;
-					lastSubFormula += " V "+ name +i;
+					lastSubFormula += "V"+ name +i;
 				}
 				lastSubFormula += "))";
 

@@ -21,21 +21,23 @@ public class AtLeastOneHSub{
 	 * Example of how the output should look like: piV...Vpn 
 	 */
 	
-			public static String generateCP(String propName, int numberOfProps){
-				
-				String propReplacement = "";
-				
-				String name = propName;
-				int number = numberOfProps;
-				
-				for(int i = 1; i <= number; i++ ){
-					propReplacement = name + i;
-					while(i != number){
-						i++;
-						propReplacement += " V "+name +i;
-					}
-				}
-				
-				return propReplacement;
+	public static String generateCP(String propName, int numberOfProps){
+		
+		String propReplacement = "(";
+		
+		String name = propName;
+		int number = numberOfProps;
+		
+		for(int i = 1; i <= number; i++ ){
+			propReplacement += name + i;
+			while(i != number){
+				i++;
+				propReplacement += "V"+name +i;
 			}
+		}
+		propReplacement = propReplacement + ")";
+		
+		return propReplacement;
+	}
+
 }
