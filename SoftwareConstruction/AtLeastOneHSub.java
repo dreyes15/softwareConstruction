@@ -12,7 +12,6 @@
  * Due Date: July 3, 2015
  */
 
-import java.util.*;
 public class AtLeastOneHSub{
 	
 	/*In this method is type String method that will return an updated formula. We will be taking as parameters

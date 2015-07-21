@@ -8,7 +8,7 @@
  * propositions are false at some state. Then, at least one of these propositions 
  * becomes true at some future state. 
  */
-import java.util.*;
+
 public class AtLeastOneE extends Composite {
 
 	/* AtLeastOneE(String name, int number) is a constructor method for a composite

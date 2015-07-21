@@ -16,7 +16,7 @@ public class ConsecutiveHSub {
 	public static String generateCP (String propName, int numberOfProps){
 		
 		String propReplacement = "(";
-		int closingcount =0; //tracks the number of closing parenthesis
+		//int closingcount =0; //tracks the number of closing parenthesis
 
 		String name = propName;
 		int number = numberOfProps;

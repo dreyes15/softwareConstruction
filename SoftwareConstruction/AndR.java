@@ -16,14 +16,20 @@ public class AndR {
 		String andRModifiedFormula = modifiedFormula;
 		int searchPosition = andRModifiedFormula.length() - 1;
 		
+		//Starts from the end of the formula to the beginning of the formula
 		while (searchPosition > 0) {
+			//Searches for the &r operator
 			if (andRModifiedFormula.charAt(searchPosition) == 'r') {
-				searchPosition--;
+				searchPosition--; 
 				if (andRModifiedFormula.charAt(searchPosition) == '&') {
+					//Gets the portion of the formula after the &r operator
 					String subFormulaToAdd = splicer.getSubformulaToAdd(andRModifiedFormula, searchPosition + 1);
+					//Removes the &r operator and the subformula it is splicing into the portion before the &r
 					andRModifiedFormula = splicer.removeSubformula(andRModifiedFormula, searchPosition, searchPosition + 1 + subFormulaToAdd.length());
 					searchPosition--;
+					//Gets the beginning position of the portion of the formula that needs to be spliced into
 					int startPosition = splicer.getBeginSubformulaToSplicePosition(andRModifiedFormula, searchPosition);
+					//Searches the portion of formula that needs to be spliced into for the 
 					while (startPosition < searchPosition) {
 						startPosition++;
 						if (andRModifiedFormula.substring(startPosition,startPosition+1).matches(

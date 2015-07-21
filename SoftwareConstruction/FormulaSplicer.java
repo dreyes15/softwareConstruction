@@ -101,12 +101,16 @@ public class FormulaSplicer {
 	 * opening parenthesis.  It returns this position to the calling method.
 	 */
 	public int getEndSubformulaToSplicePosition(String modifiedFormula, int specOpPosition) {
-		int endSplicePosition = specOpPosition;
-		char currentCharacter = modifiedFormula.charAt(endSplicePosition-1);
-		while (currentCharacter != '(')
+		int endSplicePosition = specOpPosition-1;
+		char currentCharacter = modifiedFormula.charAt(endSplicePosition);
+		while (currentCharacter != '(') {
 			endSplicePosition--;
-		while (currentCharacter == '(')
+			currentCharacter = modifiedFormula.charAt(endSplicePosition);
+		}
+		while (currentCharacter == '(') {
 			endSplicePosition--;
+			currentCharacter = modifiedFormula.charAt(endSplicePosition);
+		}
 		return endSplicePosition;
 	}
 }

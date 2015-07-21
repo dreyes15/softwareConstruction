@@ -8,7 +8,7 @@
  *'s' if at least one proposition is true at state 's'.
  * AtLeastOneC is a subclass of the Composite superclass. 
  */
-import java.util.*;
+
 
 public class AtLeastOneC extends Composite {
 
