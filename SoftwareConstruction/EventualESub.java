@@ -14,6 +14,14 @@
 
 public class EventualESub {
     
+    public static void main(String args[]){
+    
+        System.out.println(generateCP("l", 3));
+    
+    
+    
+    }
+    
     /* EventualHSub */
     public static String generateCP(String propName, int numberOfProps){
        
@@ -67,7 +75,7 @@ public class EventualESub {
         }
         
         String middleSubFormula = str1 + str2 + str3;
-        String lastSubFormula = "(!(" + name + number + ")U(" + name + number + "))))))";
+        String lastSubFormula = "(!" + name + number + " U " + name + number + ")))))";
         String endParenthesis = genEndParenthesis(endParenthesisCount);
         
         propReplacement = initialSubFormula + "(" + middleSubFormula + lastSubFormula + endParenthesis;
@@ -82,9 +90,9 @@ public class EventualESub {
         String formula = "";
         for(int i=start; i<= end; i++) {
             if(i == start ) {
-                formula = "!(" + name + i + ")";
+                formula = "!" + name + i + "";
             } else {
-                formula = formula + "^!(" + name + i + ")";
+                formula = formula + "^!" + name + i + "";
             }
         }
         return formula;
