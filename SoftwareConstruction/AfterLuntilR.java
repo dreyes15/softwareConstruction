@@ -15,23 +15,26 @@ public class AfterLuntilR extends Scope{
 	 * the following methods. For the purpose of this class we will be naming these variables
 	 * L and R.
 	 */
-	
-	initializing variable L of type Proposition;
-	initializing variable R of type Proposition;
+	private Proposition propositionL;	//initializing variable L of type Proposition;
+	private Proposition propositionR;	//initializing variable R of type Proposition;
 
-	
-	public AfterLuntilR(parameter of type Proposition, parameter of type Proposition){
-		/*This is a constructor method of type AfterLuntilR. This class will extend
-		 * the Scope class, therefore the variables will be sent to the super class
-		 * to sote the information.
-		 */
-		
-		set variable L be equal to the parameter;
-		set variable R be equal to the parameter;
-
-
+	/*This is a constructor method of type AfterLuntilR. This class will extend
+	 * the Scope class, therefore the variables will be sent to the super class
+	 * to sote the information.
+	 */	
+	public AfterLuntilR(Proposition propL, Proposition propR)
+	{
+		this.propositionL = propL;	//set variable L be equal to the parameter;
+		this.propositionR = propR;	//set variable R be equal to the parameter;
 	}
 	
-
-
+	public Proposition getPropositionL()
+	{
+		return this.propositionL;
+	}
+	
+	public Proposition getPropositionR()
+	{
+		return this.propositionR;
+	}
 }

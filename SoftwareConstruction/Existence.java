@@ -2,8 +2,10 @@
  * this class will do this by using the method Existance().
  */
 public class Existence extends Pattern {
-
     
     /* Creates an object of type Existance to be futher used by the LTL generator.
      */
+	public Existence(Proposition propP) {
+		this.propositionP = propP;
+	}
 }

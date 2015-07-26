@@ -6,14 +6,44 @@ GlobalTable, BeforeRTable, AfterLUntilRTable, BetweenRTable, AfterLTable
 */
 public class SubstitutionTable {
 	
-	//Method getGlobalTable() will get the template considering the global scope.
+	/* Gets template formula for property of Global scope.
+	 */
+	public static String getTable(Global scope, Pattern pattern)
+	{
+		return GlobalTable.getFormula(pattern);
+	}
 	
-	//Method getAfterLTable() will get the template considering the AfterL scope. 
+	/* Gets template formula for property of AfterL scope.
+	 */
+	public static String getTable(AfterL scope, Pattern pattern)
+	{
+		Proposition propositionL = scope.getPropositionL();
+		return AfterLTable.getFormula(propositionL, pattern);
+	} 
 	
-	//Method getBeforeRTable() will get the template considering the BeforeR scope. 
+	/* Gets template formula for property of BeforeR scope.
+	 */
+	public static String getTable(BeforeR scope, Pattern pattern)
+	{
+		Proposition propositionR = scope.getPropositionR();
+		return BeforeRTable.getFormula(propositionR, pattern);
+	}
 	
-	//Method getBeforeLandRTable() will get the template considering the BeforeLandR scope. 
+	/* Gets template formula for property of BetweenLandR scope.
+	 */
+	public static String getTable(BetweenLandR scope, Pattern pattern)
+	{
+		Proposition propositionL = scope.getPropositionL();
+		Proposition propositionR = scope.getPropositionR();
+		return BetweenLandRTable.getFormula(propositionL, propositionR, pattern);
+	}
 	
-	//Method getAfterLUntilRTable() will get the template considering the AfterLUntilR scope. 
-	
+	/* Gets template formula for property of AfterLuntilR scope.
+	 */
+	public static String getTable(AfterLuntilR scope, Pattern pattern)
+	{
+		Proposition propositionL = scope.getPropositionL();
+		Proposition propositionR = scope.getPropositionR();
+		return AfterLUntilRTable.getFormula(propositionL, propositionR, pattern);
+	}
 }
