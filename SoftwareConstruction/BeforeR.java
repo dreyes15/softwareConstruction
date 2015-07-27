@@ -21,7 +21,7 @@ public class BeforeR extends Scope{
          * to store the information.
          */
         
-        //set variable R be equal to the parameter;
+        
         String BaseFormula = "";
         
         if(PropType.equals("C")|| PropType.equals("c")){

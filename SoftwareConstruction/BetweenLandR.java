@@ -12,7 +12,7 @@ public class BetweenLandR extends Scope{
     
     /*Here we will need to declare two variables of type Proposition that will be used for
      * the following methods. For the purpose of this class we will be naming these variables
-     * L and R.
+     * L and R
      */
     
     public String getBetweenLandRCFormula(Pattern pat){
