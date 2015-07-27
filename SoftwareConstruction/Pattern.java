@@ -3,9 +3,29 @@
  * the Pattern input from the Property class, which will then delegate the pattern to it's repsected
  * class.
  **/
-public class Pattern {
-    
-    /* getPatternType() method that returns an instance of the pattern specified by the Property class
-     */
+public abstract class Pattern
+{    
+	private String patternType;
+	protected Proposition propositionP;
 
+	public Pattern()
+	{
+		setPatternTypeName();
+	}
+	
+	private void setPatternTypeName()
+	{
+		String patternTypeClassName = this.getClass().getSimpleName();
+		patternType = patternTypeClassName;
+	}
+
+	public String getPatternType()
+	{
+		return patternType;
+	}
+	
+	public Proposition getPropositionP()
+	{
+		return this.propositionP;
+	}
 }

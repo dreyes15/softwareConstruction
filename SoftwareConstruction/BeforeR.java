@@ -12,18 +12,19 @@ public class BeforeR extends Scope{
 	/*Here we will need to declare a variable of type Proposition that will be used for
 	 * the following methods. For the purpose of this class we will be naming this variable R.
 	 */
-	
-	initializing variable R of type Proposition;
+	private Proposition propositionR;	//initializing variable R of type Proposition;
 
-	public BeforeR(parameter){
-		/*This is a constructor method of type BeforeR. This class will extend
-		 * the Scope class, therefore the variables will be sent to the super class
-		 * to sote the information.
-		 */
-		
-		set variable R be equal to the parameter;
-
+	/*This is a constructor method of type BeforeR. This class will extend
+	 * the Scope class, therefore the variables will be sent to the super class
+	 * to sote the information.
+	 */
+	public BeforeR(Proposition propR)
+	{
+		this.propositionR = propR;		//set variable R be equal to the parameter;
 	}
 	
-
+	public Proposition getPropositionR()
+	{
+		return this.propositionR;
+	}
 }

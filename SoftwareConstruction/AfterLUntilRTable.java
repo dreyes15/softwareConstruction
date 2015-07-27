@@ -9,5 +9,31 @@ public class AfterLUntilRTable {
 	 * a Pattern, and all necessary Proposition types and will do the string substituion given the after L until R
 	 * scope and will return the template to the formula creator.
 	 */
+    
+    public static String afterLUntilRCSubstitution(Pattern pat){
+        
+        baseFormula = " ";
+        rSubFormula = " ";
+        gSubFormula = " ";
+        
+        gSubFormula = GlobalTable.getGbaseFormula(Pattern pat);
+        rSubFormula = AfterRTable.getRBaseFormula(Pattern pat);
+        
+        baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
+    
+    }
+    
+    public static String afterLUntilRESubstitution(Pattern pat){
+        
+        baseFormula = " ";
+        rSubFormula = " ";
+        gSubFormula = " ";
+        
+        gSubFormula = GlobalTable.getGbaseFormula(Pattern pat);
+        rSubFormula = AfterRTable.getRBaseFormula(Pattern pat);
+        
+        baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))"
+        
+    }
 
 }

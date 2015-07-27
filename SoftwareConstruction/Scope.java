@@ -4,13 +4,23 @@
  * This class will determine the extent of program execution depending 
  * on which property pattern is being used. 
  */
-public class Scope {
+public abstract class Scope
+{
+	private String scopeType;
 	
-	public String ScopeType(){
-		/*This a type String method that will compare the info passed. This class will be 
-		 * used as a placeholder class that will gather all the information and will they 
-		 * pass it to the next part of the system.
-		 */
+	public Scope()
+	{
+		setScopeTypeName();
 	}
-
+			
+	private void setScopeTypeName()
+	{
+		String scopeTypeClassName = this.getClass().getSimpleName();
+		scopeType = scopeTypeClassName;
+	}
+	
+	public String getScopeType()
+	{ 
+		return scopeType;
+	}
 }
