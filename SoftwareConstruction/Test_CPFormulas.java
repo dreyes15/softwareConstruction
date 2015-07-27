@@ -149,7 +149,7 @@ public class Test_CPFormulas {
 		AndR andR = new AndR();
 		AndNotL andNotL = new AndNotL();
 		//String baseFormula = "[](L->(L&l((<>R->((!(P&r!R))U((Q&-lPVR))^((!<>R)->!((!Q)U(P^!Q)))))))";
-		String baseFormula = "Q&-lP";
+		String baseFormula = "Q&rP";
 		Proposition p = new Atomic("P");//EventualE 3
 		Proposition q = new EventualE("Q", 3);//ParallelC 5
 		Proposition l = new ConsecutiveC("L", 4);//ConsecutiveC 4
