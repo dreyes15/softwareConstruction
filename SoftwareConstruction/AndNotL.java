@@ -10,61 +10,80 @@ public class AndNotL {
      * except the last. Once all of the &-l operations have been performed, it will return the 
      * resulting andNotLModifiedFormula to the SpecialOperator class.
      */
-	public String replaceAndNotL(String modifiedFormula, Proposition Q) {
+	public String replaceAndNotL(String modifiedFormula) {
 
-		String PropQ = Q.getType();
 		FormulaSplicer splicer = new FormulaSplicer();
 		String andNotLModifiedFormula = modifiedFormula;
 		int searchPosition = andNotLModifiedFormula.length() - 1;
 		
 		while (searchPosition > 0) {
-			if (andNotLModifiedFormula.charAt(searchPosition) == 'l') {
-				searchPosition--;
-				if (andNotLModifiedFormula.charAt(searchPosition) == '-') {
+			if (andNotLModifiedFormula.charAt(searchPosition) == '-') {
+				//Check to see if proposition before operator is AtLeastOneC or ParallelC
+				if (andNotLModifiedFormula.charAt(searchPosition+1) == 'l') {
+					//String subformulaToAdd = splicer.getSubformulaToAdd(andNotLModifiedFormula, searchPosition + 1);
+					andNotLModifiedFormula = splicer.removeSubformula(andNotLModifiedFormula, searchPosition, searchPosition + 1);
+					andNotLModifiedFormula = andNotLModifiedFormula.replaceAll("&", "^");
+				}
+				//Check to see if proposition before operator is ConsecutiveC or EventualC
+				else if (andNotLModifiedFormula.charAt(searchPosition+1) == 'c'){
 					String subformulaToAdd = splicer.getSubformulaToAdd(andNotLModifiedFormula, searchPosition + 1);
-					if (PropQ.matches("AtLeastOneC") || PropQ.matches("ParallelC")){
-						andNotLModifiedFormula = splicer.removeSubformula(andNotLModifiedFormula, searchPosition, searchPosition + 1);
+					andNotLModifiedFormula = splicer.removeSubformula(andNotLModifiedFormula, searchPosition-1, searchPosition + 1 + subformulaToAdd.length());
+					searchPosition--;
+					int startPosition = splicer.getBeginSubformulaToSplicePosition(andNotLModifiedFormula, searchPosition);
+					while (startPosition < searchPosition) {
+						startPosition++;
+						if (andNotLModifiedFormula.substring(startPosition,startPosition+1).matches("X")) {
+							andNotLModifiedFormula = splicer.addSubformula(andNotLModifiedFormula, subformulaToAdd + "^", startPosition);
+							searchPosition += subformulaToAdd.length();
+							startPosition += subformulaToAdd.length()+1;
+						}
+						else if (andNotLModifiedFormula.substring(startPosition,startPosition+1).matches("U")) {
+								andNotLModifiedFormula = splicer.addSubformula(andNotLModifiedFormula, "^" + subformulaToAdd, startPosition - 1);
+								searchPosition += subformulaToAdd.length();
+								startPosition += subformulaToAdd.length()+1;
+						}
 					}
-					else if (PropQ.matches("AtLeastOneE") || PropQ.matches("ParallelE")){
-						//insert method to add subformulaToAdd to first two states
-						andNotLModifiedFormula = splicer.removeSubformula(andNotLModifiedFormula, searchPosition-1, searchPosition + 1 + subformulaToAdd.length());
-						searchPosition = searchPosition - 2;
-						andNotLModifiedFormula = splicer.addSubformula(andNotLModifiedFormula, "&" + subformulaToAdd, searchPosition);
-					}
-					else if (PropQ.matches("ConsecutiveC") || PropQ.matches("EventualC")){
-						andNotLModifiedFormula = splicer.removeSubformula(andNotLModifiedFormula, searchPosition-1, searchPosition + 1 + subformulaToAdd.length());
+				}
+				//Check to see if proposition before operator is AtLeastOneE or ParallelE
+				else if (andNotLModifiedFormula.charAt(searchPosition+1) == 'x'){
+					String subformulaToAdd = splicer.getSubformulaToAdd(andNotLModifiedFormula, searchPosition + 1);
+					andNotLModifiedFormula = splicer.removeSubformula(andNotLModifiedFormula, searchPosition-1, searchPosition + 1 + subformulaToAdd.length());
+					searchPosition--;
+					int startPosition = splicer.getBeginSubformulaToSplicePosition(andNotLModifiedFormula, searchPosition);
+					while (searchPosition > startPosition+1){
 						searchPosition--;
-						int startPosition = splicer.getBeginSubformulaToSplicePosition(andNotLModifiedFormula, searchPosition);
-						while (startPosition < searchPosition) {
-							startPosition++;
-							if (andNotLModifiedFormula.substring(startPosition,startPosition+1).matches("X")) {
-								andNotLModifiedFormula = splicer.addSubformula(andNotLModifiedFormula, subformulaToAdd + "&", startPosition);
-								searchPosition += subformulaToAdd.length();
-								startPosition += subformulaToAdd.length()+1;
-							}
-							else if (andNotLModifiedFormula.substring(startPosition,startPosition+1).matches("U")) {
-								andNotLModifiedFormula = splicer.addSubformula(andNotLModifiedFormula, "&" + subformulaToAdd, startPosition - 1);
-								searchPosition += subformulaToAdd.length();
-								startPosition += subformulaToAdd.length()+1;
+						//Finds all the sets of close parentheses
+						if (andNotLModifiedFormula.substring(searchPosition-1,searchPosition).matches("\\)")){
+							searchPosition--;
+							if (andNotLModifiedFormula.substring(searchPosition-1,searchPosition).matches("\\)")){
+								while (andNotLModifiedFormula.substring(searchPosition-1,searchPosition).matches("\\)")){
+									searchPosition--;
+								}
+								//Adds the splice after the first of these close parentheses
+								andNotLModifiedFormula = splicer.addSubformula(andNotLModifiedFormula, "^" + subformulaToAdd, searchPosition+1);
 							}
 						}
 					}
-					else if (PropQ.matches("ConsecutiveE") || PropQ.matches("EventualE")){
-						//insert method to add subformulaToAdd to first state
-						andNotLModifiedFormula = splicer.removeSubformula(andNotLModifiedFormula, searchPosition-1, searchPosition + 1 + subformulaToAdd.length()); 
+				}
+				//Check to see if proposition before operator is ConsecutiveE or EventualE
+				else if (andNotLModifiedFormula.charAt(searchPosition+1) == 'e'){
+					//insert method to add subformulaToAdd to first state
+					String subformulaToAdd = splicer.getSubformulaToAdd(andNotLModifiedFormula, searchPosition + 1);
+					andNotLModifiedFormula = splicer.removeSubformula(andNotLModifiedFormula, searchPosition-1, searchPosition + 1 + subformulaToAdd.length()); 
+					searchPosition--;
+					int startPosition = splicer.getBeginSubformulaToSplicePosition(andNotLModifiedFormula, searchPosition);
+					searchPosition = splicer.getEndSubformulaToSplicePosition(andNotLModifiedFormula, searchPosition);
+					while (searchPosition > startPosition+1){
 						searchPosition--;
-						int startPosition = splicer.getBeginSubformulaToSplicePosition(andNotLModifiedFormula, searchPosition);
-						while (startPosition < searchPosition) {
-							startPosition++;
-							if (andNotLModifiedFormula.substring(startPosition,startPosition+1).matches("X")) {
-								andNotLModifiedFormula = splicer.addSubformula(andNotLModifiedFormula, subformulaToAdd + "&", startPosition);
-								searchPosition += subformulaToAdd.length();
-								startPosition += subformulaToAdd.length()+1;
-							}
-							else if (andNotLModifiedFormula.substring(startPosition,startPosition+1).matches("U")) {
-								andNotLModifiedFormula = splicer.addSubformula(andNotLModifiedFormula, "&" + subformulaToAdd, startPosition - 1);
-								searchPosition += subformulaToAdd.length();
-								startPosition += subformulaToAdd.length()+1;
+						//Finds all the sets of close parentheses
+						if (andNotLModifiedFormula.substring(searchPosition-1,searchPosition).matches("\\)")){
+							searchPosition--;
+							if (andNotLModifiedFormula.substring(searchPosition-1,searchPosition).matches("\\)")){
+								while (andNotLModifiedFormula.substring(searchPosition-1,searchPosition).matches("\\)")){
+									searchPosition--;
+								}
+								//Adds the splice after the first of these close parentheses
+								andNotLModifiedFormula = splicer.addSubformula(andNotLModifiedFormula, "^" + subformulaToAdd, searchPosition+1);
 							}
 						}
 					}
@@ -75,3 +94,4 @@ public class AndNotL {
 		return andNotLModifiedFormula;
 	}
 }
+

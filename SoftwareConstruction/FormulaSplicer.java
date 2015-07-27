@@ -34,14 +34,9 @@ public class FormulaSplicer {
 				parenthesisMatcher.push(currentCharacter);
 			}	
 			else if (currentCharacter == ')') {
+				parenthesisMatcher.pop();
 				if (parenthesisMatcher.isEmpty()) {
-					return endPosition;
-				}
-				else {
-					parenthesisMatcher.pop();
-					if (parenthesisMatcher.isEmpty()) {
-						return endPosition+1;
-					}
+					return endPosition+1;
 				}
 			}
 		}
@@ -104,10 +99,6 @@ public class FormulaSplicer {
 		int endSplicePosition = specOpPosition-1;
 		char currentCharacter = modifiedFormula.charAt(endSplicePosition);
 		while (currentCharacter != '(') {
-			endSplicePosition--;
-			currentCharacter = modifiedFormula.charAt(endSplicePosition);
-		}
-		while (currentCharacter == '(') {
 			endSplicePosition--;
 			currentCharacter = modifiedFormula.charAt(endSplicePosition);
 		}
