@@ -32,7 +32,7 @@ public class AtLeastOneESub{
 			int number = numberOfProps;
 			
 			for(int i = 1; i <= number; i++){
-				initialSubFormula += "(!(" + name + i + ")";
+				initialSubFormula += "((!(" + name + i + ")";
 				while(i != number){
 					i++;
 					initialSubFormula += "^!("+name + i + ")";
@@ -53,7 +53,7 @@ public class AtLeastOneESub{
 					i++;
 					lastSubFormula += "V"+ name +i;
 				}
-				lastSubFormula += "))";
+				lastSubFormula += ")))";
 
 			}
 			propReplacement = initialSubFormula + middleSubFormula + lastSubFormula;

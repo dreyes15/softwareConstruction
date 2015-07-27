@@ -17,7 +17,7 @@ public class ConsecutiveESub {
 	public static String generateCP (String propName, int numberOfProps){
 		
 		String propReplacement = "";
-		String beginningSubFormula ="";
+		String beginningSubFormula ="(";
 		String endingSubFormula = "";
 		
 		String name = propName;
@@ -45,7 +45,7 @@ public class ConsecutiveESub {
 				}
 			}
 		}
-		propReplacement = beginningSubFormula + endingSubFormula;
+		propReplacement = beginningSubFormula + endingSubFormula + ")";
 		return propReplacement;
 	}
 
