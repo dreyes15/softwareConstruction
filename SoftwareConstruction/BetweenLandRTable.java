@@ -1,13 +1,41 @@
-/*Contains string substitution data for each possible pattern given the
- * Between L and R scope. It will return the formula template with the 
- * special & operators.
- * 
- * 
+/*
+ * This class is a type of scope that will describe the extent of
+ * program execution over which property holds.
+ *
+ * With the given information this class should be able to generate itself
+ * as the "Between L and R" scope.
+ *
+ * Between L and R will denote the execution between intervals define by L and R.
+ *
  */
-public class BetweenLandRTable {
-	/* Method BetweenLandRSubstitution() receives appropriate properties such as the string array containing a Scope, 
-	 * a Pattern, and all necessary Proposition types and will do the string substituion given the between L and R
-	 * scope and will return the template to the formula creator.
-	 */
-
+public class BetweenLandR extends Scope{
+    
+    /*Here we will need to declare two variables of type Proposition that will be used for
+     * the following methods. For the purpose of this class we will be naming these variables
+     * L and R.
+     */
+    
+    public String getBetweenLandRCFormula(Pattern pat){
+        String	petName = pat.getName();
+        String	baseFormula = "";
+        String	rSubformula = "";
+        
+        rSubformula= AfterRTable.getRBaseFormula(Pattern pat);
+        baseFormula = "[]((L&!R)->(L&"+ rSubformula +"))";
+        
+        return baseFormula;
+    }
+    
+    public String getBetweenLandREFormula(Pattern pat){
+        String petName = pat.getName();
+        String baseFormula = "";
+        String rSubformula = "";
+        
+        rSubformula = AfterRTable.getRBaseFormula(Pattern pat);
+        baseFormula = "[](L->(L&"+ rSubformula+"))";
+        
+        return baseFormula;
+    }
+				
+    
 }
