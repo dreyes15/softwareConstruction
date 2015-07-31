@@ -3,20 +3,12 @@
  * Precendence().
  */
 public class Precedence extends Pattern
-{    
-	Proposition propositionP;
-	Proposition propositionQ;
-	
-    /* Creates an object of type Precedence to be futher used by the LTL generator.
+{  
+    /* Creates an object of type Precedence to be further used by the LTL generator.
      */
 	public Precedence(Proposition propP, Proposition propQ)
 	{
 		this.propositionP = propP;
 		this.propositionQ = propQ;
-	}
-	
-	public Proposition getPropositionQ()
-	{
-		return this.propositionQ;
 	}
 }
