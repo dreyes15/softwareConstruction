@@ -3,7 +3,15 @@
  */
 public class StrictPrecedence extends Pattern{
     
-    /* Creates an object of type Strict Precedence to be futher used by the LTL generator.
+	Proposition propositionQ;
+	
+    /* Creates an object of type Strict Precedence to be further used by the LTL generator.
      */
-
+	public StrictPrecedence(Proposition propP, Proposition propQ) {
+		this.propositionQ = propQ;
+		
+	}
+	public Proposition getPropositionQ() {
+		return null;
+	}
 }
