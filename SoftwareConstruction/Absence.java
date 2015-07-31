@@ -3,9 +3,7 @@
  */
 public class Absence extends Pattern
 {    
-    /* Creates an object of type Absence to be further used by the LTL generator.
-     */
-	public Absence(Proposition propP)
+	public Absence(Proposition propP, Proposition propQ)
 	{
 		this.propositionP = propP;
 	}

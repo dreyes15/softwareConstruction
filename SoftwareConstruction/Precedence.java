@@ -7,7 +7,7 @@
  * Purpose:
  * This class defines the pattern that, if in the portion of the system, an occurrence of the secondary
  * proposition (q) is a necessary pre-condition of an occurrence of p.this class will do this by using the method
- * Precendence().
+ * Precedence().
  */
 
 public class Precedence extends Pattern

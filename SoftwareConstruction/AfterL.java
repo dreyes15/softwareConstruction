@@ -8,12 +8,9 @@
  * After L will denote the execution after the first time L holds.
  * 
  */
-public class AfterL extends Scope{
-	/*This is a constructor method of type AfterL. This class will extend
-	 * the Scope class, therefore the variables will be sent to the super class
-	 * to sort the information.
-	 */
-	public AfterL(Proposition propL)
+public class AfterL extends Scope
+{
+	public AfterL(Proposition propL, Proposition propR)
 	{
 		this.propositionL = propL;	// Pass the L proposition
 	}

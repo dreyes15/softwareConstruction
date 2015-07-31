@@ -9,10 +9,7 @@ public class Property
 {
 	Scope scope;
 	Pattern pattern;
-	
-	/*The Property() constructor builds a new Property object using the Scope and Pattern
-	 * objects that are passed to it.
-	 */
+
 	public Property(Scope inScope, Pattern inPattern)
 	{
 		this.scope = inScope;

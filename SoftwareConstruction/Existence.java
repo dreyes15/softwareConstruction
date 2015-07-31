@@ -10,7 +10,7 @@
 
 public class Existence extends Pattern
 {
-	public Existence(Proposition propP)
+	public Existence(Proposition propP, Proposition propQ)
 	{
 		this.propositionP = propP;
 	}

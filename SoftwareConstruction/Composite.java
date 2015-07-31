@@ -12,15 +12,14 @@
  * ParallelC, ParallelE, ConsecutiveC, ConsecutiveE, EventualE, and EventualC.
  */
 
-public abstract class Composite extends Proposition {
-    //number of propositions that make up this composite proposition
-    //int numberOfPropositions;
-    
+public abstract class Composite extends Proposition
+{    
     /* Composite(String name, String type, int number) is a constructor method that creates
      * an instance of a Composite Proposition. Requires the proposition variable name,
      * type, and number as input.
      */
-    public Composite(String name, int number){
+    public Composite(String name, int number)
+    {
         super(name);
         this.numberOfPropositions = number;
     }
@@ -28,7 +27,4 @@ public abstract class Composite extends Proposition {
     /*Method getNumberOfPropositions() returns the "numberOfPropositions" value of the
      * Composite Proposition object.
      */
-    public int getNumber(){
-        return numberOfPropositions;
-    }
 }

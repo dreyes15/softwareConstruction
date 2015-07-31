@@ -14,7 +14,7 @@ public abstract class Scope
 	{
 		setScopeTypeName();
 	}
-			
+		
 	private void setScopeTypeName()
 	{
 		String scopeTypeClassName = this.getClass().getSimpleName();
