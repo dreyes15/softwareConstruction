@@ -13,31 +13,32 @@ public class BeforeRTable {
     //initializing variable R of type Proposition;
     public String getFormula(Precedence pattern, Proposition R)
     {
-        Proposition PropP = Pattern.getPropositionP();
-        char PendLetter = getLastLetter(P);
-        Proposition PropR = R;
-        char RendLetter = getLastLetter(R);
+        Precedence pat = pattern;
+        Proposition propP = pat.getPropositionP();
+        char PendLetter = getLastLetter(propP);
+        Proposition propR = R;
+        char RendLetter = getLastLetter(propR);
         String BaseFormula = "";
         String SubFormula1="";
         String SubFormula2 ="";
         String SubFormula3 = "";
         String SubFormula4 ="";
         String SubFormula5="";
-        int pNumber = p.getNumber();
-        int rNumber = r.getNumber();
+        int pNumber = propP.getNumber();
+        int rNumber = propR.getNumber();
         
         if(RendLetter == 'C' || RendLetter == 'c')
         {
-            if(PropR.getType() == "Absence")
+            if(propR.getType() == "Absence")
             {
                 BaseFormula = "!((!R)U((P&!R)&<>R))";
             }
             
-            else if (PropR.getType() == "Existence")
+            else if (propR.getType() == "Existence")
             {
                 BaseFormula = "!((!(P&!R))UR)";
             }
-            else if(PropR.getType() == "QPrecedes")
+            else if(propR.getType() == "QPrecedes")
             {
                 if(PendLetter == 'C' || PendLetter == 'c')
                 {
@@ -55,7 +56,7 @@ public class BeforeRTable {
                     BaseFormula = SubFormula1+SubFormula2+SubFormula3;
                 }
             }
-            else if(PropR.getType() == "QStricltyPrecedes")
+            else if(propR.getType() == "QStricltyPrecedes")
             {
                 if(PendLetter == 'C' || PendLetter == 'c')
                 {
@@ -73,14 +74,14 @@ public class BeforeRTable {
                     BaseFormula=SubFormula1+SubFormula2+SubFormula3 ;
                 }
             }
-            else if (PropR.getType() =="QResponds")
+            else if (propR.getType() =="QResponds")
             {
                 BaseFormula = "!((!R)U((P&!R)&((!(Q&!R))UR)))";
             }
         }
         else if(RendLetter == 'E' || RendLetter == 'e')
         {
-            if(PropR.getType() == "Absence")
+            if(propR.getType() == "Absence")
             {
                 SubFormula1 ="(<>R)->!((!((";
                 for(int i =1; i<rNumber-1; i++)
@@ -91,7 +92,7 @@ public class BeforeRTable {
                 SubFormula3 = ")^X(Rh)))U(P&!Rh))";
                 BaseFormula = SubFormula1+SubFormula2+SubFormula3;
             }
-            else if(PropR.getType() == "Existence")
+            else if(propR.getType() == "Existence")
             {
                 SubFormula1 = "(<>R)->((!((";
                 for(int i =1; i<rNumber-1; i++)
@@ -102,7 +103,7 @@ public class BeforeRTable {
                 SubFormula3 = ")^X(Rh)))U(P&!Rh))";
                 BaseFormula =SubFormula1+SubFormula2+SubFormula3;
             }
-            else if(PropR.getType() == "QPrecedes"){
+            else if(propR.getType() == "QPrecedes"){
                 if(PendLetter == 'C' || PendLetter == 'c'){
                     SubFormula1 = "(<>R)->(((!(P&!Rh))U((Q&!P)V((";
                     for(int i=1; i<rNumber-1; i++)
@@ -131,7 +132,7 @@ public class BeforeRTable {
                     BaseFormula= SubFormula1+SubFormula2+SubFormula3+SubFormula4+SubFormula5;
                 }
             }
-            else if(PropR.getType() =="QStrictlyPrecedes")
+            else if(propR.getType() =="QStrictlyPrecedes")
             {
                 if(PendLetter == 'C' || PendLetter =='c')
                 {
@@ -161,7 +162,7 @@ public class BeforeRTable {
                     SubFormula4= "^XRh)))";
                     BaseFormula=SubFormula1+SubFormula2+ SubFormula3 + SubFormula4;
                 }
-                else if(PropR.getType() == "Responds")
+                else if(propR.getType() == "Responds")
                 {
                     SubFormula1 = "!((!((";
                     for(int i=0; i<rNumber; i++)
