@@ -6,13 +6,22 @@
  */
 
 public class Property {
+	Scope scope;
+	Pattern pattern;
 	
 	/*The Property() constructor builds a new Property object using the Scope and Pattern
 	 * objects that are passed to it.
 	 */
+	public Property(Scope inScope, Pattern inPattern) {
+		this.scope = inScope;
+		this.pattern = inPattern;
+	}
 	
-	//SetScope() attaches a Scope object to the Property object.
+	public Pattern getPattern() {
+		return this.pattern;
+	}
 	
-	//SetPattern() attaches a Pattern object ot the Property object.
-
+	public Scope getScope() {
+		return this.scope;
+	}
 }
