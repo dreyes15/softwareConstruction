@@ -8,7 +8,7 @@
  * Between L and R will denote the execution between intervals define by L and R.
  *
  */
-public class BetweenLandR extends Scope{
+public class BetweenLandRTable extends Scope{
     
     /*Here we will need to declare two variables of type Proposition that will be used for
      * the following methods. For the purpose of this class we will be naming these variables
