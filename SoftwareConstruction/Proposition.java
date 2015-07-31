@@ -16,21 +16,28 @@ public abstract class Proposition {
 	String nameOfProposition;
 	//Proposition variable type
 	String typeOfProposition;
+	//Number of Propositions (applicable to composite)
+	int numberOfPropositions;
 	
 	/* Proposition(String name) is a constructor method that creates an instance of a 
 	 * Proposition. Requires the proposition variable name as input.
 	 */
 	public Proposition(String name){
 		this.nameOfProposition = name;
+		this.numberOfPropositions = 1;
 	}
 	
 	//Method getName() returns the "nameOfProposition" string of the Proposition object.
 	public String getName(){
-		return nameOfProposition;
+		return this.nameOfProposition;
 	}
 	 
 	//Method getType() returns the "typeOfProposition" string of the Proposition object.
 	public String getType(){
-		return typeOfProposition;
+		return this.typeOfProposition;
+	}
+	
+	public int getNumber() {
+		return this.numberOfPropositions;
 	}
 }

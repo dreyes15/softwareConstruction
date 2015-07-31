@@ -14,7 +14,7 @@
 
 public abstract class Composite extends Proposition {
     //number of propositions that make up this composite proposition
-    int numberOfPropositions;
+    //int numberOfPropositions;
     
     /* Composite(String name, String type, int number) is a constructor method that creates
      * an instance of a Composite Proposition. Requires the proposition variable name,
