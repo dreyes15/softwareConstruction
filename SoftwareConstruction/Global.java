@@ -9,8 +9,8 @@
  * 
  */
 
-public class Global extends Scope{
-	
+public class Global extends Scope
+{	
 	/* Creates an object of type Global to be further used by the LTL generator.
      */
 	public Global()
