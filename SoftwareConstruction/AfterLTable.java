@@ -9,6 +9,24 @@ public class AfterLTable {
 	 * scope and will return the template to the formula creator.
 	 */
 	
+	public static void getFormula(Pattern pattern) {
+		if (pattern instanceof Absence) {
+			getFormula((Absence) pattern);
+		}
+		else if (pattern instanceof Existence) {
+			getFormula((Existence) pattern);
+		}
+		else if (pattern instanceof Response) {
+			getFormula((Response) pattern);
+		}
+		else if (pattern instanceof Precedence) {
+			getFormula((Precedence) pattern);
+		}
+		else if (pattern instanceof StrictPrecedence) {
+			getFormula((StrictPrecedence) pattern);
+		}
+	}
+	
 	public static String getFormula(Absence pat){
 		
 		String baseFormula = " ";
