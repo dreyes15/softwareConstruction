@@ -19,7 +19,7 @@ public class Test_CPFormulas {
 		String baseFormula = "!P^pH^X!L";
 		Proposition p = new Atomic("P");
 		
-		assertEquals(PropSubstitutor.substituteCompositeProps(baseFormula, p), 
+		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, p), 
 				"!(P)^(P)^X!L");
 	}
 	
@@ -28,7 +28,7 @@ public class Test_CPFormulas {
 		String baseFormula = "!P^pH^X!L";
 		Proposition p = new Atomic("P");
 		
-		assertEquals(PropSubstitutor.substituteCompositeProps(baseFormula, p), 
+		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, p), 
 				"!(P)^(P)^X!L");
 	}
 	
@@ -38,7 +38,7 @@ public class Test_CPFormulas {
 		String baseFormula = "!(P)^pH^L";
 		Proposition l = new AtLeastOneC("L", 3);
 		
-		assertEquals(PropSubstitutor.substituteCompositeProps(baseFormula, l),
+		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, l),
 				"!(P)^pH^(L1VL2VL3)");
 	}
 	
@@ -47,7 +47,7 @@ public class Test_CPFormulas {
 		String baseFormula = "!(P)^pH^L";
 		Proposition l = new AtLeastOneC("L", 3);
 		
-		assertEquals(PropSubstitutor.substituteCompositeProps(baseFormula, l),
+		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, l),
 				"!(P)^pH^(L1VL2VL3)");
 	}
 	
@@ -56,7 +56,7 @@ public class Test_CPFormulas {
 		String baseFormula = "!(P)^lH^L";
 		Proposition l = new AtLeastOneC("L", 3);
 		
-		assertEquals(PropSubstitutor.substituteCompositeProps(baseFormula, l),
+		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, l),
 				"!(P)^(L1VL2VL3)^(L1VL2VL3)");
 	}
 	
@@ -66,7 +66,7 @@ public class Test_CPFormulas {
 		String baseFormula = "!Q^qH^L";
 		Proposition q = new ParallelC("Q", 2);
 		
-		assertEquals(PropSubstitutor.substituteCompositeProps(baseFormula, q), 
+		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, q), 
 				"!(Q1^Q2)^(Q1^Q2)^L");
 	}
 	
@@ -75,7 +75,7 @@ public class Test_CPFormulas {
 		String baseFormula = "!Q^qH^L";
 		Proposition q = new ParallelC("Q", 2);
 		
-		assertEquals(PropSubstitutor.substituteCompositeProps(baseFormula, q), 
+		assertEquals(CPSubstitutor.substituteCompositeProps(baseFormula, q), 
 				"!(Q1^Q2)^(Q1^Q2)^L");
 	}
 	
@@ -86,8 +86,8 @@ public class Test_CPFormulas {
 		Proposition p = new AtLeastOneC("P", 3);
 		Proposition q = new ParallelC("Q", 2);
 		
-		String replaceP = PropSubstitutor.substituteCompositeProps(baseFormula, p);
-		String replaceQ = PropSubstitutor.substituteCompositeProps(replaceP, q);
+		String replaceP = CPSubstitutor.substituteCompositeProps(baseFormula, p);
+		String replaceQ = CPSubstitutor.substituteCompositeProps(replaceP, q);
 				
 		assertEquals(replaceQ, "!L^lH^(P1VP2VP3)^X(Q1^Q2)");
 	}
@@ -99,9 +99,9 @@ public class Test_CPFormulas {
 		Proposition q = new ParallelC("Q", 2);
 		Proposition l = new Atomic("L");
 		
-		String replaceP = PropSubstitutor.substituteCompositeProps(baseFormula, p);
-		String replaceQ = PropSubstitutor.substituteCompositeProps(replaceP, q);
-		String replaceL = PropSubstitutor.substituteCompositeProps(replaceQ, l);
+		String replaceP = CPSubstitutor.substituteCompositeProps(baseFormula, p);
+		String replaceQ = CPSubstitutor.substituteCompositeProps(replaceP, q);
+		String replaceL = CPSubstitutor.substituteCompositeProps(replaceQ, l);
 		
 		assertEquals(replaceL, "!(L)^(L)^(P1VP2VP3)^X(Q1^Q2)");
 	}
@@ -114,10 +114,10 @@ public class Test_CPFormulas {
 		Proposition l = new Atomic("L");
 		Proposition r = new AtLeastOneC("R", 2);
 		
-		String replaceP = PropSubstitutor.substituteCompositeProps(baseFormula, p);
-		String replaceQ = PropSubstitutor.substituteCompositeProps(replaceP, q);
-		String replaceL = PropSubstitutor.substituteCompositeProps(replaceQ, l);
-		String replaceR = PropSubstitutor.substituteCompositeProps(replaceL, r);
+		String replaceP = CPSubstitutor.substituteCompositeProps(baseFormula, p);
+		String replaceQ = CPSubstitutor.substituteCompositeProps(replaceP, q);
+		String replaceL = CPSubstitutor.substituteCompositeProps(replaceQ, l);
+		String replaceR = CPSubstitutor.substituteCompositeProps(replaceL, r);
 		
 		assertEquals(replaceR, "!(R1VR2)^(L)^(P1VP2VP3)^X(Q1^Q2)");
 	}
@@ -131,10 +131,10 @@ public class Test_CPFormulas {
 		Proposition l = new Atomic("L");
 		Proposition r = new AtLeastOneC("R", 2);
 		
-		String replaceP = PropSubstitutor.substituteCompositeProps(baseFormula, p);
-		String replaceQ = PropSubstitutor.substituteCompositeProps(replaceP, q);
-		String replaceL = PropSubstitutor.substituteCompositeProps(replaceQ, l);
-		String replaceR = PropSubstitutor.substituteCompositeProps(replaceL, r);
+		String replaceP = CPSubstitutor.substituteCompositeProps(baseFormula, p);
+		String replaceQ = CPSubstitutor.substituteCompositeProps(replaceP, q);
+		String replaceL = CPSubstitutor.substituteCompositeProps(replaceQ, l);
+		String replaceR = CPSubstitutor.substituteCompositeProps(replaceL, r);
 		
 		//System.out.println(replaceR);
 		
@@ -149,16 +149,16 @@ public class Test_CPFormulas {
 		AndR andR = new AndR();
 		AndNotL andNotL = new AndNotL();
 		//String baseFormula = "[](L->(L&l((<>R->((!(P&r!R))U((Q&-lPVR))^((!<>R)->!((!Q)U(P^!Q)))))))";
-		String baseFormula = "Q&-lP";
+		String baseFormula = "Q&rP";
 		Proposition p = new Atomic("P");//EventualE 3
 		Proposition q = new EventualE("Q", 3);//ParallelC 5
 		Proposition l = new ConsecutiveC("L", 4);//ConsecutiveC 4
 		Proposition r = new AtLeastOneC("R", 2);//AtLeastOneC 2
 		
-		String replaceP = PropSubstitutor.substituteCompositeProps(baseFormula, p);
-		String replaceQ = PropSubstitutor.substituteCompositeProps(replaceP, q);
-		String replaceL = PropSubstitutor.substituteCompositeProps(replaceQ, l);
-		String replaceR = PropSubstitutor.substituteCompositeProps(replaceL, r);
+		String replaceP = CPSubstitutor.substituteCompositeProps(baseFormula, p);
+		String replaceQ = CPSubstitutor.substituteCompositeProps(replaceP, q);
+		String replaceL = CPSubstitutor.substituteCompositeProps(replaceQ, l);
+		String replaceR = CPSubstitutor.substituteCompositeProps(replaceL, r);
 		String andLFormula = andL.replaceAndL(replaceR);
 		String andRFormula = andR.replaceAndR(andLFormula);
 		String andNotLFormula = andNotL.replaceAndNotL(andRFormula, q);

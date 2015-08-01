@@ -8,5 +8,16 @@ public class AfterLTable {
 	 * a Pattern, and all necessary Proposition types and will do the string substituion given the after L 
 	 * scope and will return the template to the formula creator.
 	 */
-
+	
+	public static String afterLSubstitution(Pattern pat){
+		
+		String baseFormula = " ";
+		String gSubFormula = " ";
+		
+		gSubFormula = GlobalTable.getGbaseFormula(Pattern pat);
+		
+		baseFormula = " !((!L)U(L&l!" + gSubFormula + "))";
+		
+		return baseFormula;
+	}
 }

@@ -1,16 +1,43 @@
-/*This class is the Abstract class for AfterLuntilL, BeforeR, BetweenLandR,
- * Global, and AfterL.
- * 
- * This class will determine the extent of program execution depending 
- * on which property pattern is being used. 
+/* Course: Software Construction / CS5374
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
+ * 		 Lucia Rodriguez, and David Torres 
+ * Project: LTL Generator
+ * Sprint: Global Table
+ * Due Date: July 24, 2015
+ * Purpose:
+ * This class is the Abstract class for the following Scope Type of classes:
+ * AfterLuntilL, BeforeR, BetweenLandR, Global, and AfterL.
  */
-public class Scope {
-	
-	public String ScopeType(){
-		/*This a type String method that will compare the info passed. This class will be 
-		 * used as a placeholder class that will gather all the information and will they 
-		 * pass it to the next part of the system.
-		 */
-	}
 
+public abstract class Scope
+{
+	private String scopeType;
+	protected Proposition propositionL;
+	protected Proposition propositionR;
+	
+	public Scope()
+	{
+		setScopeTypeName();
+	}
+		
+	private void setScopeTypeName()
+	{
+		String scopeTypeClassName = this.getClass().getSimpleName();
+		scopeType = scopeTypeClassName;
+	}
+	
+	public String getScopeType()
+	{ 
+		return scopeType;
+	}
+	
+	public Proposition getPropositionL()
+	{
+		return propositionL; 
+	}
+	
+	public Proposition getPropositionR()
+	{
+		return propositionR;
+	}
 }
