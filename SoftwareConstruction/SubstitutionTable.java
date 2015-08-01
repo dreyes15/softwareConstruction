@@ -5,7 +5,7 @@ GlobalTable, BeforeRTable, AfterLUntilRTable, BetweenRTable, AfterLTable
 
 */
 public class SubstitutionTable {
-	
+
 	/* Gets template formula for property of Global scope.
 	 */
 	public static String getTable(Global scope, Pattern pattern)
