@@ -9,12 +9,60 @@ public class AfterLTable {
 	 * scope and will return the template to the formula creator.
 	 */
 	
-	public static String afterLSubstitution(Pattern pat){
+	public static String getFormula(Absence pat){
 		
 		String baseFormula = " ";
 		String gSubFormula = " ";
 		
-		gSubFormula = GlobalTable.getGbaseFormula(Pattern pat);
+		gSubFormula = GlobalTable.getFormula(pat);
+		
+		baseFormula = " !((!L)U(L&l!" + gSubFormula + "))";
+		
+		return baseFormula;
+	}
+	
+	public static String getFormula(Existence pat){
+		
+		String baseFormula = " ";
+		String gSubFormula = " ";
+		
+		gSubFormula = GlobalTable.getFormula(pat);
+		
+		baseFormula = " !((!L)U(L&l!" + gSubFormula + "))";
+		
+		return baseFormula;
+	}
+	
+	public static String getFormula(Precedence pat){
+		
+		String baseFormula = " ";
+		String gSubFormula = " ";
+		
+		gSubFormula = GlobalTable.getFormula(pat);
+		
+		baseFormula = " !((!L)U(L&l!" + gSubFormula + "))";
+		
+		return baseFormula;
+	}
+	
+	public static String getFormula(StrictPrecedence pat){
+		
+		String baseFormula = " ";
+		String gSubFormula = " ";
+		
+		gSubFormula = GlobalTable.getFormula(pat);
+		
+		baseFormula = " !((!L)U(L&l!" + gSubFormula + "))";
+		
+		return baseFormula;
+	}
+	
+	public static String getFormula(Response pat){
+		
+		String baseFormula = " ";
+		String gSubFormula = " ";
+		
+		gSubFormula = GlobalTable.getFormula(pat);
 		
 		baseFormula = " !((!L)U(L&l!" + gSubFormula + "))";
 		

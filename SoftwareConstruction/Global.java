@@ -14,5 +14,6 @@ public class Global extends Scope
 {	
 	public Global(Proposition propL, Proposition propR)
 	{	
+		//What do we need here?
 	}
 }
