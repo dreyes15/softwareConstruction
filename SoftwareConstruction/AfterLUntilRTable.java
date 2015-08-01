@@ -9,22 +9,25 @@ public class AfterLUntilRTable {
 	 * a Pattern, and all necessary Proposition types and will do the string substituion given the after L until R
 	 * scope and will return the template to the formula creator.
 	 */
-    public static void getFormula(Pattern pattern, Propositon R){
+    public static String getFormula(Pattern pattern, Propositon R){
+        String formula = "";
+        
         if(pattern instanceOf Absence){
-            getFormula((Absence) pattern, Propositon R);
+            formula = getFormula((Absence) pattern, Propositon R);
         }
         else if(pattern instanceOf Existence){
-            getFormula((Existence) pattern, Propositon R);
+            formula = getFormula((Existence) pattern, Propositon R);
         }
         else if (pattern instanceOf StrictPrecedence){
-            getFormula((StrictPrecedence) pattern, Propositon R);
+            formula = getFormula((StrictPrecedence) pattern, Propositon R);
         }
         else if (pattern instanceOf Precedence){
-            getFormula((Precedence) pattern, Propositon R);
+            formula = getFormula((Precedence) pattern, Propositon R);
         }
         else if (pattern instanceOf Response){
-            getFormula((Response) pattern, Propositon R);
+            formula = getFormula((Response) pattern, Propositon R);
         }
+        return formula;
     }
     
     public static String getFormula(Existence pattern, Propositon R){
