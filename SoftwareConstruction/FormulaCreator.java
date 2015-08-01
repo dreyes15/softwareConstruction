@@ -6,7 +6,7 @@ public class FormulaCreator {
 
 	/*createFormula() receives a Property object from LTLGenerator.  It passes the Scope
 	 * and Pattern objects to a method it calls from the SubstitionTable class and returns
-	 * a FinalFormula string to LTLGenerator.
+	 * a FinalFormula string to LTLGenerator.  Test
 	 */
 
 	public void createFormula(Property prop){
