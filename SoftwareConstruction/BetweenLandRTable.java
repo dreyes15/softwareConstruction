@@ -15,37 +15,90 @@ public class BetweenLandRTable extends Scope{
      * L and R.
      */
     
-    public static String getBetweenLandRFormula(Precedence pattern, Proposition R){
-        Precedence pat = pattern;
-        String patternName = pattern.getPatternType();
-        String baseFormula = "";
-        Proposition propR = R;
-        char RendLetter = getLastLetter(propR);
-        String rSubFormula = BeforeRTable.getFormula(pat,propR);
+    public static String getFormula(Absence pattern, Proposition R){
+        String baseFormula ="";
+        String rSubFormula = "";
         
-        if(RendLetter == 'C' || RendLetter == 'c')
-        {
-            baseFormula = "[]((&!R)->(L&"+ rSubFormula +"))";
+        char scopeLetter = getLastLetter(R);
+        rSubFormula = BeforeRTable.getFormula(pattern, R);
+        
+        if(scopeLetter == 'C' || scopeLetter == 'c'){
+            baseFormula = "[]((L&!R)->(L&"+ rSubFormula+"))";
         }
-        else if (RendLetter == 'E' || RendLetter == 'c')
-        {
-            baseFormula = "[](L->(L&" + rSubFormula + "))";
+        else if(scopeLetter == 'E' || scopeLetter =='e') {
+            baseFormula = "[](L->(L&"+rSubFormula+"))";
         }
         return baseFormula;
     }
     
+    public static String getFormula(Precedence pattern, Proposition R){
+        String baseFormula ="";
+        String rSubFormula = "";
+        
+        char scopeLetter = getLastLetter(R);
+        rSubFormula = BeforeRTable.getFormula(pattern, R);
+        
+        if(scopeLetter == 'C' || scopeLetter == 'c'){
+            baseFormula = "[]((L&!R)->(L&"+ rSubFormula+"))";
+        }
+        else if(scopeLetter == 'E'|| scopeLetter == 'e') {
+            baseFormula = "[](L->(L&"+rSubFormula+"))";
+        }
+        return baseFormula;
+    }
     
-    public static char getLastLetter(Proposition P){
-        Proposition prop = P;
+    public static String getFormula(Existence pattern, Proposition R){
+        String baseFormula ="";
+        String rSubFormula = "";
+        
+        char scopeLetter = getLastLetter(R);
+        rSubFormula = BeforeRTable.getFormula(pattern, R);
+        
+        if(scopeLetter == 'C' || scopeLetter == 'c'){
+            baseFormula = "[]((L&!R)->(L&"+ rSubFormula+"))";
+        }
+        else if(scopeLetter == 'E' || scopeLetter == 'e') {
+            baseFormula = "[](L->(L&"+rSubFormula+"))";
+        }
+        return baseFormula;
+    }
+    
+    public static String getFormula(StrictPrecedence pattern,Proposition R ){
+        String baseFormula ="";
+        String rSubFormula = "";
+        
+        char scopeLetter = getLastLetter(R);
+        rSubFormula = BeforeRTable.getFormula(pattern, R);
+        
+        if(scopeLetter == 'C' || scopeLetter == 'c'){
+            baseFormula = "[]((L&!R)->(L&"+ rSubFormula+"))";
+        }
+        else if(scopeLetter == 'E'|| scopeLetter == 'e') {
+            baseFormula = "[](L->(L&"+rSubFormula+"))";
+        }
+        return baseFormula;
+    }
+    
+    public static String getFormula(Response pattern, Proposition R){
+        String baseFormula ="";
+        String rSubFormula = "";
+        
+        char scopeLetter = getLastLetter(R);
+        rSubFormula = BeforeRTable.getFormula(pattern, R);
+        
+        if(scopeLetter == 'C' || scopeLetter == 'c'){
+            baseFormula = "[]((L&!R)->(L&"+ rSubFormula+"))";
+        }
+        else if(scopeLetter == 'E' || scopeLetter == 'e') {
+            baseFormula = "[](L->(L&"+rSubFormula+"))";
+        }
+        return baseFormula;
+    }
+    
+    public static char getLastLetter(Proposition R){
+        Proposition prop = R;
         String propType = prop.getType();
         char lastLetter = propType.charAt(propType.length()-1);
         return lastLetter;
-    }
-    
-    public static void main (String args []){
-        Proposition propP = new Atomic("P");
-        Proposition propQ = new ParallelC("Q", 5);
-        Precedence pattern = new Precedence(propP, propQ);
-        System.out.println(getBetweenLandRFormula(pattern, propP));
     }
 }
