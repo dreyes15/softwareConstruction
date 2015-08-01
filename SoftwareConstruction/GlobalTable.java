@@ -3,8 +3,30 @@
  */
 public class GlobalTable {
 	
-	public static void getFormula(Pattern pattern) {
-		Pattern pattern 
+	public static String getFormula(Pattern pattern) {
+		String formula = "";
+		
+		if (pattern instanceof Absence)
+		{
+			formula = getFormula((Absence) pattern);
+		}
+		else if (pattern instanceof Existence)
+		{
+			formula = getFormula((Existence) pattern);
+		}
+		else if (pattern instanceof Response)
+		{
+			formula = getFormula((Response) pattern);
+		}
+		else if (pattern instanceof StrictPrecedence)
+		{
+			formula = getFormula((StrictPrecedence) pattern);
+		}
+		else if (pattern instanceof Precedence)
+		{
+			formula = getFormula((Precedence) pattern);
+		}
+		return formula;
 	}
 
 	// //Foremost we care about the pattern Then
