@@ -11,14 +11,14 @@ public class BeforeRTable {
      */
     
     //initializing variable R of type Proposition;
-    public String getFormula(Precedence pattern, Proposition R)
+    public static String getFormula(Precedence pattern, Proposition R)
     {
         Precedence pat = pattern;
         Proposition propP = pat.getPropositionP();
         char PendLetter = getLastLetter(propP);
         Proposition propR = R;
         char RendLetter = getLastLetter(propR);
-        String BaseFormula = "";
+        String BaseFormula = "test";
         String SubFormula1="";
         String SubFormula2 ="";
         String SubFormula3 = "";
@@ -31,18 +31,18 @@ public class BeforeRTable {
         {
             if(propR.getType() == "Absence")
             {
-                BaseFormula = "!((!R)U((P&!R)&<>R))";
+                return   BaseFormula = "!((!R)U((P&!R)&<>R))";
             }
             
             else if (propR.getType() == "Existence")
             {
-                BaseFormula = "!((!(P&!R))UR)";
+                return  BaseFormula = "!((!(P&!R))UR)";
             }
             else if(propR.getType() == "QPrecedes")
             {
                 if(PendLetter == 'C' || PendLetter == 'c')
                 {
-                    BaseFormula ="(<>R)->((!(P&!R))U((Q&!P)VR))";
+                    return BaseFormula ="(<>R)->((!(P&!R))U((Q&!P)VR))";
                 }
                 else
                 {
@@ -53,14 +53,14 @@ public class BeforeRTable {
                     }
                     SubFormula2+= "!p"+pNumber;
                     SubFormula3 =")^!R^X(Ph&R)))U((Q&!(Ph))VR))";
-                    BaseFormula = SubFormula1+SubFormula2+SubFormula3;
+                    return  BaseFormula = SubFormula1+SubFormula2+SubFormula3;
                 }
             }
             else if(propR.getType() == "QStricltyPrecedes")
             {
                 if(PendLetter == 'C' || PendLetter == 'c')
                 {
-                    BaseFormula = "(<>R)->((!(P&!R))U((Q&P)VR))";
+                    return  BaseFormula = "(<>R)->((!(P&!R))U((Q&P)VR))";
                 }
                 else
                 {
@@ -71,12 +71,12 @@ public class BeforeRTable {
                     }
                     SubFormula2+= "!p"+pNumber;
                     SubFormula3= ")^!R^X(Ph&!R)))U((Q&!(Ph))VR))";
-                    BaseFormula=SubFormula1+SubFormula2+SubFormula3 ;
+                    return  BaseFormula=SubFormula1+SubFormula2+SubFormula3 ;
                 }
             }
             else if (propR.getType() =="QResponds")
             {
-                BaseFormula = "!((!R)U((P&!R)&((!(Q&!R))UR)))";
+                return BaseFormula = "!((!R)U((P&!R)&((!(Q&!R))UR)))";
             }
         }
         else if(RendLetter == 'E' || RendLetter == 'e')
@@ -90,7 +90,7 @@ public class BeforeRTable {
                 }
                 SubFormula2+= "!r"+rNumber;
                 SubFormula3 = ")^X(Rh)))U(P&!Rh))";
-                BaseFormula = SubFormula1+SubFormula2+SubFormula3;
+                return BaseFormula = SubFormula1+SubFormula2+SubFormula3;
             }
             else if(propR.getType() == "Existence")
             {
@@ -101,7 +101,7 @@ public class BeforeRTable {
                 }
                 SubFormula2+= "!r"+rNumber;
                 SubFormula3 = ")^X(Rh)))U(P&!Rh))";
-                BaseFormula =SubFormula1+SubFormula2+SubFormula3;
+                return BaseFormula =SubFormula1+SubFormula2+SubFormula3;
             }
             else if(propR.getType() == "QPrecedes"){
                 if(PendLetter == 'C' || PendLetter == 'c'){
@@ -112,7 +112,7 @@ public class BeforeRTable {
                     }
                     SubFormula2+= "!r"+rNumber;
                     SubFormula3 = ")^XRh))))";
-                    BaseFormula= SubFormula1+SubFormula2+SubFormula3;
+                    return BaseFormula= SubFormula1+SubFormula2+SubFormula3;
                 }
                 else if(PendLetter =='E'|| PendLetter =='e')
                 {
@@ -129,7 +129,7 @@ public class BeforeRTable {
                     }
                     SubFormula4+= "!r"+rNumber;
                     SubFormula5 = ")^XRh)))";
-                    BaseFormula= SubFormula1+SubFormula2+SubFormula3+SubFormula4+SubFormula5;
+                    return  BaseFormula= SubFormula1+SubFormula2+SubFormula3+SubFormula4+SubFormula5;
                 }
             }
             else if(propR.getType() =="QStrictlyPrecedes")
@@ -143,7 +143,7 @@ public class BeforeRTable {
                     }
                     SubFormula2+= "!r"+rNumber;
                     SubFormula3= ")^XRh))))";
-                    BaseFormula=SubFormula1+SubFormula2+SubFormula3;
+                    return BaseFormula=SubFormula1+SubFormula2+SubFormula3;
                 }
                 else if(PendLetter == 'E' || PendLetter == 'e')
                 {
@@ -160,7 +160,7 @@ public class BeforeRTable {
                     }
                     SubFormula3 +="!r"+rNumber;
                     SubFormula4= "^XRh)))";
-                    BaseFormula=SubFormula1+SubFormula2+ SubFormula3 + SubFormula4;
+                    return BaseFormula=SubFormula1+SubFormula2+ SubFormula3 + SubFormula4;
                 }
                 else if(propR.getType() == "Responds")
                 {
@@ -171,17 +171,27 @@ public class BeforeRTable {
                     }
                     SubFormula2 += "!r"+rNumber;
                     SubFormula3 = ")^X(Rh)))U((P&!Rh)&((!(Q&!Rh))URh)))";
-                    BaseFormula=SubFormula1+SubFormula2+SubFormula3;
+                    return BaseFormula=SubFormula1+SubFormula2+SubFormula3;
                 }
             }
         }
+        return BaseFormula;
     }
     
-    public char getLastLetter(Proposition P){
+    public static char getLastLetter(Proposition P){
         Proposition prop = P;
         String propType = prop.getType();
         char lastLetter = propType.charAt(propType.length()-1);
         return lastLetter;
+    }
+    
+    public static void main (String args []){
+        System.out.println("hello world");
+        Proposition propP = new Atomic("P");
+        Proposition propQ = new ParallelC("Q", 5);
+        Precedence pattern = new Precedence(propP, propQ);
+        System.out.println(getFormula(pattern, propP));
+        System.out.println("hello world");
     }
     
 }

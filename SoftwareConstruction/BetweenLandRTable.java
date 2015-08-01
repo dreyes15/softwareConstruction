@@ -15,27 +15,37 @@ public class BetweenLandRTable extends Scope{
      * L and R.
      */
     
-    public String getBetweenLandRCFormula(Pattern pat){
-        String	petName = pat.getName();
-        String	baseFormula = "";
-        String	rSubformula = "";
-        
-        rSubformula= AfterRTable.getRBaseFormula(Pattern pat);
-        baseFormula = "[]((L&!R)->(L&"+ rSubformula +"))";
-        
-        return baseFormula;
-    }
-    
-    public String getBetweenLandREFormula(Pattern pat){
-        String petName = pat.getName();
+    public static String getBetweenLandRFormula(Precedence pattern, Proposition R){
+        Precedence pat = pattern;
+        String patternName = pattern.getPatternType();
         String baseFormula = "";
-        String rSubformula = "";
+        Proposition propR = R;
+        char RendLetter = getLastLetter(propR);
+        String rSubFormula = BeforeRTable.getFormula(pat,propR);
         
-        rSubformula = AfterRTable.getRBaseFormula(Pattern pat);
-        baseFormula = "[](L->(L&"+ rSubformula+"))";
-        
+        if(RendLetter == 'C' || RendLetter == 'c')
+        {
+            baseFormula = "[]((&!R)->(L&"+ rSubFormula +"))";
+        }
+        else if (RendLetter == 'E' || RendLetter == 'c')
+        {
+            baseFormula = "[](L->(L&" + rSubFormula + "))";
+        }
         return baseFormula;
     }
-				
     
+    
+    public static char getLastLetter(Proposition P){
+        Proposition prop = P;
+        String propType = prop.getType();
+        char lastLetter = propType.charAt(propType.length()-1);
+        return lastLetter;
+    }
+    
+    public static void main (String args []){
+        Proposition propP = new Atomic("P");
+        Proposition propQ = new ParallelC("Q", 5);
+        Precedence pattern = new Precedence(propP, propQ);
+        System.out.println(getBetweenLandRFormula(pattern, propP));
+    }
 }
