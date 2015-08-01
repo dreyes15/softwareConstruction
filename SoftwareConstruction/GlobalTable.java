@@ -4,7 +4,26 @@
 public class GlobalTable {
 	
 	public static void getFormula(Pattern pattern) {
-		Pattern pattern 
+		if (pattern instanceof Absence)
+		{
+			getFormula((Absence) pattern);
+		}
+		else if (pattern instanceof Existence)
+		{
+			getFormula((Existence) pattern);
+		}
+		else if (pattern instanceof Response)
+		{
+			getFormula((Response) pattern);
+		}
+		else if (pattern instanceof StrictPrecedence)
+		{
+			getFormula((StrictPrecedence) pattern);
+		}
+		else if (pattern instanceof Precedence)
+		{
+			getFormula((Precedence) pattern);
+		}
 	}
 
 	// //Foremost we care about the pattern Then
