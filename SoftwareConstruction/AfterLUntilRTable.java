@@ -10,30 +10,108 @@ public class AfterLUntilRTable {
 	 * scope and will return the template to the formula creator.
 	 */
     
-    public static String afterLUntilRCSubstitution(Pattern pat){
+    public static String getFormula(Existence pattern, Propositon R){
         
         baseFormula = " ";
         rSubFormula = " ";
         gSubFormula = " ";
         
-        gSubFormula = GlobalTable.getGbaseFormula(Pattern pat);
-        rSubFormula = AfterRTable.getRBaseFormula(Pattern pat);
+        char scopeLetter = getLastLetter(R);
         
-        baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
-    
+        gSubFormula = GlobalTable.getFormula(Pattern pat);
+        rSubFormula = AfterRTable.getFormula(Pattern pat);
+        
+        if(scopeLetter =="C"){
+            baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
+        }
+        else if(scopeLetter =="E"){
+            baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
+        }
     }
     
-    public static String afterLUntilRESubstitution(Pattern pat){
+
+    public static String getFormula(StrictPrecedence pattern, Propositon R){
         
         baseFormula = " ";
         rSubFormula = " ";
         gSubFormula = " ";
         
-        gSubFormula = GlobalTable.getGbaseFormula(Pattern pat);
-        rSubFormula = AfterRTable.getRBaseFormula(Pattern pat);
+        char scopeLetter = getLastLetter(R);
         
-        baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))"
+        gSubFormula = GlobalTable.getFormula(Pattern pat);
+        rSubFormula = AfterRTable.getFormula(Pattern pat);
         
+        if(scopeLetter =="C"){
+            baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
+        }
+        else if(scopeLetter =="E"){
+            baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
+        }
+    }
+    
+    public static String getFormula(Precedence pattern, Propositon R){
+        
+        baseFormula = " ";
+        rSubFormula = " ";
+        gSubFormula = " ";
+        
+        char scopeLetter = getLastLetter(R);
+        
+        gSubFormula = GlobalTable.getFormula(Pattern pat);
+        rSubFormula = AfterRTable.getFormula(Pattern pat);
+        
+        if(scopeLetter =="C"){
+            baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
+        }
+        else if(scopeLetter =="E"){
+            baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
+        }
+    }
+    
+    public static String getFormula(Absence pattern, Propositon R){
+        
+        baseFormula = " ";
+        rSubFormula = " ";
+        gSubFormula = " ";
+        
+        char scopeLetter = getLastLetter(R);
+        
+        gSubFormula = GlobalTable.getFormula(Pattern pat);
+        rSubFormula = AfterRTable.getFormula(Pattern pat);
+        
+        if(scopeLetter =="C"){
+            baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
+        }
+        else if(scopeLetter =="E"){
+            baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
+        }
+    }
+    
+    public static String getFormula(Response pattern, Propositon R){
+        
+        baseFormula = " ";
+        rSubFormula = " ";
+        gSubFormula = " ";
+        
+        char scopeLetter = getLastLetter(R);
+        
+        gSubFormula = GlobalTable.getFormula(Pattern pat);
+        rSubFormula = AfterRTable.getFormula(Pattern pat);
+        
+        if(scopeLetter =="C"){
+            baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
+        }
+        else if(scopeLetter =="E"){
+            baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
+        }
+    }
+    
+    private char getLastLetter(Proposition prop){
+        Proposition proposition = prop;
+        String propType= proposition.getType();
+        char lastLetter = propType.charAt(propType.lenght-1);
+        
+        return lastLetter;
     }
 
 }
