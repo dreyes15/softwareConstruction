@@ -6,33 +6,6 @@ GlobalTable, BeforeRTable, AfterLUntilRTable, BetweenRTable, AfterLTable
 */
 public class SubstitutionTable {
 	
-	/* Gets template formula with Scope scope */
-	public static String getTable(Scope scope, Pattern pattern)
-	{
-		String formula = "";
-		if(scope instanceof Global)
-		{
-			formula = SubstitutionTable.getTable((Global) scope, pattern);
-		}
-		else if (scope instanceof AfterL)
-		{
-			formula = SubstitutionTable.getTable((AfterL)scope, pattern);
-		}
-		else if (scope instanceof BeforeR)
-		{
-			formula = SubstitutionTable.getTable((BeforeR)scope, pattern);
-		}
-		else if (scope instanceof AfterLuntilR)	
-		{
-			formula = SubstitutionTable.getTable((AfterLuntilR)scope, pattern);
-		}
-		else if (scope instanceof BetweenLandR)
-		{
-			formula = SubstitutionTable.getTable((BetweenLandR)scope, pattern);
-		}
-		return formula;
-	}
-	
 	/* Gets template formula for property of Global scope.
 	 */
 	public static String getTable(Global scope, Pattern pattern)
