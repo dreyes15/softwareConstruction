@@ -120,10 +120,6 @@ public class LTLGenerator {
 
 	}
 	
-//	public void breakDown(String breakDown){
-//		String broken[] = breakDown.split(" ");
-//		System.out.println(broken[broken.length]);
-//			
-//		}
+
 	}
 
