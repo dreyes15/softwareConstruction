@@ -27,13 +27,13 @@ public class FormulaCreator {
 		if(scope instanceof Global){
 			baseFormula = SubstitutionTable.getTable((Global)scope, pattern);
 		} else if (scope instanceof AfterL) {
-			baseFormula = SubstitutionTable.getTable((Global)scope, pattern);
+			baseFormula = SubstitutionTable.getTable((AfterL)scope, pattern);
 		} else if (scope instanceof BeforeR) {
-			baseFormula = SubstitutionTable.getTable((Global)scope, pattern);
+			baseFormula = SubstitutionTable.getTable((BeforeR)scope, pattern);
 		} else if (scope instanceof BetweenLandR) {
-			baseFormula = SubstitutionTable.getTable((Global)scope, pattern);
+			baseFormula = SubstitutionTable.getTable((BetweenLandR)scope, pattern);
 		} else if (scope instanceof AfterLuntilR) {
-			baseFormula = SubstitutionTable.getTable((Global)scope, pattern);
+			baseFormula = SubstitutionTable.getTable((AfterLuntilR)scope, pattern);
 		}
 		
 		Proposition propP = pattern.getPropositionP();
@@ -50,14 +50,10 @@ public class FormulaCreator {
 		//Performs proposition substitution on the updatedBaseFormula conditioned on the scope and pattern 
 		//types to obtain a modifiedFormula
 		
-		String pModifiedFormula = propSub.substituteCompositeProps(updatedBaseFormula, propP);
-		String qModifiedFormula = propSub.substituteCompositeProps(pModifiedFormula, propQ);
-		String lModifiedFormula = propSub.substituteCompositeProps(qModifiedFormula, propL);
-		String modifiedFormula = propSub.substituteCompositeProps(lModifiedFormula, propR);
-		
-
-
-
+		String pModifiedFormula = PropSubstitutor.substituteCompositeProps(updatedBaseFormula, propP);
+		String qModifiedFormula = PropSubstitutor.substituteCompositeProps(pModifiedFormula, propQ);
+		String lModifiedFormula = PropSubstitutor.substituteCompositeProps(qModifiedFormula, propL);
+		String modifiedFormula = PropSubstitutor.substituteCompositeProps(lModifiedFormula, propR);
 
 		//Passes the modifiedFormula to the SpecialOperator and receives a finalFormula in return
 		String finalFormula = specOp.performSpecialOperations(modifiedFormula);
