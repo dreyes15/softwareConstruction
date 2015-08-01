@@ -5,7 +5,7 @@
  * Sprint: Global Table
  * Due Date: July 24, 2015
  * Purpose:
- * This class defines an occurrence the primary proposition (p) must be followed by the secondary propositon (q)
+ * This class defines an occurrence the primary proposition (p) must be followed by the secondary proposition (q)
  * this class will do this by using the method Response().
  */
 

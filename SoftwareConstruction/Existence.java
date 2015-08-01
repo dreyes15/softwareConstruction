@@ -5,7 +5,8 @@
  * Sprint: Global Table
  * Due Date: July 24, 2015
  * Purpose:
- * This class defines the "Existence" Pattern w
+ * This class defines the "Existence" pattern where the Proposition p must "exist" 
+ * at least once. 
  */
 
 public class Existence extends Pattern
