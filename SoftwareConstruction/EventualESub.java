@@ -2,7 +2,7 @@
  * Instructor: Omar Ochoa
 <<<<<<< HEAD
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
- * 		 Lucia Rodriguez, and David Torres 
+ * 		 Lucia Rodriguez, and David Reyes
 =======
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, Lucia Melgoza,
  * 		 and David Reyes 
