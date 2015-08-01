@@ -1,9 +1,16 @@
-/* Between L and R will denote the execution between the L proposition and the R proposition */
+/* Course: Software Construction / CS5374
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
+ * 		 Lucia Rodriguez, and David Torres 
+ * Project: LTL Generator
+ * Sprint: Global Table
+ * Due Date: July 24, 2015
+ * Purpose:
+ * Between L and R will denote the execution between the L proposition and the R proposition */
 
 public class BetweenLandR extends Scope {
 	/*This is a constructor method of type BetweenLandR. This class will extend
 	 * the Scope class, therefore the variables will be sent to the super class
-	 * to sote the information.
+	 * to sort the information.
 	 */
 	public BetweenLandR(Proposition propL, Proposition propR)
 	{		

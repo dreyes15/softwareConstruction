@@ -1,8 +1,14 @@
-/**This class is the Abstract class for Existence, Absence, Precedence, Strict Precedence, and Responce.
- * This class only contains methods that are common properties of these classes, this class reveices
- * the Pattern input from the Property class, which will then delegate the pattern to it's repsected
- * class.
- **/
+/* Course: Software Construction / CS5374
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
+ * 		 Lucia Rodriguez, and David Torres 
+ * Project: LTL Generator
+ * Sprint: Global Table
+ * Due Date: July 24, 2015
+ * Purpose:
+ * This Pattern class is the superclass for the following classes: Existence, Absence, Precedence, 
+ * Strict Precedence, and Response.
+ */
+
 public abstract class Pattern
 {    
 	private String patternType;
