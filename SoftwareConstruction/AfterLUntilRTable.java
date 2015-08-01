@@ -18,13 +18,13 @@ public class AfterLUntilRTable {
         
         char scopeLetter = getLastLetter(R);
         
-        gSubFormula = GlobalTable.getFormula(Pattern pat);
-        rSubFormula = AfterRTable.getFormula(Pattern pat);
+        gSubFormula = GlobalTable.getFormula(pattern);
+        rSubFormula = AfterRTable.getFormula(pattern);
         
-        if(scopeLetter =="C"){
+        if(scopeLetter =="C" || scopeLetter =="c"){
             baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
         }
-        else if(scopeLetter =="E"){
+        else if(scopeLetter =="E" || scopeLetter =="e"){
             baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
         }
     }
@@ -38,13 +38,13 @@ public class AfterLUntilRTable {
         
         char scopeLetter = getLastLetter(R);
         
-        gSubFormula = GlobalTable.getFormula(Pattern pat);
-        rSubFormula = AfterRTable.getFormula(Pattern pat);
+        gSubFormula = GlobalTable.getFormula(pattern);
+        rSubFormula = AfterRTable.getFormula(pattern);
         
-        if(scopeLetter =="C"){
+        if(scopeLetter =="C" || scopeLetter =="c"){
             baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
         }
-        else if(scopeLetter =="E"){
+        else if(scopeLetter =="E" || scopeLetter =="e"){
             baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
         }
     }
@@ -57,13 +57,13 @@ public class AfterLUntilRTable {
         
         char scopeLetter = getLastLetter(R);
         
-        gSubFormula = GlobalTable.getFormula(Pattern pat);
-        rSubFormula = AfterRTable.getFormula(Pattern pat);
+        gSubFormula = GlobalTable.getFormula(pattern);
+        rSubFormula = AfterRTable.getFormula(pattern);
         
-        if(scopeLetter =="C"){
+        if(scopeLetter =="C" || scopeLetter =="c"){
             baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
         }
-        else if(scopeLetter =="E"){
+        else if(scopeLetter =="E" || scopeLetter =="e"){
             baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
         }
     }
@@ -76,13 +76,13 @@ public class AfterLUntilRTable {
         
         char scopeLetter = getLastLetter(R);
         
-        gSubFormula = GlobalTable.getFormula(Pattern pat);
-        rSubFormula = AfterRTable.getFormula(Pattern pat);
+        gSubFormula = GlobalTable.getFormula(pattern);
+        rSubFormula = AfterRTable.getFormula(pattern);
         
-        if(scopeLetter =="C"){
+        if(scopeLetter =="C" || scopeLetter =="c"){
             baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
         }
-        else if(scopeLetter =="E"){
+        else if(scopeLetter =="E" || scopeLetter =="e"){
             baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
         }
     }
@@ -95,13 +95,13 @@ public class AfterLUntilRTable {
         
         char scopeLetter = getLastLetter(R);
         
-        gSubFormula = GlobalTable.getFormula(Pattern pat);
-        rSubFormula = AfterRTable.getFormula(Pattern pat);
+        gSubFormula = GlobalTable.getFormula(pattern);
+        rSubFormula = AfterRTable.getFormula(pattern);
         
-        if(scopeLetter =="C"){
+        if(scopeLetter =="C" || scopeLetter =="c"){
             baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
         }
-        else if(scopeLetter =="E"){
+        else if(scopeLetter =="E" || scopeLetter =="e"){
             baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
         }
     }
