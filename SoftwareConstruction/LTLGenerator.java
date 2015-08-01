@@ -81,7 +81,7 @@ public class LTLGenerator {
 				System.out.println("propR created");
 			}
 		}
-
+//test
 		
 		
 
