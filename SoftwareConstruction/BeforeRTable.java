@@ -11,25 +11,27 @@ public class BeforeRTable {
      */
     
     //initializing variable R of type Proposition;
-    public static void getFormula(Pattern pattern, Proposition R){
+    public static String getFormula(Pattern pattern, Proposition R){
+        String formula = "";
         if(pattern instanceof Absence)
         {
-            getFormula((Absence)pattern, R);
+            formula = getFormula((Absence)pattern, R);
         }
         else if(pattern instanceof Precedence)
         {
-            getFormula((Precedence)pattern, R);
+            formula = getFormula((Precedence)pattern, R);
         }
         else if(pattern instanceof Existence)
         {
-            getFormula((Existence)pattern, R);
+            formula = getFormula((Existence)pattern, R);
         }
         else if (pattern instanceof StrictPrecedence){
-            getFormula((StrictPrecedence)pattern, R);
+            formula = getFormula((StrictPrecedence)pattern, R);
         }
         else if(pattern instanceof Response){
-            getFormula((Response)pattern, R);
+            formula = getFormula((Response)pattern, R);
         }
+        return formula;
     }
     
     public static String getFormula(Precedence pattern, Proposition R){
