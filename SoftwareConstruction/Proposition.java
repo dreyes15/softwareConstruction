@@ -11,26 +11,32 @@
  * Proposition is an abstract superclass of the Atomic and Composite concrete subclasses. 
  */
 
-public abstract class Proposition {
-	//Proposition variable name
-	String nameOfProposition;
-	//Proposition variable type
-	String typeOfProposition;
+public abstract class Proposition
+{
+	String nameOfProposition;	//Proposition variable name
+	String typeOfProposition;	//Proposition variable type
+	int numberOfPropositions;	//applicable to composite propositions that contain more than 1 proposition
 	
-	/* Proposition(String name) is a constructor method that creates an instance of a 
-	 * Proposition. Requires the proposition variable name as input.
-	 */
-	public Proposition(String name){
+	public Proposition(String name)
+	{
 		this.nameOfProposition = name;
+		this.numberOfPropositions = 1;
 	}
 	
 	//Method getName() returns the "nameOfProposition" string of the Proposition object.
-	public String getName(){
-		return nameOfProposition;
+	public String getName()
+	{
+		return this.nameOfProposition;
 	}
 	 
 	//Method getType() returns the "typeOfProposition" string of the Proposition object.
-	public String getType(){
-		return typeOfProposition;
+	public String getType()
+	{
+		return this.typeOfProposition;
+	}
+	
+	public int getNumber()
+	{
+		return this.numberOfPropositions;
 	}
 }

@@ -5,15 +5,14 @@
  * With the given information this class should be able to generate itself
  * as the "Global" scope. 
  * 
- * Global will denotate the entire program execution.
- * 
+ * Global will denote the entire program execution. 
  */
 
-public class Global extends Scope{
-	
+public class Global extends Scope
+{	
 	/* Creates an object of type Global to be further used by the LTL generator.
      */
-	public Global()
+	public Global(Proposition propL, Proposition propR)
 	{
 		
 	}

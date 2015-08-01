@@ -7,12 +7,14 @@
 public abstract class Scope
 {
 	private String scopeType;
+	protected Proposition propositionL;
+	protected Proposition propositionR;
 	
 	public Scope()
 	{
 		setScopeTypeName();
 	}
-			
+		
 	private void setScopeTypeName()
 	{
 		String scopeTypeClassName = this.getClass().getSimpleName();
@@ -22,5 +24,15 @@ public abstract class Scope
 	public String getScopeType()
 	{ 
 		return scopeType;
+	}
+	
+	public Proposition getPropositionL()
+	{
+		return propositionL; 
+	}
+	
+	public Proposition getPropositionR()
+	{
+		return propositionR;
 	}
 }
