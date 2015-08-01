@@ -21,16 +21,28 @@ public class FormulaCreator {
 		
 		Property property = P;
 		Scope scope = property.getScope();
-		//String localScope = scope.getScopeType();
 		Pattern pattern = property.getPattern();
-		//String localPattern = pattern.getPatternType();
+		
+		String baseFormula = "";
+		if(scope instanceof Global){
+			baseFormula = SubstitutionTable.getTable((Global)scope, pattern);
+		} else if (scope instanceof AfterL) {
+			baseFormula = SubstitutionTable.getTable((Global)scope, pattern);
+		} else if (scope instanceof BeforeR) {
+			baseFormula = SubstitutionTable.getTable((Global)scope, pattern);
+		} else if (scope instanceof BetweenLandR) {
+			baseFormula = SubstitutionTable.getTable((Global)scope, pattern);
+		} else if (scope instanceof AfterLuntilR) {
+			baseFormula = SubstitutionTable.getTable((Global)scope, pattern);
+		}
+		
 		Proposition propP = pattern.getPropositionP();
 		Proposition propQ = pattern.getPropositionQ();
 		Proposition propL = scope.getPropositionL();
 		Proposition propR = scope.getPropositionR();
-
+		
 		//Passes the scope and pattern to SubstitutionTable and gets a baseFormula in return
-		String baseFormula = subTable.getTable(scope, pattern);
+		//String baseFormula = SubstitutionTable.getTable(scope, pattern);
 
 		//Passes the baseFormulal to specialOperationsReplacement to get an updatedBaseFormula
 		String updatedBaseFormula = updater.specialOperationsReplacement(property, baseFormula);

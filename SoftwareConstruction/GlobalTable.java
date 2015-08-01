@@ -2,6 +2,10 @@
  * scope. It will return the formula template with the special & operators.
  */
 public class GlobalTable {
+	
+	public static void getFormula(Pattern pattern) {
+		Pattern pattern 
+	}
 
 	// //Foremost we care about the pattern Then
 	// //About whether P is of type C or E
