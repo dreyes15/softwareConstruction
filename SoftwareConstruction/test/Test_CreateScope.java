@@ -1,6 +1,16 @@
+package test;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import AfterL;
+import AfterLuntilR;
+import Atomic;
+import BeforeR;
+import BetweenLandR;
+import ConsecutiveC;
+import EventualC;
+import Global;
 
 public class Test_CreateScope {
 	Atomic propL = new Atomic("L");

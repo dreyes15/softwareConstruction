@@ -1,3 +1,4 @@
+package test;
 /* Course: Software Construction / CS5374
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
  * 		 Lucia Rodriguez, and David Torres 
@@ -10,6 +11,17 @@
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+
+import AndL;
+import AndNotL;
+import AndR;
+import AtLeastOneC;
+import Atomic;
+import CPSubstitutor;
+import ConsecutiveC;
+import EventualE;
+import ParallelC;
+import Proposition;
 
 public class Test_CPFormulas {
 	

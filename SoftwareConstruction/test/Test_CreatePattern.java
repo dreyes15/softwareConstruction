@@ -1,6 +1,15 @@
+package test;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import Absence;
+import AtLeastOneC;
+import Atomic;
+import Existence;
+import ParallelC;
+import Precedence;
+import Response;
 
 public class Test_CreatePattern {
 	Atomic propP = new Atomic("P");				
