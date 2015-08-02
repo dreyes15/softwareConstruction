@@ -17,10 +17,10 @@ public class AfterLUntilRTable {
 	 */
 	public static String getFormula(Pattern pattern, Proposition propositionR) {
 
-		String formula = "";
 		propR = propositionR;
 		getSubformulas(pattern);
 		
+		String formula = "";
 		if (pattern instanceof Absence) {
 			formula = getFormula((Absence) pattern);
 		}
