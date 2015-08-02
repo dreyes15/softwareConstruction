@@ -43,4 +43,13 @@ public class SubstitutionTable {
 		Proposition propositionR = scope.getPropositionR();
 		return AfterLUntilRTable.getFormula(pattern, propositionR);
 	}
+	
+	protected static String getAllNotSubformula(char propName, int propNumber) {
+		String subformula = "";
+		for (int i=1; i<propNumber-1; i++) {
+			subformula += "!" + propName + i + "^";
+		}
+		subformula += "!" + propName + propNumber;
+		return subformula;
+	}
 }
