@@ -9,129 +9,133 @@ public class AfterLUntilRTable {
 	 * a Pattern, and all necessary Proposition types and will do the string substituion given the after L until R
 	 * scope and will return the template to the formula creator.
 	 */
-    public static String getFormula(Pattern pattern, Propositon R){
+    public static String getFormula(Pattern pattern, Proposition R){
         String formula = "";
         
-        if(pattern instanceOf Absence){
-            formula = getFormula((Absence) pattern, Propositon R);
+        if(pattern instanceof Absence){
+            formula = getFormula((Absence) pattern, R);
         }
-        else if(pattern instanceOf Existence){
-            formula = getFormula((Existence) pattern, Propositon R);
+        else if(pattern instanceof Existence){
+            formula = getFormula((Existence) pattern, R);
         }
-        else if (pattern instanceOf StrictPrecedence){
-            formula = getFormula((StrictPrecedence) pattern, Propositon R);
+        else if (pattern instanceof StrictPrecedence){
+            formula = getFormula((StrictPrecedence) pattern, R);
         }
-        else if (pattern instanceOf Precedence){
-            formula = getFormula((Precedence) pattern, Propositon R);
+        else if (pattern instanceof Precedence){
+            formula = getFormula((Precedence) pattern, R);
         }
-        else if (pattern instanceOf Response){
-            formula = getFormula((Response) pattern, Propositon R);
+        else if (pattern instanceof Response){
+            formula = getFormula((Response) pattern, R);
         }
         return formula;
     }
     
-    public static String getFormula(Existence pattern, Propositon R){
+    public static String getFormula(Existence pattern, Proposition R){
         
-        baseFormula = " ";
-        rSubFormula = " ";
-        gSubFormula = " ";
+        String baseFormula = " ";
+        String rSubFormula = " ";
+        String gSubFormula = " ";
         
         char scopeLetter = getLastLetter(R);
         
         gSubFormula = GlobalTable.getFormula(pattern);
-        rSubFormula = AfterRTable.getFormula(pattern);
+        rSubFormula = BeforeRTable.getFormula(pattern, R);
         
-        if(scopeLetter =="C" || scopeLetter =="c"){
+        if(scopeLetter == 'C' || scopeLetter == 'c'){
             baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
         }
-        else if(scopeLetter =="E" || scopeLetter =="e"){
+        else if(scopeLetter == 'E' || scopeLetter == 'e'){
             baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
         }
+        return baseFormula;
     }
     
 
-    public static String getFormula(StrictPrecedence pattern, Propositon R){
+    public static String getFormula(StrictPrecedence pattern, Proposition R){
         
-        baseFormula = " ";
-        rSubFormula = " ";
-        gSubFormula = " ";
-        
-        char scopeLetter = getLastLetter(R);
-        
-        gSubFormula = GlobalTable.getFormula(pattern);
-        rSubFormula = AfterRTable.getFormula(pattern);
-        
-        if(scopeLetter =="C" || scopeLetter =="c"){
-            baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
-        }
-        else if(scopeLetter =="E" || scopeLetter =="e"){
-            baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
-        }
-    }
-    
-    public static String getFormula(Precedence pattern, Propositon R){
-        
-        baseFormula = " ";
-        rSubFormula = " ";
-        gSubFormula = " ";
+        String baseFormula = " ";
+        String rSubFormula = " ";
+        String gSubFormula = " ";
         
         char scopeLetter = getLastLetter(R);
         
         gSubFormula = GlobalTable.getFormula(pattern);
-        rSubFormula = AfterRTable.getFormula(pattern);
+        rSubFormula = BeforeRTable.getFormula(pattern, R);
         
-        if(scopeLetter =="C" || scopeLetter =="c"){
+        if(scopeLetter == 'C' || scopeLetter == 'c'){
             baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
         }
-        else if(scopeLetter =="E" || scopeLetter =="e"){
+        else if(scopeLetter == 'E' || scopeLetter == 'e'){
             baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
         }
+        return baseFormula;
     }
     
-    public static String getFormula(Absence pattern, Propositon R){
+    public static String getFormula(Precedence pattern, Proposition R){
         
-        baseFormula = " ";
-        rSubFormula = " ";
-        gSubFormula = " ";
+        String baseFormula = " ";
+        String rSubFormula = " ";
+        String gSubFormula = " ";
         
         char scopeLetter = getLastLetter(R);
         
         gSubFormula = GlobalTable.getFormula(pattern);
-        rSubFormula = AfterRTable.getFormula(pattern);
+        rSubFormula = BeforeRTable.getFormula(pattern, R);
         
-        if(scopeLetter =="C" || scopeLetter =="c"){
+        if(scopeLetter == 'C' || scopeLetter == 'c'){
             baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
         }
-        else if(scopeLetter =="E" || scopeLetter =="e"){
+        else if(scopeLetter == 'E' || scopeLetter == 'e'){
             baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
         }
+        return baseFormula;
     }
     
-    public static String getFormula(Response pattern, Propositon R){
+    public static String getFormula(Absence pattern, Proposition R){
         
-        baseFormula = " ";
-        rSubFormula = " ";
-        gSubFormula = " ";
+        String baseFormula = " ";
+        String rSubFormula = " ";
+        String gSubFormula = " ";
         
         char scopeLetter = getLastLetter(R);
         
         gSubFormula = GlobalTable.getFormula(pattern);
-        rSubFormula = AfterRTable.getFormula(pattern);
+        rSubFormula = BeforeRTable.getFormula(pattern, R);
         
-        if(scopeLetter =="C" || scopeLetter =="c"){
+        if(scopeLetter == 'C' || scopeLetter == 'c'){
             baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
         }
-        else if(scopeLetter =="E" || scopeLetter =="e"){
+        else if(scopeLetter == 'E' || scopeLetter == 'e'){
             baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
         }
+        return baseFormula;
     }
     
-    private char getLastLetter(Proposition prop){
+    public static String getFormula(Response pattern, Proposition R){
+        
+        String baseFormula = " ";
+        String rSubFormula = " ";
+        String gSubFormula = " ";
+        
+        char scopeLetter = getLastLetter(R);
+        
+        gSubFormula = GlobalTable.getFormula(pattern);
+        rSubFormula = BeforeRTable.getFormula(pattern, R);
+        
+        if(scopeLetter == 'C' || scopeLetter == 'c'){
+            baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
+        }
+        else if(scopeLetter == 'E' || scopeLetter == 'e'){
+            baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
+        }
+        return baseFormula;
+    }
+    
+    private static char getLastLetter(Proposition prop){
         Proposition proposition = prop;
         String propType= proposition.getType();
-        char lastLetter = propType.charAt(propType.lenght-1);
+        char lastLetter = propType.charAt(propType.length()-1);
         
         return lastLetter;
     }
-
 }

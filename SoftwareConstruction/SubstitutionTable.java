@@ -17,8 +17,7 @@ public class SubstitutionTable {
 	 */
 	public static String getTable(AfterL scope, Pattern pattern)
 	{
-		Proposition propositionL = scope.getPropositionL();
-		return AfterLTable.getFormula(propositionL, pattern);
+		return AfterLTable.getFormula(pattern);
 	} 
 	
 	/* Gets template formula for property of BeforeR scope.
@@ -26,16 +25,15 @@ public class SubstitutionTable {
 	public static String getTable(BeforeR scope, Pattern pattern)
 	{
 		Proposition propositionR = scope.getPropositionR();
-		return BeforeRTable.getFormula(propositionR, pattern);
+		return BeforeRTable.getFormula(pattern, propositionR);
 	}
 	
 	/* Gets template formula for property of BetweenLandR scope.
 	 */
 	public static String getTable(BetweenLandR scope, Pattern pattern)
 	{
-		Proposition propositionL = scope.getPropositionL();
 		Proposition propositionR = scope.getPropositionR();
-		return BetweenLandRTable.getFormula(propositionL, propositionR, pattern);
+		return BetweenLandRTable.getFormula(pattern, propositionR);
 	}
 	
 	/* Gets template formula for property of AfterLuntilR scope.
@@ -44,6 +42,6 @@ public class SubstitutionTable {
 	{
 		Proposition propositionL = scope.getPropositionL();
 		Proposition propositionR = scope.getPropositionR();
-		return AfterLUntilRTable.getFormula(propositionL, propositionR, pattern);
+		return AfterLUntilRTable.getFormula(pattern, propositionR);
 	}
 }
