@@ -2,7 +2,7 @@
  * After L until propR scope.It will return the formula template with the 
  * special & operators. 
  */
-public class AfterLUntilRTable {
+public class AfterLUntilRTable extends SubstitutionTable{
 
 	private static String globalSubformula;
 	private static String beforeRSubformula;
