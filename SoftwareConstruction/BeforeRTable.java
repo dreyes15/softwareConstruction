@@ -252,12 +252,10 @@ public class BeforeRTable {
     
     public static String getFormula(Response pattern, Proposition R){
         Response pat = pattern;
-        Proposition propP = pat.getPropositionP();
-        char PendLetter = getLastLetter(propP);
-        System.out.println(PendLetter);
+        //Proposition propP = pat.getPropositionP();
+        //char PendLetter = getLastLetter(propP);
         Proposition propR = R;
         char RendLetter = getLastLetter(propR);
-        System.out.println(RendLetter);
         String BaseFormula = "test";
         String SubFormula1="";
         String SubFormula2 ="";
