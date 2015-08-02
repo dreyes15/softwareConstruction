@@ -1,8 +1,8 @@
 package ltlGenerator.formulaBuilder;
 import ltlGenerator.formulaBuilder.propSubstitutor.PropSubstitutor;
-import ltlGenerator.formulaBuilder.propertyBuilder.Property;
 import ltlGenerator.formulaBuilder.specialOperator.SpecialOperator;
 import ltlGenerator.formulaBuilder.table.SubstitutionTable;
+import ltlGenerator.propertyBuilder.Property;
 import ltlGenerator.propertyBuilder.patterns.Pattern;
 import ltlGenerator.propertyBuilder.proposition.Proposition;
 import ltlGenerator.propertyBuilder.scopes.AfterL;

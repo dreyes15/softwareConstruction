@@ -1,5 +1,5 @@
 package ltlGenerator.formulaBuilder;
-import ltlGenerator.formulaBuilder.propertyBuilder.Property;
+import ltlGenerator.propertyBuilder.Property;
 import ltlGenerator.propertyBuilder.patterns.Pattern;
 import ltlGenerator.propertyBuilder.proposition.Proposition;
 import ltlGenerator.propertyBuilder.scopes.Scope;

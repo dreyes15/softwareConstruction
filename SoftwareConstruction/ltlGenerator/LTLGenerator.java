@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.*;
 
 import ltlGenerator.formulaBuilder.FormulaCreator;
-import ltlGenerator.formulaBuilder.propertyBuilder.Property;
+import ltlGenerator.propertyBuilder.Property;
 import ltlGenerator.propertyBuilder.patterns.Absence;
 import ltlGenerator.propertyBuilder.patterns.Existence;
 import ltlGenerator.propertyBuilder.patterns.Pattern;

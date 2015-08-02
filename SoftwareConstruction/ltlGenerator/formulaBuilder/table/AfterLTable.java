@@ -1,5 +1,4 @@
 package ltlGenerator.formulaBuilder.table;
-import ltlGenerator.formulaBuilder.propertyBuilder.*;
 import ltlGenerator.propertyBuilder.patterns.Absence;
 import ltlGenerator.propertyBuilder.patterns.Existence;
 import ltlGenerator.propertyBuilder.patterns.Pattern;
