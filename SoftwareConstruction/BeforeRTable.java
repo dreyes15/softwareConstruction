@@ -55,7 +55,7 @@ public class BeforeRTable {
         {
             if(PendLetter == 'C' || PendLetter == 'c')
             {
-                BaseFormula ="(<>R)->((!(P&!R))U((Q&!P)VR))";
+                BaseFormula ="(<>R)->((!(P&r!R))U((Q&-l!P)VR))";
                 return BaseFormula;
             }
             else if (PendLetter == 'E' || PendLetter == 'e')
@@ -66,7 +66,7 @@ public class BeforeRTable {
                     SubFormula2+="!p"+i+"^";
                 }
                 SubFormula2+= "!p"+pNumber;
-                SubFormula3 =")^!R^X(Ph&R)))U((Q&!(Ph))VR))";
+                SubFormula3 =")^!R^X(Ph&rR)))U((Q&-l!(Ph))VR))";
                 BaseFormula = SubFormula1+SubFormula2+SubFormula3;
                 return BaseFormula;
             }
@@ -76,7 +76,7 @@ public class BeforeRTable {
         {
             if(PendLetter == 'C' || PendLetter == 'c')
             {
-                SubFormula1 = "(<>R)->(((!(P&!Rh))U((Q&!P)V((";
+                SubFormula1 = "(<>R)->(((!(P&r!Rh))U((Q&-l!P)V((";
                 for(int i=1; i<rNumber-1; i++)
                 {
                     SubFormula2+="!r"+i+"^";
@@ -94,7 +94,7 @@ public class BeforeRTable {
                     SubFormula2+= "!p"+i+"^";
                 }
                 SubFormula2+= "!p"+pNumber;
-                SubFormula3 = "^!Rh^X(Ph&!Rh)))U((Q&!Ph)V((";
+                SubFormula3 = "^!Rh^X(Ph&r!Rh)))U((Q&-l!Ph)V((";
                 for(int i=1; i<rNumber-1; i++)
                 {
                     SubFormula4+= "!r"+1+"^";
@@ -124,7 +124,7 @@ public class BeforeRTable {
         
         if(RendLetter == 'C' || RendLetter == 'c')
         {
-            BaseFormula = "!((!R)U((P&!R)&<>R))";
+            BaseFormula = "!((!R)U((P&!R)&l<>R))";
             return BaseFormula;
         }
         else if(RendLetter == 'E'|| RendLetter == 'e')
@@ -135,7 +135,7 @@ public class BeforeRTable {
                 SubFormula2+="!r"+i+"^";
             }
             SubFormula2+= "!r"+rNumber;
-            SubFormula3 = ")^X(Rh)))U(P&!Rh))";
+            SubFormula3 = ")^X(Rh)))U(P&r!Rh))";
             BaseFormula = SubFormula1+SubFormula2+SubFormula3;
             return BaseFormula;
         }
@@ -158,7 +158,7 @@ public class BeforeRTable {
         
         if(RendLetter == 'C'||RendLetter =='c')
         {
-            BaseFormula = "!((!(P&!R))UR)";
+            BaseFormula = "!((!(P&r!R))UR)";
             return BaseFormula;
         }
         
@@ -170,7 +170,7 @@ public class BeforeRTable {
                 SubFormula2+="!r"+i+"^";
             }
             SubFormula2+= "!r"+rNumber;
-            SubFormula3 = ")^X(Rh)))U(P&!Rh))";
+            SubFormula3 = ")^X(Rh)))U(P&r!Rh))";
             BaseFormula =SubFormula1+SubFormula2+SubFormula3;
             return BaseFormula;
         }
@@ -198,7 +198,7 @@ public class BeforeRTable {
         if(RendLetter == 'C' || RendLetter == 'c'){
             if(PendLetter == 'C' || PendLetter == 'c')
             {
-                BaseFormula = "(<>R)->((!(P&!R))U((Q&P)VR))";
+                BaseFormula = "(<>R)->((!(P&r!R))U((Q&r!P)VR))";
                 return BaseFormula;
             }
             else
@@ -209,7 +209,7 @@ public class BeforeRTable {
                     SubFormula2+="!p"+i+"^";
                 }
                 SubFormula2+= "!p"+pNumber;
-                SubFormula3= ")^!R^X(Ph&!R)))U((Q&!(Ph))VR))";
+                SubFormula3= ")^!R^X(Ph&r!R)))U((Q&r!(Ph))VR))";
                 BaseFormula=SubFormula1+SubFormula2+SubFormula3 ;
                 return BaseFormula;
             }
@@ -218,7 +218,7 @@ public class BeforeRTable {
         else if(RendLetter == 'E' ||RendLetter == 'e'){
             if(PendLetter == 'C' || PendLetter =='c')
             {
-                SubFormula1="(<>R)->(((!(P&!Rh))U((Q&!P)V((";
+                SubFormula1="(<>R)->(((!(P&r!Rh))U((Q&r!P)V((";
                 for(int i =0; i< rNumber-1; i++)
                 {
                     SubFormula2 += "!r"+i+"^";
@@ -236,7 +236,7 @@ public class BeforeRTable {
                     SubFormula2 += "!p"+i+"^";
                 }
                 SubFormula2 += "!p"+pNumber;
-                SubFormula3 = ")^!Rh^X(Ph&!Rh)))U((Q&!Ph)V((";
+                SubFormula3 = ")^!Rh^X(Ph&r!Rh)))U((Q&r!Ph)V((";
                 for(int i =1; i<rNumber; i++)
                 {
                     SubFormula3 += "!r"+i+ "^";
@@ -263,7 +263,7 @@ public class BeforeRTable {
         int rNumber = propR.getNumber();
         
         if (RendLetter == 'C'||RendLetter == 'c'){
-            BaseFormula = "!((!R)U((P&!R)&((!(Q&!R))UR)))";
+            BaseFormula = "!((!R)U((P&r!R)&l((!(Q&r!R))UR)))";
             return BaseFormula;
         }
         else if(RendLetter == 'E' || RendLetter == 'e'){
@@ -273,7 +273,7 @@ public class BeforeRTable {
                 SubFormula2 += "!r"+i+"^";
             }
             SubFormula2 += "!r"+rNumber;
-            SubFormula3 = ")^X(Rh)))U((P&!Rh)&((!(Q&!Rh))URh)))";
+            SubFormula3 = ")^X(Rh)))U((P&r!Rh)&l((!(Q&r!Rh))URh)))";
             BaseFormula=SubFormula1+SubFormula2+SubFormula3;
             return BaseFormula;
         }

@@ -46,10 +46,10 @@ public class BetweenLandRTable extends Scope{
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
         if(scopeLetter == 'C' || scopeLetter == 'c'){
-            baseFormula = "[]((L&!R)->(L&"+ rSubFormula+"))";
+            baseFormula = "[]((L&l!R)->(L&l"+ rSubFormula+"))";
         }
         else if(scopeLetter == 'E' || scopeLetter =='e') {
-            baseFormula = "[](L->(L&"+rSubFormula+"))";
+            baseFormula = "[](L->(L&l"+rSubFormula+"))";
         }
         return baseFormula;
     }
@@ -62,10 +62,10 @@ public class BetweenLandRTable extends Scope{
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
         if(scopeLetter == 'C' || scopeLetter == 'c'){
-            baseFormula = "[]((L&!R)->(L&"+ rSubFormula+"))";
+            baseFormula = "[]((L&l!R)->(L&l"+ rSubFormula+"))";
         }
         else if(scopeLetter == 'E'|| scopeLetter == 'e') {
-            baseFormula = "[](L->(L&"+rSubFormula+"))";
+            baseFormula = "[](L->(L&l"+rSubFormula+"))";
         }
         return baseFormula;
     }
@@ -78,10 +78,10 @@ public class BetweenLandRTable extends Scope{
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
         if(scopeLetter == 'C' || scopeLetter == 'c'){
-            baseFormula = "[]((L&!R)->(L&"+ rSubFormula+"))";
+            baseFormula = "[]((L&l!R)->(L&l"+ rSubFormula+"))";
         }
         else if(scopeLetter == 'E' || scopeLetter == 'e') {
-            baseFormula = "[](L->(L&"+rSubFormula+"))";
+            baseFormula = "[](L->(L&l"+rSubFormula+"))";
         }
         return baseFormula;
     }
@@ -94,10 +94,10 @@ public class BetweenLandRTable extends Scope{
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
         if(scopeLetter == 'C' || scopeLetter == 'c'){
-            baseFormula = "[]((L&!R)->(L&"+ rSubFormula+"))";
+            baseFormula = "[]((L&l!R)->(L&l"+ rSubFormula+"))";
         }
         else if(scopeLetter == 'E'|| scopeLetter == 'e') {
-            baseFormula = "[](L->(L&"+rSubFormula+"))";
+            baseFormula = "[](L->(L&l"+rSubFormula+"))";
         }
         return baseFormula;
     }
@@ -110,10 +110,10 @@ public class BetweenLandRTable extends Scope{
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
         if(scopeLetter == 'C' || scopeLetter == 'c'){
-            baseFormula = "[]((L&!R)->(L&"+ rSubFormula+"))";
+            baseFormula = "[]((L&l!R)->(L&l"+ rSubFormula+"))";
         }
         else if(scopeLetter == 'E' || scopeLetter == 'e') {
-            baseFormula = "[](L->(L&"+rSubFormula+"))";
+            baseFormula = "[](L->(L&l"+rSubFormula+"))";
         }
         return baseFormula;
     }
