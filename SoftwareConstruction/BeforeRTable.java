@@ -37,11 +37,7 @@ public class BeforeRTable {
     public static String getFormula(Precedence pattern, Proposition R){
         Precedence pat = pattern;
         Proposition propP = pat.getPropositionP();
-        char PendLetter = getLastLetter(propP);
-        //System.out.println(PendLetter);
         Proposition propR = R;
-        char RendLetter = getLastLetter(propR);
-        //System.out.println(RendLetter);
         String BaseFormula = "test";
         String SubFormula1="";
         String SubFormula2 ="";
@@ -51,14 +47,14 @@ public class BeforeRTable {
         int pNumber = propP.getNumber();
         int rNumber = propR.getNumber();
         
-        if(RendLetter == 'C'|| RendLetter == 'c')
+        if(!propR.isEventType())
         {
-            if(PendLetter == 'C' || PendLetter == 'c')
+            if(!propP.isEventType())
             {
                 BaseFormula ="(<>R)->((!(P&r!R))U((Q&-l!P)VR))";
                 return BaseFormula;
             }
-            else if (PendLetter == 'E' || PendLetter == 'e')
+            else if (propP.isEventType())
             {
                 SubFormula1 = "((<>R->((!((";
                 for(int i =1; i< pNumber-1; i++)
@@ -72,9 +68,9 @@ public class BeforeRTable {
             }
         }
         
-        else if(RendLetter == 'E' || RendLetter == 'e')
+        else if(propR.isEventType())
         {
-            if(PendLetter == 'C' || PendLetter == 'c')
+            if(!propP.isEventType())
             {
                 SubFormula1 = "(<>R)->(((!(P&r!Rh))U((Q&-l!P)V((";
                 for(int i=1; i<rNumber-1; i++)
@@ -86,7 +82,7 @@ public class BeforeRTable {
                 BaseFormula= SubFormula1+SubFormula2+SubFormula3;
                 return BaseFormula;
             }
-            else if (PendLetter =='E' || PendLetter == 'e')
+            else if (propP.isEventType())
             {
                 SubFormula1 = "(<>R)->((!((";
                 for(int i =1; i< pNumber-1; i++)
@@ -111,23 +107,19 @@ public class BeforeRTable {
     public static String getFormula(Absence pattern, Proposition R){
         Absence pat = pattern;
         Proposition propP = pat.getPropositionP();
-        char PendLetter = getLastLetter(propP);
-        System.out.println(PendLetter);
         Proposition propR = R;
-        char RendLetter = getLastLetter(propR);
-        System.out.println(RendLetter);
         String BaseFormula = "test";
         String SubFormula1="";
         String SubFormula2 ="";
         String SubFormula3 = "";
         int rNumber = propR.getNumber();
         
-        if(RendLetter == 'C' || RendLetter == 'c')
+        if(!propR.isEventType())
         {
             BaseFormula = "!((!R)U((P&!R)&l<>R))";
             return BaseFormula;
         }
-        else if(RendLetter == 'E'|| RendLetter == 'e')
+        else if(propR.isEventType())
         {
             SubFormula1 ="(<>R)->!((!((";
             for(int i =1; i<rNumber-1; i++)
@@ -145,24 +137,20 @@ public class BeforeRTable {
     public static String getFormula(Existence pattern, Proposition R){
         Existence pat = pattern;
         Proposition propP = pat.getPropositionP();
-        char PendLetter = getLastLetter(propP);
-        System.out.println(PendLetter);
         Proposition propR = R;
-        char RendLetter = getLastLetter(propR);
-        System.out.println(RendLetter);
         String BaseFormula = "test";
         String SubFormula1="";
         String SubFormula2 ="";
         String SubFormula3 = "";
         int rNumber = propR.getNumber();
         
-        if(RendLetter == 'C'||RendLetter =='c')
+        if(!propR.isEventType())
         {
             BaseFormula = "!((!(P&r!R))UR)";
             return BaseFormula;
         }
         
-        else if (RendLetter == 'E'||RendLetter == 'e')
+        else if (propR.isEventType())
         {
             SubFormula1 = "(<>R)->((!((";
             for(int i =1; i<rNumber-1; i++)
@@ -182,11 +170,7 @@ public class BeforeRTable {
     public static String getFormula(StrictPrecedence pattern, Proposition R){
         StrictPrecedence pat = pattern;
         Proposition propP = pat.getPropositionP();
-        char PendLetter = getLastLetter(propP);
-        System.out.println(PendLetter);
         Proposition propR = R;
-        char RendLetter = getLastLetter(propR);
-        System.out.println(RendLetter);
         String BaseFormula = "test";
         String SubFormula1="";
         String SubFormula2 ="";
@@ -195,8 +179,8 @@ public class BeforeRTable {
         int pNumber = propP.getNumber();
         int rNumber = propR.getNumber();
         
-        if(RendLetter == 'C' || RendLetter == 'c'){
-            if(PendLetter == 'C' || PendLetter == 'c')
+        if(!propR.isEventType()){
+            if(!propP.isEventType())
             {
                 BaseFormula = "(<>R)->((!(P&r!R))U((Q&r!P)VR))";
                 return BaseFormula;
@@ -215,8 +199,8 @@ public class BeforeRTable {
             }
         }
         
-        else if(RendLetter == 'E' ||RendLetter == 'e'){
-            if(PendLetter == 'C' || PendLetter =='c')
+        else if(propR.isEventType()){
+            if(!propR.isEventType())
             {
                 SubFormula1="(<>R)->(((!(P&r!Rh))U((Q&r!P)V((";
                 for(int i =0; i< rNumber-1; i++)
@@ -228,7 +212,7 @@ public class BeforeRTable {
                 BaseFormula=SubFormula1+SubFormula2+SubFormula3;
                 return BaseFormula;
             }
-            else if(PendLetter == 'E' || PendLetter == 'e')
+            else if(propP.isEventType())
             {
                 SubFormula1="(<>R)->((!((";
                 for(int i=1;i<pNumber; i++)
@@ -251,22 +235,18 @@ public class BeforeRTable {
     }
     
     public static String getFormula(Response pattern, Proposition R){
-        Response pat = pattern;
-        //Proposition propP = pat.getPropositionP();
-        //char PendLetter = getLastLetter(propP);
         Proposition propR = R;
-        char RendLetter = getLastLetter(propR);
-        String BaseFormula = "test";
+        String BaseFormula = "";
         String SubFormula1="";
         String SubFormula2 ="";
         String SubFormula3 = "";
         int rNumber = propR.getNumber();
         
-        if (RendLetter == 'C'||RendLetter == 'c'){
+        if (!propR.isEventType()){
             BaseFormula = "!((!R)U((P&r!R)&l((!(Q&r!R))UR)))";
             return BaseFormula;
         }
-        else if(RendLetter == 'E' || RendLetter == 'e'){
+        else if(propR.isEventType()){
             SubFormula1 = "!((!((";
             for(int i=0; i<rNumber; i++)
             {
@@ -278,12 +258,5 @@ public class BeforeRTable {
             return BaseFormula;
         }
         return BaseFormula;
-    }
-    
-    public static char getLastLetter(Proposition P){
-        Proposition prop = P;
-        String propType = prop.getType();
-        char lastLetter = propType.charAt(propType.length()-1);
-        return lastLetter;
     }
 }

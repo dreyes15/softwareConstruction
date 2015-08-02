@@ -40,4 +40,15 @@ public abstract class Proposition
 	{
 		return this.numberOfPropositions;
 	}
+	
+	public boolean isEventType() {
+		if (getLastLetter() == 'E') {
+			return true;
+		}
+		return false;
+	}
+	
+    private char getLastLetter(){
+        return this.typeOfProposition.charAt(this.typeOfProposition.length()-1);
+    }
 }
