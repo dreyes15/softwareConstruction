@@ -36,15 +36,15 @@ public class AfterLUntilRTable {
         String rSubFormula = " ";
         String gSubFormula = " ";
         
-        char rLastLetter = getLastLetter(R);
+        char rLastLetter = LastLetter.getLastLetter(R);
         
         gSubFormula = GlobalTable.getFormula(pattern);
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
-        if(isC(rLastLetter)){
+        if(LastLetter.isC(rLastLetter)){
             baseFormula = "[]((L&r!R)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
-        else if(isE(rLastLetter)){
+        else if(LastLetter.isE(rLastLetter)){
             baseFormula = "[]((L)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         return baseFormula;
@@ -57,15 +57,15 @@ public class AfterLUntilRTable {
         String rSubFormula = "";
         String gSubFormula = "";
         
-        char rLastLetter = getLastLetter(R);
+        char rLastLetter = LastLetter.getLastLetter(R);
         
         gSubFormula = GlobalTable.getFormula(pattern);
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
-        if(isC(rLastLetter)){
+        if(LastLetter.isC(rLastLetter)){
             baseFormula = "[]((L&r!R)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
-        else if(isE(rLastLetter)){
+        else if(LastLetter.isE(rLastLetter)){
             baseFormula = "[]((L)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         return baseFormula;
@@ -77,15 +77,15 @@ public class AfterLUntilRTable {
         String rSubFormula = "";
         String gSubFormula = "";
         
-        char rLastLetter = getLastLetter(R);
+        char rLastLetter = LastLetter.getLastLetter(R);
         
         gSubFormula = GlobalTable.getFormula(pattern);
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
-        if(isC(rLastLetter)){
+        if(LastLetter.isC(rLastLetter)){
             baseFormula = "[]((L&r!R)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
-        else if(isE(rLastLetter)){
+        else if(LastLetter.isE(rLastLetter)){
             baseFormula = "[]((L)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         return baseFormula;
@@ -97,15 +97,15 @@ public class AfterLUntilRTable {
         String rSubFormula = "";
         String gSubFormula = "";
         
-        char rLastLetter = getLastLetter(R);
+        char rLastLetter = LastLetter.getLastLetter(R);
         
         gSubFormula = GlobalTable.getFormula(pattern);
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
-        if(isC(rLastLetter)){
+        if(LastLetter.isC(rLastLetter)){
             baseFormula = "[]((L&r!R)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
-        else if(isE(rLastLetter)){
+        else if(LastLetter.isE(rLastLetter)){
             baseFormula = "[]((L)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         return baseFormula;
@@ -117,39 +117,17 @@ public class AfterLUntilRTable {
         String rSubFormula = "";
         String gSubFormula = "";
         
-        char rLastLetter = getLastLetter(R);
+        char rLastLetter = LastLetter.getLastLetter(R);
         
         gSubFormula = GlobalTable.getFormula(pattern);
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
-        if(isC(rLastLetter)){
+        if(LastLetter.isC(rLastLetter)){
             baseFormula = "[]((L&r!R)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
-        else if(isE(rLastLetter)){
+        else if(LastLetter.isE(rLastLetter)){
             baseFormula = "[]((L)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         return baseFormula;
-    }
-    
-    private static boolean isC(char endLetter) {
-    	if (endLetter == 'C' || endLetter == 'c'){
-    		return true;
-    	}
-    	return false;
-    }
-    
-    private static boolean isE(char endLetter) {
-    	if (endLetter == 'E'){
-    		return true;
-    	}
-    	return false;
-    }
-    
-    private static char getLastLetter(Proposition prop){
-        Proposition proposition = prop;
-        String propType= proposition.getType();
-        char lastLetter = propType.charAt(propType.length()-1);
-        
-        return lastLetter;
     }
 }
