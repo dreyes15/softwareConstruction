@@ -42,10 +42,10 @@ public class AfterLUntilRTable {
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
         if(scopeLetter == 'C' || scopeLetter == 'c'){
-            baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
+            baseFormula = "[]((L&r!R)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         else if(scopeLetter == 'E' || scopeLetter == 'e'){
-            baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
+            baseFormula = "[]((L)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         return baseFormula;
     }
@@ -53,9 +53,9 @@ public class AfterLUntilRTable {
 
     public static String getFormula(StrictPrecedence pattern, Proposition R){
         
-        String baseFormula = " ";
-        String rSubFormula = " ";
-        String gSubFormula = " ";
+        String baseFormula = "";
+        String rSubFormula = "";
+        String gSubFormula = "";
         
         char scopeLetter = getLastLetter(R);
         
@@ -63,19 +63,19 @@ public class AfterLUntilRTable {
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
         if(scopeLetter == 'C' || scopeLetter == 'c'){
-            baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
+            baseFormula = "[]((L&r!R)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         else if(scopeLetter == 'E' || scopeLetter == 'e'){
-            baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
+            baseFormula = "[]((L)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         return baseFormula;
     }
     
     public static String getFormula(Precedence pattern, Proposition R){
         
-        String baseFormula = " ";
-        String rSubFormula = " ";
-        String gSubFormula = " ";
+        String baseFormula = "";
+        String rSubFormula = "";
+        String gSubFormula = "";
         
         char scopeLetter = getLastLetter(R);
         
@@ -83,19 +83,19 @@ public class AfterLUntilRTable {
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
         if(scopeLetter == 'C' || scopeLetter == 'c'){
-            baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
+            baseFormula = "[]((L&r!R)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         else if(scopeLetter == 'E' || scopeLetter == 'e'){
-            baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
+            baseFormula = "[]((L)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         return baseFormula;
     }
     
     public static String getFormula(Absence pattern, Proposition R){
         
-        String baseFormula = " ";
-        String rSubFormula = " ";
-        String gSubFormula = " ";
+        String baseFormula = "";
+        String rSubFormula = "";
+        String gSubFormula = "";
         
         char scopeLetter = getLastLetter(R);
         
@@ -103,19 +103,19 @@ public class AfterLUntilRTable {
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
         if(scopeLetter == 'C' || scopeLetter == 'c'){
-            baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
+            baseFormula = "[]((L&r!R)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         else if(scopeLetter == 'E' || scopeLetter == 'e'){
-            baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
+            baseFormula = "[]((L)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         return baseFormula;
     }
     
     public static String getFormula(Response pattern, Proposition R){
         
-        String baseFormula = " ";
-        String rSubFormula = " ";
-        String gSubFormula = " ";
+        String baseFormula = "";
+        String rSubFormula = "";
+        String gSubFormula = "";
         
         char scopeLetter = getLastLetter(R);
         
@@ -123,10 +123,10 @@ public class AfterLUntilRTable {
         rSubFormula = BeforeRTable.getFormula(pattern, R);
         
         if(scopeLetter == 'C' || scopeLetter == 'c'){
-            baseFormula = "[]((L &r !R) -> (L &l ((" + rSubFormula+ "^ ((!<>R) ->"+gSubFormula+")))))";
+            baseFormula = "[]((L&r!R)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         else if(scopeLetter == 'E' || scopeLetter == 'e'){
-            baseFormula = "[]((L) -> (L &l ((" + rSubFormula+ "^((!<>R) -> "+gSubFormula+")))))";
+            baseFormula = "[]((L)->(L&l((" + rSubFormula+ "^((!<>R)->"+gSubFormula+")))))";
         }
         return baseFormula;
     }
