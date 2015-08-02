@@ -13,11 +13,11 @@ import java.io.IOException;
 import java.util.*;
 
 public class LTLGenerator {
-	private static String theGODFormula = "";
+	private static String finalFormula = "";
 
 	public static void main(String [] args){
 		LTLGenerator ltlGen = new LTLGenerator();
-		System.out.println(theGODFormula);
+		System.out.println(finalFormula);
 	}
 	
 	/*The LTLGenerator() constructor will take a text file as its parameter. It will have
@@ -83,7 +83,7 @@ public class LTLGenerator {
 		Scope scope = createScope(formula.get(0), propositionL, propositionR);
 		
 		Property property = new Property(scope,pattern);			
-		theGODFormula = convertPropertyFormula(property);
+		finalFormula = convertPropertyFormula(property);
 	}
 
 	/*convertPropertyToFormula() takes the Property object from ConvertDataToProperty()
