@@ -44,56 +44,61 @@ public class AfterLUntilRTable {
 	}
 
 	public static String getFormula(Existence pattern) {
-
+        String baseFormula= "";
+        
 		if (propR.isEventType()) {
-			String baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
 		}
 		else {
-			String baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
 		}
 		return baseFormula;
 	}
 
 	public static String getFormula(StrictPrecedence pattern) {
-	
+        String baseFormula= "";
+        
 		if (propR.isEventType()) {
-			 String baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			 baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
 		} 
 		else {
-			 String baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			 baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
 		}
 		return baseFormula;
 	}
 
 	public static String getFormula(Precedence pattern) {
-	
+        String baseFormula= "";
+        
 		if (propR.isEventType()) {
-			String baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
 		}
 		else {
-			String baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
 		}
 		return baseFormula;
 	}
 
 	public static String getFormula(Absence pattern) {
-
+        String baseFormula= "";
+        
 		if (propR.isEventType()) {
-			String baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
 		}
 		else {
-			String baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
 		}
 		return baseFormula;
 	}
 
 	public static String getFormula(Response pattern) {
+        String baseFormula= "";
 
 		if (propR.isEventType()) {
-			String baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
 		}
 		else {
-			String baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
 		}
 		return baseFormula;
 	}
