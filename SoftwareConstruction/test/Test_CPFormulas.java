@@ -12,16 +12,16 @@ package test;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import AndL;
-import AndNotL;
-import AndR;
-import AtLeastOneC;
-import Atomic;
 import CPSubstitutor;
-import ConsecutiveC;
-import EventualE;
-import ParallelC;
-import Proposition;
+import formulaBuilder.specialOperator.AndL;
+import formulaBuilder.specialOperator.AndNotL;
+import formulaBuilder.specialOperator.AndR;
+import propertyBuilder.proposition.AtLeastOneC;
+import propertyBuilder.proposition.Atomic;
+import propertyBuilder.proposition.ConsecutiveC;
+import propertyBuilder.proposition.EventualE;
+import propertyBuilder.proposition.ParallelC;
+import propertyBuilder.proposition.Proposition;
 
 public class Test_CPFormulas {
 	

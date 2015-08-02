@@ -1,4 +1,5 @@
 
+
 /*This class is the main driver of the LTL Formula generation process.  It receives
  * a text file containing a Scope, a Pattern, and all necessary Proposition types
  * (including the number of each proposition for composite types), and it returns an
@@ -11,6 +12,31 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+
+import formulaBuilder.FormulaCreator;
+import formulaBuilder.propertyBuilder.Property;
+import propertyBuilder.patterns.Absence;
+import propertyBuilder.patterns.Existence;
+import propertyBuilder.patterns.Pattern;
+import propertyBuilder.patterns.Precedence;
+import propertyBuilder.patterns.Response;
+import propertyBuilder.patterns.StrictPrecedence;
+import propertyBuilder.proposition.AtLeastOneC;
+import propertyBuilder.proposition.AtLeastOneE;
+import propertyBuilder.proposition.Atomic;
+import propertyBuilder.proposition.ConsecutiveC;
+import propertyBuilder.proposition.ConsecutiveE;
+import propertyBuilder.proposition.EventualC;
+import propertyBuilder.proposition.EventualE;
+import propertyBuilder.proposition.ParallelC;
+import propertyBuilder.proposition.ParallelE;
+import propertyBuilder.proposition.Proposition;
+import propertyBuilder.scopes.AfterL;
+import propertyBuilder.scopes.AfterLuntilR;
+import propertyBuilder.scopes.BeforeR;
+import propertyBuilder.scopes.BetweenLandR;
+import propertyBuilder.scopes.Global;
+import propertyBuilder.scopes.Scope;
 
 public class LTLGenerator {
 	private static String finalFormula = "";
