@@ -13,15 +13,15 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import CPSubstitutor;
-import formulaBuilder.specialOperator.AndL;
-import formulaBuilder.specialOperator.AndNotL;
-import formulaBuilder.specialOperator.AndR;
-import propertyBuilder.proposition.AtLeastOneC;
-import propertyBuilder.proposition.Atomic;
-import propertyBuilder.proposition.ConsecutiveC;
-import propertyBuilder.proposition.EventualE;
-import propertyBuilder.proposition.ParallelC;
-import propertyBuilder.proposition.Proposition;
+import ltlGenerator.formulaBuilder.specialOperator.AndL;
+import ltlGenerator.formulaBuilder.specialOperator.AndNotL;
+import ltlGenerator.formulaBuilder.specialOperator.AndR;
+import ltlGenerator.propertyBuilder.proposition.AtLeastOneC;
+import ltlGenerator.propertyBuilder.proposition.Atomic;
+import ltlGenerator.propertyBuilder.proposition.ConsecutiveC;
+import ltlGenerator.propertyBuilder.proposition.EventualE;
+import ltlGenerator.propertyBuilder.proposition.ParallelC;
+import ltlGenerator.propertyBuilder.proposition.Proposition;
 
 public class Test_CPFormulas {
 	

@@ -3,13 +3,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import propertyBuilder.patterns.Absence;
-import propertyBuilder.patterns.Existence;
-import propertyBuilder.patterns.Precedence;
-import propertyBuilder.patterns.Response;
-import propertyBuilder.proposition.AtLeastOneC;
-import propertyBuilder.proposition.Atomic;
-import propertyBuilder.proposition.ParallelC;
+import ltlGenerator.propertyBuilder.patterns.Absence;
+import ltlGenerator.propertyBuilder.patterns.Existence;
+import ltlGenerator.propertyBuilder.patterns.Precedence;
+import ltlGenerator.propertyBuilder.patterns.Response;
+import ltlGenerator.propertyBuilder.proposition.AtLeastOneC;
+import ltlGenerator.propertyBuilder.proposition.Atomic;
+import ltlGenerator.propertyBuilder.proposition.ParallelC;
 
 public class Test_CreatePattern {
 	Atomic propP = new Atomic("P");				

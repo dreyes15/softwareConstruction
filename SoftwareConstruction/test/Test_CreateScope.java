@@ -3,14 +3,14 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import propertyBuilder.proposition.Atomic;
-import propertyBuilder.proposition.ConsecutiveC;
-import propertyBuilder.proposition.EventualC;
-import propertyBuilder.scopes.AfterL;
-import propertyBuilder.scopes.AfterLuntilR;
-import propertyBuilder.scopes.BeforeR;
-import propertyBuilder.scopes.BetweenLandR;
-import propertyBuilder.scopes.Global;
+import ltlGenerator.propertyBuilder.proposition.Atomic;
+import ltlGenerator.propertyBuilder.proposition.ConsecutiveC;
+import ltlGenerator.propertyBuilder.proposition.EventualC;
+import ltlGenerator.propertyBuilder.scopes.AfterL;
+import ltlGenerator.propertyBuilder.scopes.AfterLuntilR;
+import ltlGenerator.propertyBuilder.scopes.BeforeR;
+import ltlGenerator.propertyBuilder.scopes.BetweenLandR;
+import ltlGenerator.propertyBuilder.scopes.Global;
 
 public class Test_CreateScope {
 	Atomic propL = new Atomic("L");

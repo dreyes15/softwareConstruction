@@ -3,16 +3,16 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import propertyBuilder.proposition.AtLeastOneC;
-import propertyBuilder.proposition.AtLeastOneE;
-import propertyBuilder.proposition.Atomic;
-import propertyBuilder.proposition.ConsecutiveC;
-import propertyBuilder.proposition.ConsecutiveE;
-import propertyBuilder.proposition.EventualC;
-import propertyBuilder.proposition.EventualE;
-import propertyBuilder.proposition.ParallelC;
-import propertyBuilder.proposition.ParallelE;
-import propertyBuilder.proposition.Proposition;
+import ltlGenerator.propertyBuilder.proposition.AtLeastOneC;
+import ltlGenerator.propertyBuilder.proposition.AtLeastOneE;
+import ltlGenerator.propertyBuilder.proposition.Atomic;
+import ltlGenerator.propertyBuilder.proposition.ConsecutiveC;
+import ltlGenerator.propertyBuilder.proposition.ConsecutiveE;
+import ltlGenerator.propertyBuilder.proposition.EventualC;
+import ltlGenerator.propertyBuilder.proposition.EventualE;
+import ltlGenerator.propertyBuilder.proposition.ParallelC;
+import ltlGenerator.propertyBuilder.proposition.ParallelE;
+import ltlGenerator.propertyBuilder.proposition.Proposition;
 
 
 public class Test_CreatePropositions {
