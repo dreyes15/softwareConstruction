@@ -13,22 +13,22 @@ import java.io.IOException;
 import java.util.*;
 
 public class LTLGenerator {
+	private static String theGODFormula = "";
 
 	public static void main(String [] args){
-
-		LTLGenerator();
-
+		LTLGenerator ltlGen = new LTLGenerator();
+		System.out.println(theGODFormula);
 	}
+	
 	/*The LTLGenerator() constructor will take a text file as its parameter. It will have
 	 * a string called FinalFormula that is assigned the result of passing the text file
 	 * as a parameter of the formatData() method.
 	 */
-	public static void LTLGenerator(){ 
+	public LTLGenerator(){ 
 		try {
-			BufferedReader bufferedReader = new BufferedReader(new FileReader("LTLGen_File_Example.txt"));
+			BufferedReader bufferedReader = new BufferedReader(new FileReader("file.txt"));
 			formatData(bufferedReader);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -42,48 +42,26 @@ public class LTLGenerator {
 	public static void formatData(BufferedReader bufferedReader){
 		String line;
 		List<String> formula = new ArrayList<String>();
-
 		try {
 			while((line = bufferedReader.readLine()) != null){
-				//System.out.println(line);
 				StringTokenizer tokenizer = new StringTokenizer (line, " ");
-
 				while(tokenizer.hasMoreElements()){
-					//formula.add(line);
-
 					tokenizer.nextElement();
 					String pattern = tokenizer.nextElement().toString();
 					pattern.trim();
 					formula.add(pattern);
 					if(tokenizer.hasMoreElements()){
 						String number = tokenizer.nextElement().toString();
-
-						//System.out.println(number);
 						formula.add(number);
-
-
 					}
-					//System.out.println(pattern);
-					
-
-
-
-
 				}
-
-
-				//System.out.println(line);
-
 			}
 			convertDataToProperty(formula);
-
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("The file does not exist");
 		}
 	}   
-
 
 	/*convertDataToProperty() takes the array from FormatData() as input. It passes this
 	 * array to the Property class and receives a Property object in return. It then passes
@@ -91,27 +69,22 @@ public class LTLGenerator {
 	 * responsible for notifying the user if a Property object could not be created.
 	 */
 	public static void convertDataToProperty(List<String> formula){
-		//for(int i = 0; i < formula.size(); i++){
-		int propType = 2;	
-		String typeP = "P";
-		Proposition propositionP = createProposition(typeP,formula.get(propType),formula.get(propType+1));
-		String typeQ = "Q";
-		Proposition propositionQ = createProposition(typeQ,formula.get(propType+2),formula.get(propType+3));
-		String typeL = "L";
-		Proposition propositionL = createProposition(typeL,formula.get(propType+4),formula.get(propType+5));
-		String typeR = "R";
-		Proposition propositionR = createProposition(typeR,formula.get(propType+6),formula.get(propType+7));
-
-		int patternType = 1;
-		Pattern pattern = createPattern(formula.get(patternType), propositionP, propositionQ);
-
-		int scopeType = 0;
-		Scope scope = createScope(formula.get(scopeType),propositionL,propositionR);
 		
-		Property property = new Property(scope,pattern);
-	}
+		String typeP = "P";
+		Proposition propositionP = createProposition(typeP, formula.get(2), formula.get(3));
+		String typeQ = "Q";
+		Proposition propositionQ = createProposition(typeQ, formula.get(4), formula.get(5));
+		String typeL = "L";
+		Proposition propositionL = createProposition(typeL, formula.get(6), formula.get(7));
+		String typeR = "R";
+		Proposition propositionR = createProposition(typeR, formula.get(8), formula.get(9));
 
-//test
+		Pattern pattern = createPattern(formula.get(1), propositionP, propositionQ);
+		Scope scope = createScope(formula.get(0), propositionL, propositionR);
+		
+		Property property = new Property(scope,pattern);			
+		theGODFormula = convertPropertyFormula(property);
+	}
 
 	/*convertPropertyToFormula() takes the Property object from ConvertDataToProperty()
 	 * as input.  It passes this object to the FormulaCreator class and receives a full
@@ -119,29 +92,24 @@ public class LTLGenerator {
 	 * method.  This routine is responsible for notifying the user if an LTL Formula
 	 * could not be created.
 	 */
-	public  static void convertPropertyFormula(Property property){
-		//FormulaCreator.createFormula(property);
-		
-
-
+	public static String convertPropertyFormula(Property property){
+		String formula = FormulaCreator.createFormula(property); 
+		return formula;
 	}
-
 
 	/*saveFormulaToFile() takes the LTL Formula from ConvertPropertyToFormula() as
 	 * input.  It writes the LTL Formula to the output file. This routine is responsible
 	 * for notifying the user if the formula cannot be written to the output file.
 	 */
-
 	public void saveFormulaToFile(){
 
 	}
 
-	/** THIS METHOD NEEDS TO RETURN A PROPOSITION
+	/** 
 	 * @precondition Run str.trim() method beforehand */
-	static Proposition createProposition(String propType, String propName, String propNumber) {	
-		Proposition proposition;
+	static Proposition createProposition(String propName, String propType, String propNumber) {	
+		Proposition proposition = null;
 		int number = 1;
-		System.out.println(propName+" "+ propNumber);
 		
 		if(propNumber != null){
 			number = Integer.parseInt( propNumber);
@@ -175,15 +143,12 @@ public class LTLGenerator {
 		case "EventualE":
 			proposition = new EventualE(propName, number);
 			break;
-		default:
-			proposition = null;
 		}
 		return proposition;
-
 	}
 
 	static Pattern createPattern(String patternStr, Proposition propositionP, Proposition propositionQ) {
-		Pattern pattern;
+		Pattern pattern = null;
 
 		switch(patternStr){
 		case "Existence":
@@ -201,14 +166,12 @@ public class LTLGenerator {
 		case "StrictPrecedence":
 			pattern = new StrictPrecedence(propositionP, propositionQ);
 			break;
-		default:
-			pattern = null;
 		}
 		return pattern;
 	}
 
 	static Scope createScope(String scopeType, Proposition propositionL, Proposition propositionR) {
-		Scope scope;
+		Scope scope = null;
 		switch(scopeType){
 		case "Global":
 			scope = new Global(propositionL, propositionR);
@@ -225,13 +188,7 @@ public class LTLGenerator {
 		case "BetweenLandR":
 			scope = new BetweenLandR(propositionL, propositionR);
 			break;
-		default:
-			scope = null;
 		}
 		return scope;
-	}
-	
-	//test
-	
+	}	
 }
-

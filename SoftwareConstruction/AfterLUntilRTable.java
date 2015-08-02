@@ -132,6 +132,9 @@ public class AfterLUntilRTable {
     }
     
     private static char getLastLetter(Proposition prop){
+    	if (prop == null)
+    		System.out.println("This is null");
+    	
         Proposition proposition = prop;
         String propType= proposition.getType();
         char lastLetter = propType.charAt(propType.length()-1);

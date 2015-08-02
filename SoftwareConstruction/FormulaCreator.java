@@ -9,7 +9,7 @@ public class FormulaCreator {
 	 * a FinalFormula string to LTLGenerator.  
 	 */
 
-	public String createFormula(Property P){
+	public static String createFormula(Property P){
 		//Assigns the Property received to a local property variable
 		//Assigns the Scope and Pattern obtained from the local property to local scope and pattern variables
 		//Assigns the Propositions obtained form the local scope and pattern to local proposition variables
