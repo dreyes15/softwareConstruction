@@ -3,13 +3,13 @@
  * special & operators.
  * 
  */
-public class AfterLTable {
-	/* Method AfterLSubstitution() receives appropriate properties such as the string array containing a Scope, 
-	 * a Pattern, and all necessary Proposition types and will do the string substituion given the after L 
-	 * scope and will return the template to the formula creator.
-	 */
+public class AfterLTable extends SubstitutionTable{
+	
+	private static String globalSubformula;
 	
 	public static String getFormula(Pattern pattern) {
+		
+		globalSubformula = GlobalTable.getFormula(pattern);
 		
 		String formula = "";
 		
@@ -31,62 +31,37 @@ public class AfterLTable {
 		return formula;
 	}
 	
-	public static String getFormula(Absence pat){
+	public static String getFormula(Absence pattern){
 		
-		String baseFormula = " ";
-		String gSubFormula = " ";
+		return "!((!L)U(L&l!" + globalSubformula + "))";
 		
-		gSubFormula = GlobalTable.getFormula(pat);
-		
-		baseFormula = " !((!L)U(L&l!" + gSubFormula + "))";
-		
-		return baseFormula;
+		//return baseFormula;
 	}
 	
 	public static String getFormula(Existence pat){
 		
-		String baseFormula = " ";
-		String gSubFormula = " ";
-		
-		gSubFormula = GlobalTable.getFormula(pat);
-		
-		baseFormula = " !((!L)U(L&l!" + gSubFormula + "))";
+		String baseFormula = "!((!L)U(L&l!" + globalSubformula + "))";
 		
 		return baseFormula;
 	}
 	
 	public static String getFormula(Precedence pat){
 		
-		String baseFormula = " ";
-		String gSubFormula = " ";
-		
-		gSubFormula = GlobalTable.getFormula(pat);
-		
-		baseFormula = " !((!L)U(L&l!" + gSubFormula + "))";
+		String baseFormula = "!((!L)U(L&l!" + globalSubformula + "))";
 		
 		return baseFormula;
 	}
 	
 	public static String getFormula(StrictPrecedence pat){
 		
-		String baseFormula = " ";
-		String gSubFormula = " ";
-		
-		gSubFormula = GlobalTable.getFormula(pat);
-		
-		baseFormula = " !((!L)U(L&l!" + gSubFormula + "))";
+		String baseFormula = "!((!L)U(L&l!" + globalSubformula + "))";
 		
 		return baseFormula;
 	}
 	
 	public static String getFormula(Response pat){
 		
-		String baseFormula = " ";
-		String gSubFormula = " ";
-		
-		gSubFormula = GlobalTable.getFormula(pat);
-		
-		baseFormula = " !((!L)U(L&l!" + gSubFormula + "))";
+		String baseFormula = "!((!L)U(L&l!" + globalSubformula + "))";
 		
 		return baseFormula;
 	}
