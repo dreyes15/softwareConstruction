@@ -33,9 +33,9 @@ public class AfterLTable extends SubstitutionTable{
 	
 	public static String getFormula(Absence pattern){
 		
-		return "!((!L)U(L&l!" + globalSubformula + "))";
+		String baseFormula = "!((!L)U(L&l!" + globalSubformula + "))";
 		
-		//return baseFormula;
+		return baseFormula;
 	}
 	
 	public static String getFormula(Existence pat){
