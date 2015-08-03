@@ -12,7 +12,7 @@ import ltlGenerator.propertyBuilder.scopes.Scope;
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
  * 		 Lucia Rodriguez, and David Reyes
  * Project: LTL Generator
- * Due Date: July 3, 2015
+ * Due Date: August 3, 2015
 */
 public class SubstitutionTable {
 	
