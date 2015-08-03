@@ -21,19 +21,19 @@ public class Test_CreateScope {
 	
 	@Test
 	public void Global(){
-		Global globalScope = new Global();
+		Global globalScope = new Global(propL, propR);
 		assertEquals(globalScope.getScopeType(), "Global");
 	}
 	
 	@Test
 	public void AfterL(){
-		AfterL afterLScope = new AfterL(propL);
+		AfterL afterLScope = new AfterL(propL, propR);
 		assertEquals(afterLScope.getScopeType(), "AfterL");
 	}
 	
 	@Test
 	public void BeforeR(){
-		BeforeR beforeRScope = new BeforeR(propR);
+		BeforeR beforeRScope = new BeforeR(propL, propR);
 		assertEquals(beforeRScope.getScopeType(), "BeforeR");
 	}
 	
@@ -52,13 +52,13 @@ public class Test_CreateScope {
 	
 	@Test
 	public void compositeAfterL(){
-		AfterL afterLScope = new AfterL(compositePropL);
+		AfterL afterLScope = new AfterL(compositePropL, compositePropR);
 		assertEquals(afterLScope.getScopeType(), "AfterL");
 	}
 	
 	@Test
 	public void compositeBeforeR(){
-		BeforeR beforeRScope = new BeforeR(compositePropR);
+		BeforeR beforeRScope = new BeforeR(compositePropL, compositePropR);
 		assertEquals(beforeRScope.getScopeType(), "BeforeR");
 	}
 	

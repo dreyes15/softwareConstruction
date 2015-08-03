@@ -20,13 +20,13 @@ public class Test_CreatePattern {
 	
 	@Test
 	public void Existence() {
-		Existence existence = new Existence(propP);
+		Existence existence = new Existence(propP, propQ);
 		assertEquals(existence.getPatternType(), "Existence");
 	}
 	
 	@Test
 	public void Absence() {
-		Absence absence = new Absence(propP);
+		Absence absence = new Absence(propP, propQ);
 		assertEquals(absence.getPatternType(), "Absence");
 	}
 	
@@ -44,13 +44,13 @@ public class Test_CreatePattern {
 	
 	@Test
 	public void ExistenceCP() {
-		Existence existence = new Existence(propCP);
+		Existence existence = new Existence(propCP, propCQ);
 		assertEquals(existence.getPatternType(), "Existence");
 	}
 	
 	@Test
 	public void AbsenceCP() {
-		Absence absence = new Absence(propCP);
+		Absence absence = new Absence(propCP, propCQ);
 		assertEquals(absence.getPatternType(), "Absence");
 	}
 	
