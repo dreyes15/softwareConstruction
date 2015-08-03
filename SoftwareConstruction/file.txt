@@ -1,0 +1,6 @@
+Scope: AfterLuntilR
+Pattern: Precedence
+PropP: ParallelE 3
+PropQ: AtLeastOneE 4
+PropL: Atomic 1
+PropR: EventualE 2
