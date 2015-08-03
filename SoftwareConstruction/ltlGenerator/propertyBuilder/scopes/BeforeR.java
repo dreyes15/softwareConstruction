@@ -14,7 +14,7 @@ import ltlGenerator.propertyBuilder.proposition.Proposition;
 
 public class BeforeR extends Scope
 {
-	public BeforeR(PropositionL, Proposition propR)
+	public BeforeR(Proposition propL, Proposition propR)
 	{
 		this.propositionR = propR;		//set variable R be equal to the parameter;
 	}
