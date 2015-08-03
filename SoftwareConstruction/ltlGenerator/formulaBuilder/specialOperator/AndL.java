@@ -52,7 +52,6 @@ public String replaceAndL(String formula) {
 			//Continues searching for &l operators until it reaches the beginning of the formula string
 			searchPosition--;
 		}
-		//returns the formula with splices inserted in accordance with all &l operators contained in original formula
 		return andLModifiedFormula;
 	}
 }

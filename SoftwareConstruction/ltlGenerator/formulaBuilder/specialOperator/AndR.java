@@ -12,7 +12,7 @@ public class AndR{
 	
 	FormulaSplicer splicer = new FormulaSplicer();
 	private static final String END_PARENTHESIS = "\\)";
-	//String subformulaToAdd = "";
+	private static final String NEXT_OPERATOR = "X";
 	
 	/*
      * The replaceAndR() method will receive a formula and search it for any &r or &e operators.
@@ -69,14 +69,14 @@ public class AndR{
 			startPosition++;
 			
 			//Finds all the sets of close parentheses
-			if (formula.substring(startPosition,startPosition+1).matches(END_PARENTHESIS) && !formula.substring(startPosition-1,startPosition).matches("\\)")){
+			if (formula.substring(startPosition,startPosition+1).matches(END_PARENTHESIS) && !formula.substring(startPosition-1,startPosition).matches(END_PARENTHESIS)){
 				
 				//Adds the splice in front of these sets
 				formula = splicer.addSubformula(formula, "^" + subformulaToAdd, startPosition);
 			}
 			
 			//Finds all the "next" operators
-			else if (formula.substring(startPosition,startPosition+1).matches("X")){
+			else if (formula.substring(startPosition,startPosition+1).matches(NEXT_OPERATOR)){
 				
 				//Adds the splice in front of these operators
 				formula = splicer.addSubformula(formula, subformulaToAdd + "^", startPosition);
