@@ -21,16 +21,14 @@ public class SpecialOperatorUpdater {
 		
 		Proposition propP = pattern.getPropositionP();
 		String propPType = propP.getType();
+		
 		Proposition propQ = pattern.getPropositionQ();
-		
 		String propQType = "";
-		
 		if (propQ != null) {
 			propQType = propQ.getType();
 		}
 		
 		Proposition propL = scope.getPropositionL();
-		
 		String propLType = "";
 		if (propL != null) {
 			propLType = propL.getType();
@@ -45,11 +43,19 @@ public class SpecialOperatorUpdater {
 		String updatedBaseFormula = baseFormula;
 		int searchPosition = 0;
 		
+		//Search for through the entire updatedBaseFormula
 		while (searchPosition < updatedBaseFormula.length()-1){
+			
+			//Search for special operators
 			if (updatedBaseFormula.charAt(searchPosition) == '&'){
+				
+				//Get the proposition letter before the special opeartor
 				char prevOperand = updatedBaseFormula.charAt(searchPosition-1);
-				char endLetter = '.';
+				
+				//Check to see if the special operator is an &r
 				if (updatedBaseFormula.charAt(searchPosition+1) == 'r'){
+					
+					//If the proposition before the &r is of an event type, change special operator to &e
 					switch (prevOperand){
 					case 'P':
 						if (propP.isEventType()){
@@ -75,8 +81,14 @@ public class SpecialOperatorUpdater {
 						System.out.println("Error: Not a valid proposition before the special operator.)");
 					}
 				}
+				
+				//Check to see if special operator is &-l
 				else if (updatedBaseFormula.charAt(searchPosition+1) == '-'){
 					switch (prevOperand){
+					
+					//If the proposition before the &-l is ConsecutiveC or EventualC, change special operator to &-c
+					//If the proposition before the &-l is AtLeastOneE or ParallelE, change special operator to &-x
+					//If the proposition before the &-l is ConsecutiveE or EventualE, change special operator to &-e
 					case 'P':
 						if (propPType.equals("ConsecutiveC")||propPType.equals("EventualC")){
 							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+1) + "c" + updatedBaseFormula.substring(searchPosition+2, updatedBaseFormula.length());
@@ -126,11 +138,15 @@ public class SpecialOperatorUpdater {
 					}
 				}
 				else{
-					//Not an AndR or AndNotL Operation
+					//Special operator does not need changed, so do nothing
 				}
 			}
+			
+			//increment searchPosition to continue searching through updatedBaseFormula string
 			searchPosition++;
 		}
+		
+		//Once string search is completed, return the updatedBaseFormula
 		return updatedBaseFormula;
 	}
 }

@@ -14,18 +14,17 @@ package ltlGenerator.formulaBuilder.specialOperator;
 public class SpecialOperator {
 
 	/*
-     * performSpecialOperations() will receive a modifiedFormula from the FormulaCreator class as a
-     * parameter.  It will call a method from each of the Special Operator classes (AndL, AndR, 
-     * and AndNotL) to perform their respective operations on the modifiedFormula.  It will build a 
-     * formualaWithSpecOpsPerformed from this process and return it to FormulaCreator.
+     * performSpecialOperations() will receive a formula string as a parameter.  It will call a method from 
+     * each of the Special Operator classes (AndL, AndR, and AndNotL) to perform their respective operations 
+     * on the formula string.  It will build a formualaWithSpecOpsPerformed from this process and return it.
      */
-	public static String performSpecialOperations(String modifiedFormula) {
+	public static String performSpecialOperations(String formula) {
 		
 		AndL andL = new AndL();
 		AndR andR = new AndR();
 		AndNotL andNotL = new AndNotL();
 		
-		String formulaWithSpecOpsPerformed = modifiedFormula;
+		String formulaWithSpecOpsPerformed = formula;
 		
 		formulaWithSpecOpsPerformed = andL.replaceAndL(formulaWithSpecOpsPerformed);
 		formulaWithSpecOpsPerformed = andR.replaceAndR(formulaWithSpecOpsPerformed);

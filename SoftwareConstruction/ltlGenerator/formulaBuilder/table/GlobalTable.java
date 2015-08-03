@@ -64,7 +64,7 @@ public class GlobalTable extends SubstitutionTable {
 
 	public static String getFormula(Response pattern) {
 		
-		String baseFormula = "[](P->(P&l(<>Q))))";
+		String baseFormula = "[](P->(P&l(<>Q)))";
 		return baseFormula;
 	}
 
