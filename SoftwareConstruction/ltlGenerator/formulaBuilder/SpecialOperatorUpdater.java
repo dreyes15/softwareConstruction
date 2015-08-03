@@ -6,7 +6,7 @@ import ltlGenerator.propertyBuilder.scopes.Scope;
 
 public class SpecialOperatorUpdater {
 	
-	public String specialOperationsReplacement(Property P, String baseFormula){
+	public static String specialOperationsReplacement(Property P, String baseFormula){
 		
 		Property property = P;
 		Scope scope = property.getScope();
@@ -31,26 +31,22 @@ public class SpecialOperatorUpdater {
 				if (updatedBaseFormula.charAt(searchPosition+1) == 'r'){
 					switch (prevOperand){
 					case 'P':
-						endLetter = getLastLetter(propP);
-						if (endLetter == 'E'){
+						if (propP.isEventType()){
 							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+1) + "e" + updatedBaseFormula.substring(searchPosition+2, updatedBaseFormula.length());
 						}
 						break;
 					case 'Q':
-						endLetter = getLastLetter(propQ);
-						if (endLetter == 'E'){
+						if (propQ.isEventType()){
 							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+1) + "e" + updatedBaseFormula.substring(searchPosition+2, updatedBaseFormula.length());						
 						}
 						break;
 					case 'L':
-						endLetter = getLastLetter(propL);
-						if (endLetter == 'E'){
+						if (propL.isEventType()){
 							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+1) + "e" + updatedBaseFormula.substring(searchPosition+2, updatedBaseFormula.length());
 						}
 						break;
 					case 'R':
-						endLetter = getLastLetter(propR);
-						if (endLetter == 'E'){
+						if (propR.isEventType()){
 							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+1) + "e" + updatedBaseFormula.substring(searchPosition+2, updatedBaseFormula.length());
 						}
 						break;

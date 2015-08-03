@@ -14,7 +14,7 @@ public class SpecialOperator {
      * and AndNotL) to perform their respective operations on the modifiedFormula.  It will build a 
      * formualaWithSpecOpsPerformed from this process and return it to FormulaCreator.
      */
-	public String performSpecialOperations(String modifiedFormula) {
+	public static String performSpecialOperations(String modifiedFormula) {
 		
 		AndL andL = new AndL();
 		AndR andR = new AndR();
