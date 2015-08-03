@@ -15,9 +15,9 @@ package ltlGenerator.propertyBuilder.proposition;
 
 public abstract class Proposition
 {
-	String nameOfProposition;	//Proposition variable name
-	String typeOfProposition;	//Proposition variable type
-	int numberOfPropositions;	//applicable to composite propositions that contain more than 1 proposition
+	String nameOfProposition = "";	//Proposition variable name
+	String typeOfProposition = "";	//Proposition variable type
+	int numberOfPropositions = 0;	//applicable to composite propositions that contain more than 1 proposition
 	
 	public Proposition(String name)
 	{

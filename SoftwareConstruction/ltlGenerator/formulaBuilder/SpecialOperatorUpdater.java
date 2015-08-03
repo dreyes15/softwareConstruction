@@ -15,11 +15,25 @@ public class SpecialOperatorUpdater {
 		Proposition propP = pattern.getPropositionP();
 		String propPType = propP.getType();
 		Proposition propQ = pattern.getPropositionQ();
-		String propQType = propQ.getType();
+		
+		String propQType = "";
+		
+		if (propQ != null) {
+			propQType = propQ.getType();
+		}
+		
 		Proposition propL = scope.getPropositionL();
-		String propLType = propL.getType();
+		
+		String propLType = "";
+		if (propL != null) {
+			propLType = propL.getType();
+		}
+		
 		Proposition propR = scope.getPropositionR();
-		String propRType = propR.getType();
+		String propRType = "";
+		if (propR != null) {
+			propRType = propR.getType();
+		}
 		
 		String updatedBaseFormula = baseFormula;
 		int searchPosition = 0;
@@ -112,14 +126,4 @@ public class SpecialOperatorUpdater {
 		}
 		return updatedBaseFormula;
 	}
-	
-	private char getLastLetter(Proposition prop){
-
-		Proposition proposition = prop;
-		String propType = proposition.getType();
-		char lastLetter = propType.charAt(propType.length()-1);
-
-		return lastLetter;
-	}
-
 }

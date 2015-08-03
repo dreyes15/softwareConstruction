@@ -10,13 +10,14 @@ package ltlGenerator.propertyBuilder.patterns;
  * Strict Precedence, and Response.
  */
 
+import ltlGenerator.propertyBuilder.proposition.Atomic;
 import ltlGenerator.propertyBuilder.proposition.Proposition;
 
 public abstract class Pattern
 {    
-	private String patternType;
-	protected Proposition propositionP;
-	protected Proposition propositionQ;
+	private String patternType = "";
+	protected Proposition propositionP = null;
+	protected Proposition propositionQ = null;
 
 	public Pattern()
 	{

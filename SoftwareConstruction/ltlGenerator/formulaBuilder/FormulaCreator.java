@@ -50,10 +50,28 @@ public class FormulaCreator {
 		String updatedBaseFormula = SpecialOperatorUpdater.specialOperationsReplacement(property, baseFormula);
 
 		String pModifiedFormula = PropSubstitutor.substituteCompositeProps(updatedBaseFormula, propP);
-		String qModifiedFormula = PropSubstitutor.substituteCompositeProps(pModifiedFormula, propQ);
-		String lModifiedFormula = PropSubstitutor.substituteCompositeProps(qModifiedFormula, propL);
-		String modifiedFormula = PropSubstitutor.substituteCompositeProps(lModifiedFormula, propR);
-
+		String qModifiedFormula = "";
+		String lModifiedFormula = "";
+		String modifiedFormula = "";
+		if (propQ != null) {
+			qModifiedFormula = PropSubstitutor.substituteCompositeProps(pModifiedFormula, propQ);
+		}
+		else {
+			qModifiedFormula = pModifiedFormula;
+		}
+		if (propL != null) {
+			lModifiedFormula = PropSubstitutor.substituteCompositeProps(qModifiedFormula, propL);
+		}
+		else {
+			lModifiedFormula = qModifiedFormula;
+		}
+		if (propR != null) {
+			modifiedFormula = PropSubstitutor.substituteCompositeProps(lModifiedFormula, propR);
+		}
+		else {
+			modifiedFormula = lModifiedFormula;
+		}
+		
 		String finalFormula = SpecialOperator.performSpecialOperations(modifiedFormula);
 
 		return finalFormula;

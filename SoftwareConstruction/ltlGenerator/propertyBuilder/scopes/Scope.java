@@ -10,13 +10,14 @@ package ltlGenerator.propertyBuilder.scopes;
  * AfterLuntilL, BeforeR, BetweenLandR, Global, and AfterL.
  */
 
+import ltlGenerator.propertyBuilder.proposition.Atomic;
 import ltlGenerator.propertyBuilder.proposition.Proposition;
 
 public abstract class Scope
 {
-	private String scopeType;
-	protected Proposition propositionL;
-	protected Proposition propositionR;
+	private String scopeType = "";
+	protected Proposition propositionL = null;
+	protected Proposition propositionR = null;
 	
 	public Scope()
 	{
