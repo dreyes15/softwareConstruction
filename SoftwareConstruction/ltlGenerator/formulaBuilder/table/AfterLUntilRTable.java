@@ -56,10 +56,10 @@ public class AfterLUntilRTable extends SubstitutionTable{
         String baseFormula= "";
         
 		if (propR.isEventType()) {
-			baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L)->(L&l(((" + beforeRSubformula + ")^((!<>R)->(" + globalSubformula + "))))))";
 		}
 		else {
-			baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L&r!R)->(L&l(((" + beforeRSubformula + ")^((!<>R)->(" + globalSubformula + "))))))";
 		}
 		return baseFormula;
 	}
@@ -68,10 +68,10 @@ public class AfterLUntilRTable extends SubstitutionTable{
         String baseFormula= "";
         
 		if (propR.isEventType()) {
-			 baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			 baseFormula = "[]((L)->(L&l(((" + beforeRSubformula + ")^((!<>R)->(" + globalSubformula + "))))))";
 		} 
 		else {
-			 baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			 baseFormula = "[]((L&r!R)->(L&l(((" + beforeRSubformula + ")^((!<>R)->(" + globalSubformula + "))))))";
 		}
 		return baseFormula;
 	}
@@ -80,10 +80,10 @@ public class AfterLUntilRTable extends SubstitutionTable{
         String baseFormula= "";
         
 		if (propR.isEventType()) {
-			baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L)->(L&l(((" + beforeRSubformula + ")^((!<>R)->(" + globalSubformula + "))))))";
 		}
 		else {
-			baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L&r!R)->(L&l(((" + beforeRSubformula + ")^((!<>R)->(" + globalSubformula + "))))))";
 		}
 		return baseFormula;
 	}
@@ -92,10 +92,10 @@ public class AfterLUntilRTable extends SubstitutionTable{
         String baseFormula= "";
         
 		if (propR.isEventType()) {
-			baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L)->(L&l(((" + beforeRSubformula + ")^((!<>R)->(" + globalSubformula + "))))))";
 		}
 		else {
-			baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L&r!R)->(L&l(((" + beforeRSubformula + ")^((!<>R)->(" + globalSubformula + "))))))";
 		}
 		return baseFormula;
 	}
@@ -104,10 +104,10 @@ public class AfterLUntilRTable extends SubstitutionTable{
         String baseFormula= "";
 
 		if (propR.isEventType()) {
-			baseFormula = "[]((L)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L)->(L&l(((" + beforeRSubformula + ")^((!<>R)->(" + globalSubformula + "))))))";
 		}
 		else {
-			baseFormula = "[]((L&r!R)->(L&l((" + beforeRSubformula + "^((!<>R)->" + globalSubformula + ")))))";
+			baseFormula = "[]((L&r!R)->(L&l(((" + beforeRSubformula + ")^((!<>R)->(" + globalSubformula + "))))))";
 		}
 		return baseFormula;
 	}

@@ -98,10 +98,10 @@ public class BetweenLandRTable extends SubstitutionTable {
     	String baseFormula ="";
 
         if(propR.isEventType()) {
-            baseFormula = "[](L->(L&l"+beforeRSubformula+"))";
+            baseFormula = "[](L->(L&l("+beforeRSubformula+")))";
         }
         else {
-        	baseFormula = "[]((L&l!R)->(L&l"+ beforeRSubformula+"))";
+        	baseFormula = "[]((L&l!R)->(L&l("+ beforeRSubformula+")))";
         }
         return baseFormula;
     }
@@ -111,10 +111,10 @@ public class BetweenLandRTable extends SubstitutionTable {
     	String baseFormula ="";
  
         if(propR.isEventType()) {
-            baseFormula = "[](L->(L&l"+beforeRSubformula+"))";
+            baseFormula = "[](L->(L&l("+beforeRSubformula+")))";
         }
         else {
-        	baseFormula = "[]((L&l!R)->(L&l"+ beforeRSubformula+"))";
+        	baseFormula = "[]((L&l!R)->(L&l("+ beforeRSubformula+")))";
         }
         return baseFormula;
     }

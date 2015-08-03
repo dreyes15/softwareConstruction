@@ -16,6 +16,7 @@ public class StrictPrecedence extends Pattern
 {
 	public StrictPrecedence(Proposition propP, Proposition propQ)
 	{
+		this.propositionP = propP;
 		this.propositionQ = propQ;
 	}
 }
