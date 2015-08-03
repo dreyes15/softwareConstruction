@@ -1,3 +1,5 @@
+package ltlGenerator.formulaBuilder;
+
 import ltlGenerator.formulaBuilder.propSubstitutor.PropSubstitutor;
 import ltlGenerator.formulaBuilder.specialOperator.SpecialOperator;
 import ltlGenerator.formulaBuilder.table.SubstitutionTable;
