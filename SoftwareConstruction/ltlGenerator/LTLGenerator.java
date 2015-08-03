@@ -151,7 +151,7 @@ public class LTLGenerator {
 			scope = new AfterL(propositionL, propositionR);
 			break;
 		case "BeforeR":
-			scope = new BeforeR(propositionR);
+			scope = new BeforeR(propositionL, propositionR);
 			break;
 		case "AfterLuntilR":
 			scope = new AfterLuntilR(propositionL, propositionR);
