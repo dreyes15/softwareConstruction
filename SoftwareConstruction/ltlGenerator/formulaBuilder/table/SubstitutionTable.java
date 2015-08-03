@@ -6,6 +6,7 @@ import ltlGenerator.propertyBuilder.scopes.AfterLuntilR;
 import ltlGenerator.propertyBuilder.scopes.BeforeR;
 import ltlGenerator.propertyBuilder.scopes.BetweenLandR;
 import ltlGenerator.propertyBuilder.scopes.Global;
+import ltlGenerator.propertyBuilder.scopes.Scope;
 
 /* Course: Software Construction / CS5374
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
@@ -18,6 +19,27 @@ import ltlGenerator.propertyBuilder.scopes.Global;
  * GlobalTable, BeforeRTable, AfterLUntilRTable, BetweenRTable, AfterLTable
 */
 public class SubstitutionTable {
+	
+	public static String getTable(Scope scope, Pattern pattern) {
+		String baseFormula = "";
+		
+		if (scope instanceof Global) {
+			baseFormula = SubstitutionTable.getTable((Global) scope, pattern);
+		}
+		else if (scope instanceof AfterL) {
+			baseFormula = SubstitutionTable.getTable((AfterL) scope, pattern);
+		}
+		else if (scope instanceof BeforeR) {
+			baseFormula = SubstitutionTable.getTable((BeforeR) scope, pattern);
+		}
+		else if (scope instanceof BetweenLandR) {
+			baseFormula = SubstitutionTable.getTable((BetweenLandR) scope, pattern);
+		}
+		else if (scope instanceof AfterLuntilR) {
+			baseFormula = SubstitutionTable.getTable((AfterLuntilR) scope, pattern);
+		}
+		return baseFormula;
+	}
 
 	/* Gets template formula for property of Global scope.
 	 */

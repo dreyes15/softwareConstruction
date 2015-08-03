@@ -31,22 +31,7 @@ public class FormulaCreator {
 		Scope scope = property.getScope();
 		Pattern pattern = property.getPattern();
 
-		String baseFormula = "";
-		if (scope instanceof Global) {
-			baseFormula = SubstitutionTable.getTable((Global) scope, pattern);
-		}
-		else if (scope instanceof AfterL) {
-			baseFormula = SubstitutionTable.getTable((AfterL) scope, pattern);
-		}
-		else if (scope instanceof BeforeR) {
-			baseFormula = SubstitutionTable.getTable((BeforeR) scope, pattern);
-		}
-		else if (scope instanceof BetweenLandR) {
-			baseFormula = SubstitutionTable.getTable((BetweenLandR) scope, pattern);
-		}
-		else if (scope instanceof AfterLuntilR) {
-			baseFormula = SubstitutionTable.getTable((AfterLuntilR) scope, pattern);
-		}
+		String baseFormula = SubstitutionTable.getTable(scope, pattern);
 
 		Proposition propP = pattern.getPropositionP();
 		Proposition propQ = pattern.getPropositionQ();
@@ -59,6 +44,7 @@ public class FormulaCreator {
 		String qModifiedFormula = "";
 		String lModifiedFormula = "";
 		String modifiedFormula = "";
+		
 		if (propQ != null) {
 			qModifiedFormula = PropSubstitutor.substituteCompositeProps(pModifiedFormula, propQ);
 		}
