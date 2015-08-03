@@ -91,21 +91,21 @@ public class SpecialOperatorUpdater {
 					//If the proposition before the &-l is ConsecutiveE or EventualE, change special operator to &-e
 					case 'P':
 						if (propPType.equals("ConsecutiveC")||propPType.equals("EventualC")){
-							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+1) + "c" + updatedBaseFormula.substring(searchPosition+2, updatedBaseFormula.length());
+							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+2) + "c" + updatedBaseFormula.substring(searchPosition+3, updatedBaseFormula.length());
 						}
 						else if (propPType.equals("AtLeastOneE")||propPType.equals("ParallelE")){
-							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+1) + "x" + updatedBaseFormula.substring(searchPosition+2, updatedBaseFormula.length());
+							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+2) + "x" + updatedBaseFormula.substring(searchPosition+3, updatedBaseFormula.length());
 						}
 						else if (propPType.equals("ConsecutiveE")||propPType.equals("EventualE")){
-							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+1) + "e" + updatedBaseFormula.substring(searchPosition+2, updatedBaseFormula.length());
+							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+2) + "e" + updatedBaseFormula.substring(searchPosition+3, updatedBaseFormula.length());
 						}
 						break;
 					case 'Q':
 						if (propQType.equals("ConsecutiveC")||propQType.equals("EventualC")){
-							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+1) + "c" + updatedBaseFormula.substring(searchPosition+2, updatedBaseFormula.length());
+							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+2) + "c" + updatedBaseFormula.substring(searchPosition+3, updatedBaseFormula.length());
 						}
 						else if (propQType.equals("AtLeastOneE")||propQType.equals("ParallelE")){
-							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+1) + "x" + updatedBaseFormula.substring(searchPosition+2, updatedBaseFormula.length());
+							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+2) + "x" + updatedBaseFormula.substring(searchPosition+3, updatedBaseFormula.length());
 						}
 						else if (propQType.equals("ConsecutiveE")||propQType.equals("EventualE")){
 							updatedBaseFormula = updatedBaseFormula.substring(0,searchPosition+2) + "e" + updatedBaseFormula.substring(searchPosition+3, updatedBaseFormula.length());
