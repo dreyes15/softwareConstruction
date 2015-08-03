@@ -6,17 +6,15 @@ import java.util.Stack;
  */
 public class FormulaSplicer {
     /*
-     * getSubformulaToAdd() receives a modifiedFormula string and special operator position. It 
-     * determines the portion of the formula that needs to be spliced into the formula and returns 
-     * this information to the calling method.
+     * getSubformulaToAdd() receives a formula string and special operator position. It 
+     * determines the portion of the formula that needs to be spliced into the original formula
+     * and returns this information to the calling method.
      */
-	public String getSubformulaToAdd(String modifiedFormula, int specOpPosition) {
+	public String getSubformulaToAdd(String formula, int specOpPosition) {
 		
-		String formulaToDivide = modifiedFormula;
-		int startSubformulaPosition = specOpPosition +1;
-		
-		int endSubformulaPosition = getEndSubformulaToAddPosition(formulaToDivide, startSubformulaPosition);
-		String subformulaToAdd = formulaToDivide.substring(startSubformulaPosition, endSubformulaPosition);
+		int startSubformulaPosition = specOpPosition + 1;	
+		int endSubformulaPosition = getEndSubformulaToAddPosition(formula, startSubformulaPosition);
+		String subformulaToAdd = formula.substring(startSubformulaPosition, endSubformulaPosition);
 		return subformulaToAdd;
 	}
 	/*
@@ -25,12 +23,12 @@ public class FormulaSplicer {
 	 * determines the end position of this portion of the formula and returns it to the 
 	 * getSubformulaToAdd() method.
 	 */
-	private int getEndSubformulaToAddPosition(String formulaToDivide, int startSubformulaPosition) {
+	private int getEndSubformulaToAddPosition(String formula, int startSubformulaPosition) {
 		
 		Stack<Character> parenthesisMatcher = new Stack<Character>();
 		
-		for (int endPosition = startSubformulaPosition; endPosition < formulaToDivide.length(); endPosition++) {
-			char currentCharacter = formulaToDivide.charAt(endPosition);
+		for (int endPosition = startSubformulaPosition; endPosition < formula.length(); endPosition++) {
+			char currentCharacter = formula.charAt(endPosition);
 			if (currentCharacter == '(') {
 				parenthesisMatcher.push(currentCharacter);
 			}	
@@ -41,40 +39,40 @@ public class FormulaSplicer {
 				}
 			}
 		}
-		return formulaToDivide.length() - 1;
+		return formula.length() - 1;
 	}
 	/*
-	 * addSubformula() receives a modifiedFormula string, a subformulaToAdd string, and the position
-	 * in the modifiedFormula string where the subformulaToAdd string needs to be added.  It splices
-	 * the formulaToAdd into the modifiedFormula at this position and returns the results to the
+	 * addSubformula() receives a formula string, a subformulaToAdd string, and the position
+	 * in the formula string where the subformulaToAdd string needs to be added.  It splices
+	 * the formulaToAdd into the formula at this position and returns the results to the
 	 * calling method.
 	 */
-	public String addSubformula(String modifiedFormula, String subformulaToAdd, int addPosition) {
-		String splicedFormula = modifiedFormula.substring(0, addPosition) + subformulaToAdd + modifiedFormula.substring(addPosition, modifiedFormula.length());
+	public String addSubformula(String formula, String subformulaToAdd, int addPosition) {
+		String splicedFormula = formula.substring(0, addPosition) + subformulaToAdd + formula.substring(addPosition, formula.length());
 		return splicedFormula;
 	}
 	/*
-	 * removeSubformula() receives a modifiedFormula string, along with the starting and ending
+	 * removeSubformula() receives a formula string, along with the starting and ending
 	 * positions of the subformula that needs to be spliced.  It removes the subformula and returns
 	 * the resulting splicedFormula to the calling method.
 	 */
-	public String removeSubformula(String modifiedFormula, int startPosition, int endPosition) {
-		String splicedFormula = modifiedFormula.substring(0, startPosition) + modifiedFormula.substring(endPosition + 1, modifiedFormula.length());
+	public String removeSubformula(String formula, int startPosition, int endPosition) {
+		String splicedFormula = formula.substring(0, startPosition) + formula.substring(endPosition + 1, formula.length());
 		return splicedFormula;
 	}
 	/*
-	 * getBeginSubformulaToSplicePosition() receives a modifiedFormula string and the end position of
+	 * getBeginSubformulaToSplicePosition() receives a formula string and the end position of
 	 * the subformula that the additional information needs to be spliced into.  It performs a reverse
 	 * search through this subformula counting up for each end parenthesis and counting down for each
 	 * opening parenthesis.  When this count zeroes out, the method returns the final position to the 
 	 * calling method.
 	 */
-	public int getBeginSubformulaToSplicePosition(String modifiedFormula, int endPosition) {
+	public int getBeginSubformulaToSplicePosition(String formula, int endPosition) {
 		
 		Stack<Character> parenthesisMatcher = new Stack<Character>();
 		
 		for (int startPosition = endPosition-1; startPosition > -1; startPosition--) {
-			char currentCharacter = modifiedFormula.charAt(startPosition);
+			char currentCharacter = formula.charAt(startPosition);
 			if (currentCharacter == ')') {
 				parenthesisMatcher.push(currentCharacter);
 			}
@@ -91,17 +89,17 @@ public class FormulaSplicer {
 		return 0;
 	}
 	/*
-	 * getEndSubformulaToSplicePosition() receives a modifiedFormula string and the position of the 
-	 * special operator that is being performed on the modifiedFormula.  It performs a reverse
-	 * search through the modifiedFormula until if comes to the beginning of the first set of 
+	 * getEndSubformulaToSplicePosition() receives a formula string and the position of the 
+	 * special operator that is being performed on the formula.  It performs a reverse
+	 * search through the formula until if comes to the beginning of the first set of 
 	 * opening parenthesis.  It returns this position to the calling method.
 	 */
-	public int getEndSubformulaToSplicePosition(String modifiedFormula, int specOpPosition) {
+	public int getEndSubformulaToSplicePosition(String formula, int specOpPosition) {
 		int endSplicePosition = specOpPosition-1;
-		char currentCharacter = modifiedFormula.charAt(endSplicePosition);
+		char currentCharacter = formula.charAt(endSplicePosition);
 		while (currentCharacter != '(') {
 			endSplicePosition--;
-			currentCharacter = modifiedFormula.charAt(endSplicePosition);
+			currentCharacter = formula.charAt(endSplicePosition);
 		}
 		return endSplicePosition;
 	}
