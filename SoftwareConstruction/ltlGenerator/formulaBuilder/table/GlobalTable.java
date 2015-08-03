@@ -11,10 +11,7 @@ import ltlGenerator.propertyBuilder.proposition.Proposition;
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
  * 		 Lucia Rodriguez, and David Reyes
  * Project: LTL Generator
- * Sprint: CP Generation
  * Due Date: July 3, 2015
- * Purpouse:Contains string substitution data for each possible pattern given the Global
- * scope. It will return the formula template with the special & operators.
  */
 public class GlobalTable extends SubstitutionTable {
 	

@@ -3,12 +3,7 @@ package ltlGenerator.propertyBuilder.scopes;
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
  * 		 Lucia Rodriguez, and David Reyes 
  * Project: LTL Generator
- * Sprint: Global Table
- * Due Date: July 24, 2015
- * Purpose:
- * This class is a type of scope that will describe the extent of program execution 
- * over which property holds. With the given information this class should be able to 
- * generate itself as the "Global" scope. Global will denote the entire program execution. 
+ * Due Date: August 3, 2015
  */
 
 import ltlGenerator.propertyBuilder.proposition.Proposition;

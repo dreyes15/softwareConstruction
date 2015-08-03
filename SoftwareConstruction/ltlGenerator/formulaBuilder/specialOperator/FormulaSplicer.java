@@ -4,10 +4,7 @@ import java.util.Stack;
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
  * 		 Lucia Rodriguez, and David Reyes
  * Project: LTL Generator
- * Sprint: LTL Generator
  * Due Date: July 3, 2015
- * Purpouse: The purpose of this class is to perform the splicing operations required by the various special
- * operators (&r, &l, and &-l).
  */
 public class FormulaSplicer {
     /*

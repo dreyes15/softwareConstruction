@@ -3,9 +3,7 @@ package ltlGenerator.formulaBuilder.propSubstitutor;
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
  * 		 Lucia Rodriguez, and David Reyes
  * Project: LTL Generator
- * Sprint: CP Generation
- * Due Date: July 3, 2015
- 
+ * Due Date: July 3, 2015 
  */
 
 public class EventualESub {

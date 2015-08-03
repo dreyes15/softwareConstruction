@@ -3,10 +3,8 @@ package ltlGenerator.propertyBuilder.scopes;
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
  * 		 Lucia Rodriguez, and David Reyes 
  * Project: LTL Generator
- * Sprint: Global Table
- * Due Date: July 24, 2015
- * Purpose:
- * Between L and R will denote the execution between the L proposition and the R proposition */
+ * Due Date: August 3, 2015
+ */
 
 import ltlGenerator.propertyBuilder.proposition.Proposition;
 

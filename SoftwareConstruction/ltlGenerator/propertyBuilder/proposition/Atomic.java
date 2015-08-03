@@ -3,12 +3,7 @@ package ltlGenerator.propertyBuilder.proposition;
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
  * 		 Lucia Rodriguez, and David Reyes 
  * Project: LTL Generator
- * Sprint: CP Generation
- * Due Date: July 3, 2015
- * Purpose: Represents an atomic type of proposition, which is a proposition made up 
- * of a single proposition. An atomic proposition instance will have a proposition name,
- * and the only proposition it will contain is itself. Atomic is a subclass of
- * Proposition. 
+ * Due Date: August 3, 2015
  */
 
 public class Atomic extends Proposition {

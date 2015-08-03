@@ -3,11 +3,7 @@ package ltlGenerator.propertyBuilder.scopes;
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
  * 		 Lucia Rodriguez, and David Reyes 
  * Project: LTL Generator
- * Sprint: Global Table
- * Due Date: July 24, 2015
- * Purpose:
- * This class is the Abstract class for the following Scope Type of classes:
- * AfterLuntilL, BeforeR, BetweenLandR, Global, and AfterL.
+ * Due Date: August 3, 2015
  */
 
 import ltlGenerator.propertyBuilder.proposition.Proposition;

@@ -5,11 +5,7 @@ package ltlGenerator.formulaBuilder.specialOperator;
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
  * 		 Lucia Rodriguez, and David Reyes
  * Project: LTL Generator
- * Sprint: LTL Generator
  * Due Date: July 3, 2015
- * Purpouse: The purpose this class is to perform the special operations to compensate for the areas
- * in which direct substitution does not come out properly.  It will have one method called
- * performSpecialOperations().
  */
 public class SpecialOperator {
 

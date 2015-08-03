@@ -3,9 +3,7 @@ package ltlGenerator;
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
  * 		 Lucia Rodriguez, and David Reyes
  * Project: LTL Generator
- * Sprint: LTL Generator
- * Due Date: July 3, 2015
- * Purpouse: Main Method
+ * Due Date: August 3, 2015
  */
 
 public class Main {

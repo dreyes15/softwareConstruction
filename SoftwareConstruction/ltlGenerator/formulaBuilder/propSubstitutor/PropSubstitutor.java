@@ -6,10 +6,7 @@ import ltlGenerator.propertyBuilder.proposition.Proposition;
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
  * 		 Lucia Rodriguez, and David Reyes 
  * Project: LTL Generator
- * Sprint: CP Generation
  * Due Date: July 3, 2015
- * Purpose: To substitute the proposition placeholders with their respective composite
- * forms.  It will have one method called substituteCompositeProps().
  */
 public class PropSubstitutor {
 	

@@ -4,14 +4,7 @@ package ltlGenerator;
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
  * 		 Lucia Rodriguez, and David Reyes
  * Project: LTL Generator
- * Sprint: CP Generation
  * Due Date: July 3, 2015
- * Purpouse:This class is the main driver of the LTL Formula generation process.  It receives
- * a text file containing a Scope, a Pattern, and all necessary Proposition types
- * (including the number of each proposition for composite types), and it returns an
- * LTL Formula that matches the given Property data.  It is made up of a Constructor 
- * and the following four routines: formatData(), convertDataToProperty(), 
- * convertPropertyToFormula(), and saveFormulaToFile().
  */	
 import java.util.*;
 

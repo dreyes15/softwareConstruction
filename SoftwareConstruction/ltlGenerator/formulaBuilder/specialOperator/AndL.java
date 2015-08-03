@@ -6,10 +6,7 @@ import ltlGenerator.formulaBuilder.specialOperator.FormulaSplicer;
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
  * 		 Lucia Rodriguez, and David Reyes
  * Project: LTL Generator
- * Sprint: LTL Generator
  * Due Date: July 3, 2015
- *The purpose of this class is to add information to the last state of the portion of the LTL Formula to 
- *which the &l special operator applies.
  */
 public class AndL {
 	/*
