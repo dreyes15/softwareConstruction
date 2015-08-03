@@ -12,7 +12,7 @@ public class AndL {
 	 * andLModifiedFormula to the SpecialOperator class.
 	 */
 
-	private static String endParenthesis = "\\)";
+	private static final String END_PARENTHESIS = "\\)";
 
 	public String replaceAndL(String modifiedFormula) {
 
@@ -48,7 +48,7 @@ public class AndL {
 
 	private static int getPositionToAddSubformula(String formula, int searchPosition) {
 		int positionFound = searchPosition;
-		while (formula.substring(positionFound, positionFound + 1).matches(endParenthesis)) {
+		while (formula.substring(positionFound, positionFound + 1).matches(END_PARENTHESIS)) {
 			positionFound--;
 		}
 		return positionFound;

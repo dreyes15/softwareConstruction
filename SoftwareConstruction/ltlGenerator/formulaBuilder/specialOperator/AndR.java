@@ -4,6 +4,9 @@ package ltlGenerator.formulaBuilder.specialOperator;
  * &r special operator.
  */
 public class AndR{
+	
+	private static final String END_PARENTHESIS = "\\)";
+	
 	/*
      * The replaceAndR() method will receive the modifiedFormula and search it for any &r operators.
      * It will determine the portion of the formula after the &r operator that applies to it, remove
@@ -33,7 +36,7 @@ public class AndR{
 					while (startPosition < searchPosition){
 						startPosition++;
 						//Finds all the sets of close parentheses
-						if (andRModifiedFormula.substring(startPosition,startPosition+1).matches("\\)") && !andRModifiedFormula.substring(startPosition-1,startPosition).matches("\\)")){
+						if (andRModifiedFormula.substring(startPosition,startPosition+1).matches(END_PARENTHESIS) && !andRModifiedFormula.substring(startPosition-1,startPosition).matches("\\)")){
 							//Adds the splice in front of these sets
 							andRModifiedFormula = splicer.addSubformula(andRModifiedFormula, "^" + subFormulaToAdd, startPosition);
 							//Normalizes the search and start positions after the subformula is added
@@ -62,10 +65,10 @@ public class AndR{
 					while (searchPosition > startPosition+1){
 						searchPosition--;
 						//Finds all the sets of close parentheses
-						if (andRModifiedFormula.substring(searchPosition-1,searchPosition).matches("\\)")){
+						if (andRModifiedFormula.substring(searchPosition-1,searchPosition).matches(END_PARENTHESIS)){
 							searchPosition--;
-							if (andRModifiedFormula.substring(searchPosition-1,searchPosition).matches("\\)")){
-								while (andRModifiedFormula.substring(searchPosition-1,searchPosition).matches("\\)")){
+							if (andRModifiedFormula.substring(searchPosition-1,searchPosition).matches(END_PARENTHESIS)){
+								while (andRModifiedFormula.substring(searchPosition-1,searchPosition).matches(END_PARENTHESIS)){
 									searchPosition--;
 								}
 								//Adds the splice after the first of these close parentheses
