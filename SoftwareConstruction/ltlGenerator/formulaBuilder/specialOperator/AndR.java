@@ -5,8 +5,8 @@ package ltlGenerator.formulaBuilder.specialOperator;
  * Project: LTL Generator
  * Sprint: LTL Generator
  * Due Date: July 3, 2015
- * Purpouse: The purpose of this class is to add information to the each state of the LTL Formula to which the
- * &r special operator pertains.
+ * Purpouse: The purpose of this class is to add information to the each state of the portion of the
+ * LTL Formula to which the &r special operator pertains.
  */
 public class AndR{
 	
@@ -15,9 +15,9 @@ public class AndR{
 	/*
      * The replaceAndR() method will receive a formula and search it for any &r operators.
      * It will determine the portion of the formula after the &r operator that applies to it, remove
-     * this portion from the formula, and add it to the each section(state) of the original formula.
-     * Once all of the &r operations have been performed, it will return the resulting 
-     * andRModifiedFormula to the SpecialOperator class.
+     * this portion from the formula, and add it to the each section(state) of the original formula to
+     * which the special operator pertains. Once all of the &r operations have been performed, it will
+     * return the resulting andRModifiedFormula.
      */
 	public String replaceAndR(String formula){
 
