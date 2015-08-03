@@ -8,7 +8,13 @@ import ltlGenerator.propertyBuilder.patterns.Pattern;
 import ltlGenerator.propertyBuilder.proposition.Proposition;
 import ltlGenerator.propertyBuilder.scopes.*;
 
-/* This class is the main driver of the Output Generation subsystem.  It receives
+/* Course: Software Construction / CS5374
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
+ * 		 Lucia Rodriguez, and David Reyes
+ * Project: LTL Generator
+ * Sprint: LTL Generator
+ * Due Date: July 3, 2015
+ * Purpouse: This class is the main driver of the Output Generation subsystem.  It receives
  * a Property object and it returns an LTL Formula that matches the given Property data.
  * This class contains one method called createFormula() 
  */

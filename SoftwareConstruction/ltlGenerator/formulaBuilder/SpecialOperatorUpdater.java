@@ -3,6 +3,13 @@ import ltlGenerator.propertyBuilder.Property;
 import ltlGenerator.propertyBuilder.patterns.Pattern;
 import ltlGenerator.propertyBuilder.proposition.Proposition;
 import ltlGenerator.propertyBuilder.scopes.Scope;
+/* Course: Software Construction / CS5374
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
+ * 		 Lucia Rodriguez, and David Reyes
+ * Project: LTL Generator
+ * Sprint: LTL Generator
+ * Due Date: July 3, 2015
+ */
 
 public class SpecialOperatorUpdater {
 	
