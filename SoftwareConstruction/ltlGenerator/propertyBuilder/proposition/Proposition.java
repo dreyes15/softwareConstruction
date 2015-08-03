@@ -13,43 +13,37 @@ package ltlGenerator.propertyBuilder.proposition;
  * Proposition is an abstract superclass of the Atomic and Composite concrete subclasses. 
  */
 
-public abstract class Proposition
-{
-	String nameOfProposition = "";	//Proposition variable name
-	String typeOfProposition = "";	//Proposition variable type
-	int numberOfPropositions = 0;	//applicable to composite propositions that contain more than 1 proposition
-	
-	public Proposition(String name)
-	{
+public abstract class Proposition {
+	String nameOfProposition = "";	// Proposition variable name
+	String typeOfProposition = "";	// Proposition type
+	int numberOfPropositions = 0;	// applicable to composite propositions
+
+	public Proposition(String name) {
 		this.nameOfProposition = name;
 		this.numberOfPropositions = 1;
 	}
-	
-	//Method getName() returns the "nameOfProposition" string of the Proposition object.
-	public String getName()
-	{
+
+	public String getName() {
 		return this.nameOfProposition;
 	}
-	 
-	//Method getType() returns the "typeOfProposition" string of the Proposition object.
-	public String getType()
-	{
+
+	public String getType() {
 		return this.typeOfProposition;
 	}
-	
-	public int getNumber()
-	{
+
+	public int getNumber() {
 		return this.numberOfPropositions;
 	}
-	
+
 	public boolean isEventType() {
 		if (getLastLetter() == 'E') {
 			return true;
 		}
 		return false;
 	}
-	
-    private char getLastLetter(){
-        return this.typeOfProposition.charAt(this.typeOfProposition.length()-1);
-    }
+
+	private char getLastLetter() {
+		int lastLetterIndex = this.typeOfProposition.length() - 1;
+		return this.typeOfProposition.charAt(lastLetterIndex);
+	}
 }

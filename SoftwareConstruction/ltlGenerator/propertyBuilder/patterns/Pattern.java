@@ -10,7 +10,6 @@ package ltlGenerator.propertyBuilder.patterns;
  * Strict Precedence, and Response.
  */
 
-import ltlGenerator.propertyBuilder.proposition.Atomic;
 import ltlGenerator.propertyBuilder.proposition.Proposition;
 
 public abstract class Pattern
@@ -27,12 +26,12 @@ public abstract class Pattern
 	private void setPatternTypeName()
 	{
 		String patternTypeClassName = this.getClass().getSimpleName();
-		patternType = patternTypeClassName;
+		this.patternType = patternTypeClassName;
 	}
 
 	public String getPatternType()
 	{
-		return patternType;
+		return this.patternType;
 	}
 	
 	public Proposition getPropositionP()

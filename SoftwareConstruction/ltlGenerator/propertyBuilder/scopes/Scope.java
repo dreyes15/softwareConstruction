@@ -10,7 +10,6 @@ package ltlGenerator.propertyBuilder.scopes;
  * AfterLuntilL, BeforeR, BetweenLandR, Global, and AfterL.
  */
 
-import ltlGenerator.propertyBuilder.proposition.Atomic;
 import ltlGenerator.propertyBuilder.proposition.Proposition;
 
 public abstract class Scope
@@ -27,21 +26,21 @@ public abstract class Scope
 	private void setScopeTypeName()
 	{
 		String scopeTypeClassName = this.getClass().getSimpleName();
-		scopeType = scopeTypeClassName;
+		this.scopeType = scopeTypeClassName;
 	}
 	
 	public String getScopeType()
 	{ 
-		return scopeType;
+		return this.scopeType;
 	}
 	
 	public Proposition getPropositionL()
 	{
-		return propositionL; 
+		return this.propositionL; 
 	}
 	
 	public Proposition getPropositionR()
 	{
-		return propositionR;
+		return this.propositionR;
 	}
 }
