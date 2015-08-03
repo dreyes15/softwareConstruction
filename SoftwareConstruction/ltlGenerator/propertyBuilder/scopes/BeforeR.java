@@ -1,7 +1,7 @@
 package ltlGenerator.propertyBuilder.scopes;
 /* Course: Software Construction / CS5374
  * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
- * 		 Lucia Rodriguez, and David Torres 
+ * 		 Lucia Rodriguez, and David Reyes
  * Project: LTL Generator
  * Sprint: Global Table
  * Due Date: July 24, 2015

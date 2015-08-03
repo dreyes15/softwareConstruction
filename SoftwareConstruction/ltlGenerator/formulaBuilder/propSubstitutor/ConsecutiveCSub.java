@@ -1,11 +1,9 @@
 package ltlGenerator.formulaBuilder.propSubstitutor;
 /* Course: Software Construction / CS5374
- * /* Course: Software Construction / CS5374
- * Instructor: Omar Ochoa
- * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity, 
- * 		 Lucia Rodriguez, and David Torres 
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
+ * 		 Lucia Rodriguez, and David Reyes
  * Project: LTL Generator
- * Sprint: CP Generation
+ * Sprint: LTL Generator
  * Due Date: July 3, 2015
  */
 

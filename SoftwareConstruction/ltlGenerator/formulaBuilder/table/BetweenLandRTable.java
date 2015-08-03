@@ -7,13 +7,16 @@ import ltlGenerator.propertyBuilder.patterns.Response;
 import ltlGenerator.propertyBuilder.patterns.StrictPrecedence;
 import ltlGenerator.propertyBuilder.proposition.Proposition;
 
-/*
- * This class is a type of scope that will describe the extent of
+/* Course: Software Construction / CS5374
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
+ * 		 Lucia Rodriguez, and David Reyes
+ * Project: LTL Generator
+ * Sprint: CP Generation
+ * Due Date: July 3, 2015
+ * Purpouse:This class is a type of scope that will describe the extent of
  * program execution over which property holds.
- *
  * With the given information this class should be able to generate itself
  * as the "Between L and R" scope.
- *
  * Between L and R will denote the execution between intervals define by L and R.
  *
  */

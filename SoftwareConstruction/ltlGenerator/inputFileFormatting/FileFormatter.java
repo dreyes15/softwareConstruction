@@ -7,6 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+/* Course: Software Construction / CS5374
+ * Team: Victoria Bravo, Florencia Larsen, Jorge Martinez, Troy McGarity,
+ * 		 Lucia Rodriguez, and David Reyes
+ * Project: LTL Generator
+ * Sprint: LTL Generator
+ * Due Date: July 3, 2015
+ */
 
 public class FileFormatter {
 	
